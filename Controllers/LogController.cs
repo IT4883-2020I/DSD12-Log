@@ -60,6 +60,38 @@ namespace aspnetcoreapp.Controllers
             new Route{R="monitor-object", T=ApiType.Edit, G=6},
             new Route{R="monitor-object", T=ApiType.Delete, G=6},
             new Route{R="monitor-object-change-state", T=ApiType.ChangeState, G=6},
+
+            new Route{R="receive-statistical", T=ApiType.Get, G=7},
+            new Route{R="statistical-address", T=ApiType.HasProblem, G=7},
+            new Route{R="statistical-incident", T=ApiType.CommonIncident, G=7},
+            new Route{R="statistical-frequence", T=ApiType.FrequenceIncident, G=7},
+            new Route{R="export-report", T=ApiType.ExportReport, G=7},
+
+            new Route{R="warning", T=ApiType.Get, G=8},
+            new Route{R="warning-level", T=ApiType.WarningLevel, G=8},
+            new Route{R="solution-handling-warning", T=ApiType.SolutionHandling, G=8},
+            new Route{R="update-status-warning", T=ApiType.Edit, G=8},
+            new Route{R="warning", T=ApiType.Delete, G=8},
+
+            new Route{R="monitor-region", T=ApiType.Get, G=10},
+            new Route{R="monitor-region", T=ApiType.Add, G=10},
+            new Route{R="monitor-region", T=ApiType.Edit, G=10},
+            new Route{R="monitor-region", T=ApiType.Delete, G=10},
+            new Route{R="devide-monitor-region", T=ApiType.DevideRegion, G=10},
+
+            new Route{R="resolve-problem", T=ApiType.Get, G=11},
+            new Route{R="resolve-problem", T=ApiType.Add, G=11},
+            new Route{R="resolve-problem", T=ApiType.Delete, G=11},
+            new Route{R="update-status-resolve-problem", T=ApiType.UpdateStatusResolveProblem, G=11},
+            new Route{R="staft-resolve-problem", T=ApiType.StaftResolveProblem, G=11},
+            new Route{R="result-resolve-problem", T=ApiType.ResultResolveProblem, G=11},
+
+            new Route{R="drone-connect-info", T=ApiType.Get, G=12},
+            new Route{R="drone-connect", T=ApiType.Add, G=12},
+            new Route{R="drone-connect", T=ApiType.Delete, G=12},
+            new Route{R="success-connect", T=ApiType.SuccessConnect, G=12},
+            new Route{R="fail-connect", T=ApiType.FailConnect, G=12}
+
         };
 
         private async Task AddLog(EntityLog entity, Route route)
@@ -144,7 +176,7 @@ namespace aspnetcoreapp.Controllers
                         EntityLogDTO dto = new EntityLogDTO()
                         {
                             EntityId = entity.EntityId,
-                            Type = entity.Type.getDescription(),
+                            Type = entity.Type.GetDescription(),
                             Description = entity.Description,
                             Timestamp = entity.Timestamp.ToShortTimeString() + " " + entity.Timestamp.ToShortDateString()
                         };

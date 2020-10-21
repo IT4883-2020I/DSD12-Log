@@ -43,7 +43,17 @@ namespace aspnetcoreapp.Models
         [Description("Result")] Result,
         Confirm,
         [Description("Change State")] ChangeState,
-
+        [Description("Export Report")] ExportReport,
+        [Description("Frequence Incident")] FrequenceIncident,
+        [Description("Common Incident")] CommonIncident,
+        [Description("Warning Level")] WarningLevel,
+        [Description("Solution Handling")] SolutionHandling,
+        [Description("Devide Monitor Region")] DevideRegion,
+        StaftResolveProblem,
+        ResultResolveProblem,
+        UpdateStatusResolveProblem,
+        SuccessConnect,
+        FailConnect
     }
 
 
