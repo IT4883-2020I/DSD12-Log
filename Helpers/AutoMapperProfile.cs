@@ -15,6 +15,12 @@ namespace aspnetcoreapp.Helpers
             CreateMap<EntityLog, VideoLog>().ReverseMap();
             CreateMap<EntityLog, IncidentLog>().ReverseMap();
             CreateMap<EntityLog, ObjectObserve>().ReverseMap();
+            CreateMap<EntityLog, StaticalLog>().ReverseMap();
+            CreateMap<EntityLog, WarningLog>().ReverseMap();
+            CreateMap<EntityLog, MonitorRegionLog>().ReverseMap();
+            CreateMap<EntityLog, ResolveProblemLog>().ReverseMap();
+            CreateMap<EntityLog, UavConnectLog>().ReverseMap();
+            
         }
     }
 }

@@ -28,6 +28,11 @@ namespace aspnetcoreapp.Models
     public class VideoLog : EntityLog { }
     public class IncidentLog : EntityLog { }
     public class ObjectObserve : EntityLog { }
+    public class StaticalLog : EntityLog { }
+    public class WarningLog : EntityLog { }
+    public class MonitorRegionLog : EntityLog { }
+    public class ResolveProblemLog : EntityLog { }
+    public class UavConnectLog : EntityLog { }
 
     public enum ApiType
     {
@@ -49,7 +54,7 @@ namespace aspnetcoreapp.Models
         [Description("Warning Level")] WarningLevel,
         [Description("Solution Handling")] SolutionHandling,
         [Description("Devide Monitor Region")] DevideRegion,
-        StaftResolveProblem,
+        StaffResolveProblem,
         ResultResolveProblem,
         UpdateStatusResolveProblem,
         SuccessConnect,

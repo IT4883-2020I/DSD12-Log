@@ -25,5 +25,10 @@ namespace aspnetcoreapp
         public DbSet<VideoLog> VideoLog { get; set; }
         public DbSet<IncidentLog> IncidentLog { get; set; }
         public DbSet<ObjectObserve> ObjectObserve { get; set; }
+        public DbSet<StaticalLog> StaticalLog { get; set; }
+        public DbSet<WarningLog> WarningLog { get; set; }
+        public DbSet<MonitorRegionLog> MonitorRegionLog { get; set; }
+        public DbSet<ResolveProblemLog> ResolveProblemLog { get; set; }
+        public DbSet<UavConnectLog> UavConnectLog { get; set; }
     }
 }

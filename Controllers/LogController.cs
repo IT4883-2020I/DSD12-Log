@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,7 +13,7 @@ namespace aspnetcoreapp.Controllers
     [ApiController]
     public class LogController : ControllerBase
     {
-        private readonly ILogger<LogController> logger;
+        private readonly ILogger<LogController> _logger;
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
 
@@ -83,15 +82,14 @@ namespace aspnetcoreapp.Controllers
             new Route{R="resolve-problem", T=ApiType.Add, G=11},
             new Route{R="resolve-problem", T=ApiType.Delete, G=11},
             new Route{R="update-status-resolve-problem", T=ApiType.UpdateStatusResolveProblem, G=11},
-            new Route{R="staft-resolve-problem", T=ApiType.StaftResolveProblem, G=11},
+            new Route{R="staff-resolve-problem", T=ApiType.StaffResolveProblem, G=11},
             new Route{R="result-resolve-problem", T=ApiType.ResultResolveProblem, G=11},
 
-            new Route{R="drone-connect-info", T=ApiType.Get, G=12},
-            new Route{R="drone-connect", T=ApiType.Add, G=12},
-            new Route{R="drone-connect", T=ApiType.Delete, G=12},
+            new Route{R="uav-connect-info", T=ApiType.Get, G=12},
+            new Route{R="uav-connect", T=ApiType.Add, G=12},
+            new Route{R="uav-connect", T=ApiType.Delete, G=12},
             new Route{R="success-connect", T=ApiType.SuccessConnect, G=12},
             new Route{R="fail-connect", T=ApiType.FailConnect, G=12}
-
         };
 
         private async Task AddLog(EntityLog entity, Route route)
@@ -108,13 +106,16 @@ namespace aspnetcoreapp.Controllers
                     dbContext.Set<UserLog>().Add(mapper.Map<UserLog>(entity));
                     break;
                 case 4:
-                    if (route.R == "image" || route.R == "image-result")
+                    switch (route.R)
                     {
-                        dbContext.Set<ImageLog>().Add(mapper.Map<ImageLog>(entity));
-                    }
-                    else if (route.R == "video" || route.R == "video-result")
-                    {
-                        dbContext.Set<VideoLog>().Add(mapper.Map<VideoLog>(entity));
+                        case "image":
+                        case "image-result":
+                            dbContext.Set<ImageLog>().Add(mapper.Map<ImageLog>(entity));
+                            break;
+                        case "video":
+                        case "video-result":
+                            dbContext.Set<VideoLog>().Add(mapper.Map<VideoLog>(entity));
+                            break;
                     }
                     break;
                 case 5:
@@ -123,13 +124,28 @@ namespace aspnetcoreapp.Controllers
                 case 6:
                     dbContext.Set<ObjectObserve>().Add(mapper.Map<ObjectObserve>(entity));
                     break;
+                case 7:
+                    dbContext.Set<StaticalLog>().Add(mapper.Map<StaticalLog>(entity));
+                    break;
+                case 8:
+                    dbContext.Set<WarningLog>().Add(mapper.Map<WarningLog>(entity));
+                    break;
+                case 10:
+                    dbContext.Set<MonitorRegionLog>().Add(mapper.Map<MonitorRegionLog>(entity));
+                    break;
+                case 11:
+                    dbContext.Set<ResolveProblemLog>().Add(mapper.Map<ResolveProblemLog>(entity));
+                    break;
+                case 12:
+                    dbContext.Set<UavConnectLog>().Add(mapper.Map<UavConnectLog>(entity));
+                    break;
             }
             await dbContext.SaveChangesAsync();
         }
 
         public LogController(ILogger<LogController> logger, ApplicationDbContext dbContext, IMapper mapper)
         {
-            this.logger = logger;
+            _logger = logger;
             this.dbContext = dbContext;
             this.mapper = mapper;
         }
@@ -145,31 +161,61 @@ namespace aspnetcoreapp.Controllers
                     switch (routeE.G)
                     {
                         case 1:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<DroneLog>().AsNoTracking().ToListAsync());
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<DroneLog>().AsNoTracking()
+                                .ToListAsync());
                             break;
                         case 2:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<Payload>().AsNoTracking().ToListAsync());
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<Payload>().AsNoTracking()
+                                .ToListAsync());
                             break;
                         case 3:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<UserLog>().AsNoTracking().ToListAsync());
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<UserLog>().AsNoTracking()
+                                .ToListAsync());
                             break;
                         case 4:
-                            if (routeName == "image")
+                            switch (routeName)
                             {
-                                entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ImageLog>().AsNoTracking().ToListAsync());
+                                case "image":
+                                    entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ImageLog>().AsNoTracking()
+                                        .ToListAsync());
+                                    break;
+                                case "video":
+                                    entities = mapper.Map<List<EntityLog>>(await dbContext.Set<VideoLog>().AsNoTracking()
+                                        .ToListAsync());
+                                    break;
                             }
-                            else if (routeName == "video")
-                            {
-                                entities = mapper.Map<List<EntityLog>>(await dbContext.Set<VideoLog>().AsNoTracking().ToListAsync());
-                            }
+
                             break;
                         case 5:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<IncidentLog>().AsNoTracking().ToListAsync());
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<IncidentLog>().AsNoTracking()
+                                .ToListAsync());
                             break;
                         case 6:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ObjectObserve>().AsNoTracking().ToListAsync());
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ObjectObserve>().AsNoTracking()
+                                .ToListAsync());
+                            break;
+                        case 7:
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<StaticalLog>().AsNoTracking()
+                                .ToListAsync());
+                            break;
+                        case 8:
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<WarningLog>().AsNoTracking()
+                                .ToListAsync());
+                            break;
+                        case 10:
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<MonitorRegionLog>().AsNoTracking()
+                                .ToListAsync());
+                            break;
+                        case 11:
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ResolveProblemLog>().AsNoTracking()
+                                .ToListAsync());
+                            break;
+                        case 12:
+                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<UavConnectLog>().AsNoTracking()
+                                .ToListAsync());
                             break;
                     }
+
                     var result = new List<EntityLogDTO>();
                     foreach (var entity in entities)
                     {
@@ -178,13 +224,16 @@ namespace aspnetcoreapp.Controllers
                             EntityId = entity.EntityId,
                             Type = entity.Type.GetDescription(),
                             Description = entity.Description,
-                            Timestamp = entity.Timestamp.ToShortTimeString() + " " + entity.Timestamp.ToShortDateString()
+                            Timestamp = entity.Timestamp.ToShortTimeString() + " " +
+                                        entity.Timestamp.ToShortDateString()
                         };
                         result.Add(dto);
                     }
+
                     return result;
                 }
             }
+
             return Ok();
         }
 
