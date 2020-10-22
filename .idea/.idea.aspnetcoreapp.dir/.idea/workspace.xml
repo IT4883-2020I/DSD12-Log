@@ -23,19 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +43,9 @@
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
         <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
+        <option value="$PROJECT_DIR$/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
       </list>
     </option>
   </component>
@@ -117,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603372252881</updated>
-      <workItem from="1603372257600" duration="3035000" />
+      <workItem from="1603372257600" duration="4248000" />
     </task>
     <servers />
   </component>
@@ -141,22 +135,26 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1238" height="229" key="GridCell.Tab.0.bottom" timestamp="1603376662797">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom" timestamp="1603378019824">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
-    <state width="1238" height="229" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1603376662797" />
-    <state width="1238" height="229" key="GridCell.Tab.0.center" timestamp="1603376662795">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1603378017793" />
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603378019824" />
+    <state width="1238" height="229" key="GridCell.Tab.0.center" timestamp="1603378019823">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
-    <state width="1238" height="229" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1603376662795" />
-    <state width="1238" height="229" key="GridCell.Tab.0.left" timestamp="1603376662793">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1238" height="229" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1603378017791" />
+    <state width="1238" height="229" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603378019823" />
+    <state width="1238" height="229" key="GridCell.Tab.0.left" timestamp="1603378019823">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
-    <state width="1238" height="229" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1603376662793" />
-    <state width="1238" height="229" key="GridCell.Tab.0.right" timestamp="1603376662796">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1238" height="229" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1603378017790" />
+    <state width="1238" height="229" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603378019823" />
+    <state width="1238" height="229" key="GridCell.Tab.0.right" timestamp="1603378019824">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
-    <state width="1238" height="229" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1603376662796" />
+    <state width="1238" height="229" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1603378017792" />
+    <state width="1238" height="229" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603378019824" />
     <state x="192" y="78" key="SettingsEditor" timestamp="1603374456777">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
