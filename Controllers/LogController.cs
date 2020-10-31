@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using aspnetcoreapp.Models;
+using aspnetcoreapp.Service;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace aspnetcoreapp.Controllers
@@ -14,9 +16,13 @@ namespace aspnetcoreapp.Controllers
     public class LogController : ControllerBase
     {
         private readonly ILogger<LogController> _logger;
-        private readonly ApplicationDbContext dbContext;
-        private readonly IMapper mapper;
+        private readonly ApplicationDbContext _dbContext;
+        private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
+        private readonly AuthenticationService _authService;
 
+        
+        
         private List<Route> Routes { get; } = new List<Route>
         {
             new Route{R="drones", T=ApiType.Get, G=1},
@@ -85,7 +91,7 @@ namespace aspnetcoreapp.Controllers
             new Route{R="staff-resolve-problem", T=ApiType.StaffResolveProblem, G=11},
             new Route{R="result-resolve-problem", T=ApiType.ResultResolveProblem, G=11},
 
-            new Route{R="uav-connect-info", T=ApiType.Get, G=12},
+            new Route{R="uav-connect", T=ApiType.Get, G=12},
             new Route{R="uav-connect", T=ApiType.Add, G=12},
             new Route{R="uav-connect", T=ApiType.Delete, G=12},
             new Route{R="success-connect", T=ApiType.SuccessConnect, G=12},
@@ -97,205 +103,260 @@ namespace aspnetcoreapp.Controllers
             switch (route.G)
             {
                 case 1:
-                    dbContext.Set<DroneLog>().Add((mapper.Map<DroneLog>(entity)));
+                    _dbContext.Set<DroneLog>().Add((_mapper.Map<DroneLog>(entity)));
                     break;
                 case 2:
-                    dbContext.Set<Payload>().Add(mapper.Map<Payload>(entity));
+                    _dbContext.Set<Payload>().Add(_mapper.Map<Payload>(entity));
                     break;
                 case 3:
-                    dbContext.Set<UserLog>().Add(mapper.Map<UserLog>(entity));
+                    _dbContext.Set<UserLog>().Add(_mapper.Map<UserLog>(entity));
                     break;
                 case 4:
                     switch (route.R)
                     {
                         case "image":
                         case "image-result":
-                            dbContext.Set<ImageLog>().Add(mapper.Map<ImageLog>(entity));
+                            _dbContext.Set<ImageLog>().Add(_mapper.Map<ImageLog>(entity));
                             break;
                         case "video":
                         case "video-result":
-                            dbContext.Set<VideoLog>().Add(mapper.Map<VideoLog>(entity));
+                            _dbContext.Set<VideoLog>().Add(_mapper.Map<VideoLog>(entity));
                             break;
                     }
                     break;
                 case 5:
-                    dbContext.Set<IncidentLog>().Add(mapper.Map<IncidentLog>(entity));
+                    _dbContext.Set<IncidentLog>().Add(_mapper.Map<IncidentLog>(entity));
                     break;
                 case 6:
-                    dbContext.Set<ObjectObserve>().Add(mapper.Map<ObjectObserve>(entity));
+                    _dbContext.Set<ObjectObserve>().Add(_mapper.Map<ObjectObserve>(entity));
                     break;
                 case 7:
-                    dbContext.Set<StaticalLog>().Add(mapper.Map<StaticalLog>(entity));
+                    _dbContext.Set<StaticalLog>().Add(_mapper.Map<StaticalLog>(entity));
                     break;
                 case 8:
-                    dbContext.Set<WarningLog>().Add(mapper.Map<WarningLog>(entity));
+                    _dbContext.Set<WarningLog>().Add(_mapper.Map<WarningLog>(entity));
                     break;
                 case 10:
-                    dbContext.Set<MonitorRegionLog>().Add(mapper.Map<MonitorRegionLog>(entity));
+                    _dbContext.Set<MonitorRegionLog>().Add(_mapper.Map<MonitorRegionLog>(entity));
                     break;
                 case 11:
-                    dbContext.Set<ResolveProblemLog>().Add(mapper.Map<ResolveProblemLog>(entity));
+                    _dbContext.Set<ResolveProblemLog>().Add(_mapper.Map<ResolveProblemLog>(entity));
                     break;
                 case 12:
-                    dbContext.Set<UavConnectLog>().Add(mapper.Map<UavConnectLog>(entity));
+                    _dbContext.Set<UavConnectLog>().Add(_mapper.Map<UavConnectLog>(entity));
                     break;
             }
-            await dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public LogController(ILogger<LogController> logger, ApplicationDbContext dbContext, IMapper mapper)
+        public LogController(ILogger<LogController> logger, ApplicationDbContext dbContext, IMapper mapper,IConfiguration configuration)
         {
             _logger = logger;
-            this.dbContext = dbContext;
-            this.mapper = mapper;
+            this._dbContext = dbContext;
+            this._mapper = mapper;
+            _configuration = configuration;
+            _authService = new AuthenticationService(configuration);
         }
-
-        [HttpGet("{routeName}")]
-        public async Task<ActionResult<List<EntityLogDTO>>> Get(string routeName)
+        
+        public struct GetForm    
         {
+            public DateTime MinDate { get; set; }
+            public DateTime MaxDate { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+        }
+        [HttpGet("{routeName}")]
+        public async Task<ActionResult<List<EntityLogDTO>>> Get(string routeName, [FromBody] GetForm getForm)
+        {
+            _logger.LogInformation(getForm.ToJson());
             List<EntityLog> entities = new List<EntityLog>();
             foreach (var routeE in Routes)
             {
                 if (routeE.R == routeName && routeE.T == ApiType.Get)
                 {
-                    switch (routeE.G)
+                    if (_authService.IsAuthenticate(routeE.G, getForm.Username, getForm.Password))
                     {
-                        case 1:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<DroneLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 2:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<Payload>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 3:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<UserLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 4:
-                            switch (routeName)
-                            {
-                                case "image":
-                                    entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ImageLog>().AsNoTracking()
-                                        .ToListAsync());
-                                    break;
-                                case "video":
-                                    entities = mapper.Map<List<EntityLog>>(await dbContext.Set<VideoLog>().AsNoTracking()
-                                        .ToListAsync());
-                                    break;
-                            }
-
-                            break;
-                        case 5:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<IncidentLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 6:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ObjectObserve>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 7:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<StaticalLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 8:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<WarningLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 10:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<MonitorRegionLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 11:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<ResolveProblemLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                        case 12:
-                            entities = mapper.Map<List<EntityLog>>(await dbContext.Set<UavConnectLog>().AsNoTracking()
-                                .ToListAsync());
-                            break;
-                    }
-
-                    var result = new List<EntityLogDTO>();
-                    foreach (var entity in entities)
-                    {
-                        EntityLogDTO dto = new EntityLogDTO()
+                        switch (routeE.G)
                         {
-                            EntityId = entity.EntityId,
-                            Type = entity.Type.GetDescription(),
-                            Description = entity.Description,
-                            Timestamp = entity.Timestamp.ToShortTimeString() + " " +
-                                        entity.Timestamp.ToShortDateString()
-                        };
-                        result.Add(dto);
-                    }
+                            case 1:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<DroneLog>().AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 2:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<Payload>().AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 3:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<UserLog>().AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 4:
+                                switch (routeName)
+                                {
+                                    case "image":
+                                        entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ImageLog>()
+                                            .AsNoTracking()
+                                            .ToListAsync());
+                                        break;
+                                    case "video":
+                                        entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<VideoLog>()
+                                            .AsNoTracking()
+                                            .ToListAsync());
+                                        break;
+                                }
 
-                    return result;
+                                break;
+                            case 5:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<IncidentLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 6:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ObjectObserve>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 7:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<StaticalLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 8:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<WarningLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 10:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<MonitorRegionLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 11:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ResolveProblemLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                            case 12:
+                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<UavConnectLog>()
+                                    .AsNoTracking()
+                                    .ToListAsync());
+                                break;
+                        }
+
+                        var result = new List<EntityLogDTO>();
+                        foreach (var entity in entities)
+                        {
+                            if (getForm.MinDate <= entity.Timestamp && entity.Timestamp <= getForm.MaxDate)
+                            {
+                                EntityLogDTO dto = new EntityLogDTO()
+                                {
+                                    EntityId = entity.EntityId,
+                                    Type = entity.Type.GetDescription(),
+                                    Description = entity.Description,
+                                    Timestamp = entity.Timestamp.ToShortTimeString() + " " +
+                                                entity.Timestamp.ToShortDateString()
+                                };
+                                result.Add(dto);
+                            }
+                        }
+
+                        return result;
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
                 }
             }
 
             return Ok();
         }
-
-
-        [HttpPost("{routeName}/{id}")]
-        public async Task<ActionResult> AddAddLog(string routeName, int id, string description)
+        
+        public struct UsernamePassword    
         {
+            public string Username { get; set; }
+            public string Password { get; set; }
+        }
+        [HttpPost("{routeName}/{id}")]
+        public async Task<ActionResult> AddAddLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
+        {
+           
             foreach (var routeE in Routes)
             {
                 if (routeE.R == routeName && routeE.T != ApiType.Edit && routeE.T != ApiType.Delete && routeE.T != ApiType.Get)
                 {
-                    var log = new EntityLog
+                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                     {
-                        EntityId = id,
-                        Type = routeE.T,
-                        Description = description,
-                        Timestamp = DateTime.Now
-                    };
-                    await AddLog(log, routeE);
-                    return Ok();
+                        var log = new EntityLog
+                        {
+                            EntityId = id,
+                            Type = routeE.T,
+                            Description = description,
+                            Timestamp = DateTime.Now
+                        };
+                        await AddLog(log, routeE);
+                        return Ok();
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
                 }
             }
             return NotFound();
         }
-
+        
         [HttpPut("{routeName}/{id}")]
-        public async Task<ActionResult> AddEditLog(string routeName, int id, string description)
+        public async Task<ActionResult> AddEditLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
         {
             foreach (var routeE in Routes)
             {
                 if (routeE.R == routeName && routeE.T == ApiType.Edit)
                 {
-                    var log = new EntityLog
+                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                     {
-                        EntityId = id,
-                        Type = routeE.T,
-                        Description = description,
-                        Timestamp = DateTime.Now
-                    };
-                    await AddLog(log, routeE);
-                    return Ok();
+                        var log = new EntityLog
+                        {
+                            EntityId = id,
+                            Type = routeE.T,
+                            Description = description,
+                            Timestamp = DateTime.Now
+                        };
+                        await AddLog(log, routeE);
+                        return Ok();
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
                 }
             }
             return NotFound();
         }
 
         [HttpDelete("{routeName}/{id}")]
-        public async Task<ActionResult> AddDeleteLog(string routeName, int id, string description)
+        public async Task<ActionResult> AddDeleteLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
         {
             foreach (var routeE in Routes)
             {
                 if (routeE.R == routeName && routeE.T == ApiType.Delete)
                 {
-                    var log = new EntityLog
+                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                     {
-                        EntityId = id,
-                        Type = routeE.T,
-                        Description = description,
-                        Timestamp = DateTime.Now
-                    };
-                    await AddLog(log, routeE);
-                    return Ok();
+                        var log = new EntityLog
+                        {
+                            EntityId = id,
+                            Type = routeE.T,
+                            Description = description,
+                            Timestamp = DateTime.Now
+                        };
+                        await AddLog(log, routeE);
+                        return Ok();
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
                 }
             }
             return NotFound();

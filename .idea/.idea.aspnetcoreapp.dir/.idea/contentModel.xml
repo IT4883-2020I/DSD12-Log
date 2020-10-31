@@ -37,6 +37,7 @@
       <e p="Models" t="Include">
         <e p="Book.cs" t="Include" />
         <e p="EntityLog.cs" t="Include" />
+        <e p="GroupAuthentication.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -66,6 +67,7 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="Service" t="Include">
+        <e p="AuthenticationService.cs" t="Include" />
         <e p="LogService.cs" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
