@@ -295,7 +295,11 @@ namespace aspnetcoreapp.Controllers
                             Timestamp = DateTime.Now
                         };
                         await AddLog(log, routeE);
-                        return Ok();
+                        return Ok(new
+                        {
+                            id = id,
+                            type = routeE.T.GetDescription()
+                        });
                     }
                     else
                     {
@@ -323,7 +327,11 @@ namespace aspnetcoreapp.Controllers
                             Timestamp = DateTime.Now
                         };
                         await AddLog(log, routeE);
-                        return Ok();
+                        return Ok(new
+                        {
+                            id = id,
+                            type = routeE.T.GetDescription()
+                        });
                     }
                     else
                     {
@@ -351,7 +359,11 @@ namespace aspnetcoreapp.Controllers
                             Timestamp = DateTime.Now
                         };
                         await AddLog(log, routeE);
-                        return Ok();
+                        return Ok(new
+                        {
+                            id = id,
+                            type = routeE.T.GetDescription()
+                        });
                     }
                     else
                     {
