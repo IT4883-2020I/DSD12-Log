@@ -22,28 +22,27 @@ namespace aspnetcoreapp.Controllers
         private readonly AuthenticationService _authService;
 
         
-        
         private List<Route> Routes { get; } = new List<Route>
         {
             new Route{R="drones", T=ApiType.Get, G=1},
             new Route{R="drones", T=ApiType.Add, G=1},
             new Route{R="drones", T=ApiType.Edit, G=1},
             new Route{R="drones", T=ApiType.Delete, G=1},
-            new Route{R="drones-change-schedule", T=ApiType.ChangeSchedule, G=1},
             new Route{R="drones-has-problems", T=ApiType.HasProblem, G=1},
+            new Route{R="drones-change-activity", T=ApiType.ActivityLog, G=1},
 
             new Route{R="payload", T=ApiType.Get, G=2},
             new Route{R="payload", T=ApiType.Add, G=2},
             new Route{R="payload", T=ApiType.Edit, G=2},
             new Route{R="payload", T=ApiType.Delete, G=2},
-            new Route{R="payload-register", T=ApiType.Register, G=2},
+            new Route{R="payload-activity", T=ApiType.ActivityLog, G=2},
 
             new Route{R="user", T=ApiType.Get, G=3},
             new Route{R="user", T=ApiType.Add, G=3},
             new Route{R="user", T=ApiType.Edit, G=3},
             new Route{R="user", T=ApiType.Delete, G=3},
-            new Route{R="user-work", T=ApiType.Work, G=3},
             new Route{R="user-role", T=ApiType.Role, G=3},
+            new Route{R="user-work-activity", T=ApiType.ActivityLog, G=3},
 
             new Route{R="image", T=ApiType.Get, G=4},
             new Route{R="image", T=ApiType.Add, G=4},
@@ -58,13 +57,13 @@ namespace aspnetcoreapp.Controllers
             new Route{R="incident", T=ApiType.Add, G=5},
             new Route{R="incident", T=ApiType.Edit, G=5},
             new Route{R="incident-confirm", T=ApiType.Confirm, G=5},
-            new Route{R="incident-update-progress", T=ApiType.Confirm, G=5},
+            new Route{R="incident-update-progress", T=ApiType.ActivityLog, G=5},
 
             new Route{R="monitor-object", T=ApiType.Get, G=6},
             new Route{R="monitor-object", T=ApiType.Add, G=6},
             new Route{R="monitor-object", T=ApiType.Edit, G=6},
             new Route{R="monitor-object", T=ApiType.Delete, G=6},
-            new Route{R="monitor-object-change-state", T=ApiType.ChangeState, G=6},
+            new Route{R="monitor-object-change-state", T=ApiType.ActivityLog, G=6},
 
             new Route{R="receive-statistical", T=ApiType.Get, G=7},
             new Route{R="statistical-address", T=ApiType.HasProblem, G=7},
@@ -75,8 +74,8 @@ namespace aspnetcoreapp.Controllers
             new Route{R="warning", T=ApiType.Get, G=8},
             new Route{R="warning-level", T=ApiType.WarningLevel, G=8},
             new Route{R="solution-handling-warning", T=ApiType.SolutionHandling, G=8},
-            new Route{R="update-status-warning", T=ApiType.Edit, G=8},
             new Route{R="warning", T=ApiType.Delete, G=8},
+            new Route{R="warning-change-activity", T=ApiType.ActivityLog, G=8},
 
             new Route{R="monitor-region", T=ApiType.Get, G=10},
             new Route{R="monitor-region", T=ApiType.Add, G=10},
@@ -87,15 +86,15 @@ namespace aspnetcoreapp.Controllers
             new Route{R="resolve-problem", T=ApiType.Get, G=11},
             new Route{R="resolve-problem", T=ApiType.Add, G=11},
             new Route{R="resolve-problem", T=ApiType.Delete, G=11},
-            new Route{R="update-status-resolve-problem", T=ApiType.UpdateStatusResolveProblem, G=11},
-            new Route{R="staff-resolve-problem", T=ApiType.StaffResolveProblem, G=11},
             new Route{R="result-resolve-problem", T=ApiType.ResultResolveProblem, G=11},
+            new Route{R="update-status-resolve-problem", T=ApiType.ActivityLog, G=11},
 
             new Route{R="uav-connect", T=ApiType.Get, G=12},
             new Route{R="uav-connect", T=ApiType.Add, G=12},
-            new Route{R="uav-connect", T=ApiType.Delete, G=12},
+            new Route{R="delete-connect", T=ApiType.Delete, G=12},
             new Route{R="success-connect", T=ApiType.SuccessConnect, G=12},
-            new Route{R="fail-connect", T=ApiType.FailConnect, G=12}
+            new Route{R="fail-connect", T=ApiType.FailConnect, G=12},
+            new Route{R="fail-connect", T=ApiType.FailConnect, G=12},
         };
 
         private async Task AddLog(EntityLog entity, Route route)
@@ -287,13 +286,27 @@ namespace aspnetcoreapp.Controllers
                 {
                     if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                     {
-                        var log = new EntityLog
+                        EntityLog log = null;
+                        if (routeE.T == ApiType.ActivityLog)
                         {
-                            EntityId = id,
-                            Type = routeE.T,
-                            Description = description,
-                            Timestamp = DateTime.Now
-                        };
+                            log = new EntityLog
+                            {
+                                EntityId = id,
+                                Type = routeE.T,
+                                Description = description,
+                                Timestamp = DateTime.Now
+                            };
+                        }
+                        else
+                        {
+                            log = new EntityLog
+                            {
+                                EntityId = id,
+                                Type = routeE.T,
+                                Description = description,
+                                Timestamp = DateTime.Now
+                            };
+                        }
                         await AddLog(log, routeE);
                         return Ok(new
                         {

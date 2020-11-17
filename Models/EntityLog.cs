@@ -58,7 +58,8 @@ namespace aspnetcoreapp.Models
         ResultResolveProblem,
         UpdateStatusResolveProblem,
         SuccessConnect,
-        FailConnect
+        FailConnect,
+        ActivityLog
     }
 
 
