@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using aspnetcoreapp;
@@ -9,9 +10,10 @@ using aspnetcoreapp;
 namespace aspnetcoreapp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201119144112_AddPerson")]
+    partial class AddPerson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,12 +72,6 @@ namespace aspnetcoreapp.Migrations
                     b.Property<int>("EntityId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Latitude")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Longitude")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -86,6 +82,12 @@ namespace aspnetcoreapp.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("X")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Y")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -107,9 +109,6 @@ namespace aspnetcoreapp.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("State")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Timestamp")
@@ -229,9 +228,6 @@ namespace aspnetcoreapp.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("State")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("timestamp without time zone");
 
@@ -287,9 +283,6 @@ namespace aspnetcoreapp.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("State")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Timestamp")
@@ -349,9 +342,6 @@ namespace aspnetcoreapp.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("Role")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("timestamp without time zone");
 
@@ -380,9 +370,6 @@ namespace aspnetcoreapp.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("State")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Timestamp")

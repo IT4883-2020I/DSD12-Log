@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using aspnetcoreapp.Models;
 using aspnetcoreapp.Service;
@@ -21,80 +22,77 @@ namespace aspnetcoreapp.Controllers
         private readonly IConfiguration _configuration;
         private readonly AuthenticationService _authService;
 
-        
         private List<Route> Routes { get; } = new List<Route>
         {
-            new Route{R="drones", T=ApiType.Get, G=1},
-            new Route{R="drones", T=ApiType.Add, G=1},
-            new Route{R="drones", T=ApiType.Edit, G=1},
-            new Route{R="drones", T=ApiType.Delete, G=1},
-            new Route{R="drones-has-problems", T=ApiType.HasProblem, G=1},
-            new Route{R="drones-change-activity", T=ApiType.ActivityLog, G=1},
+            new Route {R = "drones", T = ApiType.Get, G = 1},
+            new Route {R = "drones", T = ApiType.Add, G = 1},
+            new Route {R = "drones", T = ApiType.Edit, G = 1},
+            new Route {R = "drones", T = ApiType.Delete, G = 1},
+            new Route {R = "drones-has-problems", T = ApiType.HasProblem, G = 1},
+            new Route {R = "drones-change-activity", T = ApiType.ActivityLog, G = 1},
 
-            new Route{R="payload", T=ApiType.Get, G=2},
-            new Route{R="payload", T=ApiType.Add, G=2},
-            new Route{R="payload", T=ApiType.Edit, G=2},
-            new Route{R="payload", T=ApiType.Delete, G=2},
-            new Route{R="payload-activity", T=ApiType.ActivityLog, G=2},
+            new Route {R = "payload", T = ApiType.Get, G = 2},
+            new Route {R = "payload", T = ApiType.Add, G = 2},
+            new Route {R = "payload", T = ApiType.Edit, G = 2},
+            new Route {R = "payload", T = ApiType.Delete, G = 2},
+            new Route {R = "payload-activity", T = ApiType.ActivityLog, G = 2},
 
-            new Route{R="user", T=ApiType.Get, G=3},
-            new Route{R="user", T=ApiType.Add, G=3},
-            new Route{R="user", T=ApiType.Edit, G=3},
-            new Route{R="user", T=ApiType.Delete, G=3},
-            new Route{R="user-role", T=ApiType.Role, G=3},
-            new Route{R="user-work-activity", T=ApiType.ActivityLog, G=3},
+            new Route {R = "user", T = ApiType.Get, G = 3},
+            new Route {R = "user", T = ApiType.Add, G = 3},
+            new Route {R = "user", T = ApiType.Edit, G = 3},
+            new Route {R = "user", T = ApiType.Delete, G = 3},
+            new Route {R = "user-role", T = ApiType.Role, G = 3},
+            new Route {R = "user-work-activity", T = ApiType.ActivityLog, G = 3},
 
-            new Route{R="image", T=ApiType.Get, G=4},
-            new Route{R="image", T=ApiType.Add, G=4},
-            new Route{R="image", T=ApiType.Delete, G=4},
-            new Route{R="image-result", T=ApiType.Result, G=4},
-            new Route{R="video", T=ApiType.Get, G=4},
-            new Route{R="video", T=ApiType.Add, G=4},
-            new Route{R="video", T=ApiType.Delete, G=4},
-            new Route{R="video-result", T=ApiType.Result, G=4},
+            new Route {R = "image", T = ApiType.Get, G = 4},
+            new Route {R = "image", T = ApiType.Add, G = 4},
+            new Route {R = "image", T = ApiType.Delete, G = 4},
+            new Route {R = "image-activity", T = ApiType.ActivityLog, G = 4},
+            new Route {R = "video", T = ApiType.Get, G = 4},
+            new Route {R = "video", T = ApiType.Add, G = 4},
+            new Route {R = "video", T = ApiType.Delete, G = 4},
+            new Route {R = "video-activity", T = ApiType.ActivityLog, G = 4},
 
-            new Route{R="incident", T=ApiType.Get, G=5},
-            new Route{R="incident", T=ApiType.Add, G=5},
-            new Route{R="incident", T=ApiType.Edit, G=5},
-            new Route{R="incident-confirm", T=ApiType.Confirm, G=5},
-            new Route{R="incident-update-progress", T=ApiType.ActivityLog, G=5},
+            new Route {R = "incident", T = ApiType.Get, G = 5},
+            new Route {R = "incident", T = ApiType.Add, G = 5},
+            new Route {R = "incident", T = ApiType.Edit, G = 5},
+            new Route {R = "incident-confirm", T = ApiType.Confirm, G = 5},
+            new Route {R = "incident-update-progress", T = ApiType.ActivityLog, G = 5},
 
-            new Route{R="monitor-object", T=ApiType.Get, G=6},
-            new Route{R="monitor-object", T=ApiType.Add, G=6},
-            new Route{R="monitor-object", T=ApiType.Edit, G=6},
-            new Route{R="monitor-object", T=ApiType.Delete, G=6},
-            new Route{R="monitor-object-change-state", T=ApiType.ActivityLog, G=6},
+            new Route {R = "monitor-object", T = ApiType.Get, G = 6},
+            new Route {R = "monitor-object", T = ApiType.Add, G = 6},
+            new Route {R = "monitor-object", T = ApiType.Edit, G = 6},
+            new Route {R = "monitor-object", T = ApiType.Delete, G = 6},
+            new Route {R = "monitor-object-change-state", T = ApiType.ActivityLog, G = 6},
 
-            new Route{R="receive-statistical", T=ApiType.Get, G=7},
-            new Route{R="statistical-address", T=ApiType.HasProblem, G=7},
-            new Route{R="statistical-incident", T=ApiType.CommonIncident, G=7},
-            new Route{R="statistical-frequence", T=ApiType.FrequenceIncident, G=7},
-            new Route{R="export-report", T=ApiType.ExportReport, G=7},
+            new Route {R = "receive-statistical", T = ApiType.Get, G = 7},
+            new Route {R = "statistical-address", T = ApiType.HasProblem, G = 7},
+            new Route {R = "statistical-incident", T = ApiType.CommonIncident, G = 7},
+            new Route {R = "statistical-frequence", T = ApiType.FrequenceIncident, G = 7},
+            new Route {R = "activity-report", T = ApiType.ActivityLog, G = 7},
 
-            new Route{R="warning", T=ApiType.Get, G=8},
-            new Route{R="warning-level", T=ApiType.WarningLevel, G=8},
-            new Route{R="solution-handling-warning", T=ApiType.SolutionHandling, G=8},
-            new Route{R="warning", T=ApiType.Delete, G=8},
-            new Route{R="warning-change-activity", T=ApiType.ActivityLog, G=8},
+            new Route {R = "warning", T = ApiType.Get, G = 8},
+            new Route {R = "warning-level", T = ApiType.WarningLevel, G = 8},
+            new Route {R = "solution-handling-warning", T = ApiType.SolutionHandling, G = 8},
+            new Route {R = "warning", T = ApiType.Delete, G = 8},
+            new Route {R = "warning-change-activity", T = ApiType.ActivityLog, G = 8},
 
-            new Route{R="monitor-region", T=ApiType.Get, G=10},
-            new Route{R="monitor-region", T=ApiType.Add, G=10},
-            new Route{R="monitor-region", T=ApiType.Edit, G=10},
-            new Route{R="monitor-region", T=ApiType.Delete, G=10},
-            new Route{R="devide-monitor-region", T=ApiType.DevideRegion, G=10},
+            new Route {R = "monitor-region", T = ApiType.Get, G = 10},
+            new Route {R = "monitor-region", T = ApiType.Add, G = 10},
+            new Route {R = "monitor-region", T = ApiType.Edit, G = 10},
+            new Route {R = "monitor-region", T = ApiType.Delete, G = 10},
+            new Route {R = "activity-region", T = ApiType.ActivityLog, G = 10},
 
-            new Route{R="resolve-problem", T=ApiType.Get, G=11},
-            new Route{R="resolve-problem", T=ApiType.Add, G=11},
-            new Route{R="resolve-problem", T=ApiType.Delete, G=11},
-            new Route{R="result-resolve-problem", T=ApiType.ResultResolveProblem, G=11},
-            new Route{R="update-status-resolve-problem", T=ApiType.ActivityLog, G=11},
+            new Route {R = "resolve-problem", T = ApiType.Get, G = 11},
+            new Route {R = "resolve-problem", T = ApiType.Add, G = 11},
+            new Route {R = "resolve-problem", T = ApiType.Delete, G = 11},
+            new Route {R = "result-resolve-problem", T = ApiType.ResultResolveProblem, G = 11},
+            new Route {R = "update-status-resolve-problem", T = ApiType.ActivityLog, G = 11},
 
-            new Route{R="uav-connect", T=ApiType.Get, G=12},
-            new Route{R="uav-connect", T=ApiType.Add, G=12},
-            new Route{R="delete-connect", T=ApiType.Delete, G=12},
-            new Route{R="success-connect", T=ApiType.SuccessConnect, G=12},
-            new Route{R="fail-connect", T=ApiType.FailConnect, G=12},
-            new Route{R="fail-connect", T=ApiType.FailConnect, G=12},
+            new Route {R = "uav-connect", T = ApiType.Get, G = 12},
+            new Route {R = "uav-connect", T = ApiType.Add, G = 12},
+            new Route {R = "uav-connect", T = ApiType.Delete, G = 12},
+            new Route {R = "state-connect", T = ApiType.ActivityLog, G = 12},
         };
 
         private async Task AddLog(EntityLog entity, Route route)
@@ -114,11 +112,9 @@ namespace aspnetcoreapp.Controllers
                     switch (route.R)
                     {
                         case "image":
-                        case "image-result":
                             _dbContext.Set<ImageLog>().Add(_mapper.Map<ImageLog>(entity));
                             break;
                         case "video":
-                        case "video-result":
                             _dbContext.Set<VideoLog>().Add(_mapper.Map<VideoLog>(entity));
                             break;
                     }
@@ -145,10 +141,12 @@ namespace aspnetcoreapp.Controllers
                     _dbContext.Set<UavConnectLog>().Add(_mapper.Map<UavConnectLog>(entity));
                     break;
             }
+
             await _dbContext.SaveChangesAsync();
         }
 
-        public LogController(ILogger<LogController> logger, ApplicationDbContext dbContext, IMapper mapper,IConfiguration configuration)
+        public LogController(ILogger<LogController> logger, ApplicationDbContext dbContext, IMapper mapper,
+            IConfiguration configuration)
         {
             _logger = logger;
             this._dbContext = dbContext;
@@ -156,14 +154,15 @@ namespace aspnetcoreapp.Controllers
             _configuration = configuration;
             _authService = new AuthenticationService(configuration);
         }
-        
-        public struct GetForm    
+
+        public struct GetForm
         {
             public DateTime MinDate { get; set; }
             public DateTime MaxDate { get; set; }
             public string Username { get; set; }
             public string Password { get; set; }
         }
+
         [HttpGet("{routeName}")]
         public async Task<ActionResult<List<EntityLogDTO>>> Get(string routeName, [FromBody] GetForm getForm)
         {
@@ -252,6 +251,7 @@ namespace aspnetcoreapp.Controllers
                                     EntityId = entity.EntityId,
                                     Type = entity.Type.GetDescription(),
                                     Description = entity.Description,
+                                    Name = entity.Name,
                                     Timestamp = entity.Timestamp.ToShortTimeString() + " " +
                                                 entity.Timestamp.ToShortDateString()
                                 };
@@ -270,120 +270,109 @@ namespace aspnetcoreapp.Controllers
 
             return Ok();
         }
-        
-        public struct UsernamePassword    
+
+        public struct UsernamePassword
         {
             public string Username { get; set; }
             public string Password { get; set; }
         }
+
         [HttpPost("{routeName}/{id}")]
-        public async Task<ActionResult> AddAddLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
+        public async Task<ActionResult> AddAddLog(string routeName, int id, string name, string description,
+            [FromBody] UsernamePassword form)
         {
-           
-            foreach (var routeE in Routes)
+            foreach (var routeE in Routes.Where(routeE => routeE.R == routeName && routeE.T != ApiType.Edit && routeE.T != ApiType.Delete && routeE.T != ApiType.ActivityLog && routeE.T != ApiType.Get))
             {
-                if (routeE.R == routeName && routeE.T != ApiType.Edit && routeE.T != ApiType.Delete && routeE.T != ApiType.Get)
+                if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                 {
-                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
+                    EntityLog log = null;
+                    log = new EntityLog
                     {
-                        EntityLog log = null;
-                        if (routeE.T == ApiType.ActivityLog)
-                        {
-                            log = new EntityLog
-                            {
-                                EntityId = id,
-                                Type = routeE.T,
-                                Description = description,
-                                Timestamp = DateTime.Now
-                            };
-                        }
-                        else
-                        {
-                            log = new EntityLog
-                            {
-                                EntityId = id,
-                                Type = routeE.T,
-                                Description = description,
-                                Timestamp = DateTime.Now
-                            };
-                        }
-                        await AddLog(log, routeE);
-                        return Ok(new
-                        {
-                            id = id,
-                            type = routeE.T.GetDescription()
-                        });
-                    }
-                    else
+                        EntityId = id,
+                        Type = routeE.T,
+                        Name = name,
+                        Description = description,
+                        Timestamp = DateTime.Now
+                    };
+                    await AddLog(log, routeE);
+                    return Ok(new
                     {
-                        return Unauthorized();
-                    }
+                        id = id,
+                        type = routeE.T.GetDescription()
+                    });
+                }
+                else
+                {
+                    return Unauthorized();
                 }
             }
+
             return NotFound();
         }
-        
+
         [HttpPut("{routeName}/{id}")]
-        public async Task<ActionResult> AddEditLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
+        public async Task<ActionResult> AddEditLog(string routeName, string name, int id, string description,
+            [FromBody] UsernamePassword form)
         {
             foreach (var routeE in Routes)
             {
-                if (routeE.R == routeName && routeE.T == ApiType.Edit)
+                if (routeE.R != routeName || routeE.T != ApiType.Edit) continue;
+                if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                 {
-                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
+                    var log = new EntityLog
                     {
-                        var log = new EntityLog
-                        {
-                            EntityId = id,
-                            Type = routeE.T,
-                            Description = description,
-                            Timestamp = DateTime.Now
-                        };
-                        await AddLog(log, routeE);
-                        return Ok(new
-                        {
-                            id = id,
-                            type = routeE.T.GetDescription()
-                        });
-                    }
-                    else
+                        EntityId = id,
+                        Type = routeE.T,
+                        Name = name,
+                        Description = description,
+                        Timestamp = DateTime.Now
+                    };
+                    await AddLog(log, routeE);
+                    return Ok(new
                     {
-                        return Unauthorized();
-                    }
+                        id = id,
+                        type = routeE.T.GetDescription()
+                    });
+                }
+                else
+                {
+                    return Unauthorized();
                 }
             }
+
             return NotFound();
         }
 
         [HttpDelete("{routeName}/{id}")]
-        public async Task<ActionResult> AddDeleteLog(string routeName, int id, string description, [FromBody] UsernamePassword form)
+        public async Task<ActionResult> AddDeleteLog(string routeName, int id, string name, string description,
+            [FromBody] UsernamePassword form)
         {
             foreach (var routeE in Routes)
             {
-                if (routeE.R == routeName && routeE.T == ApiType.Delete)
+                if (routeE.R != routeName || routeE.T != ApiType.Delete) continue;
+                if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                 {
-                    if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
+                    var log = new EntityLog
                     {
-                        var log = new EntityLog
-                        {
-                            EntityId = id,
-                            Type = routeE.T,
-                            Description = description,
-                            Timestamp = DateTime.Now
-                        };
-                        await AddLog(log, routeE);
-                        return Ok(new
-                        {
-                            id = id,
-                            type = routeE.T.GetDescription()
-                        });
-                    }
-                    else
+                        EntityId = id,
+                        Name = name,
+                        Type = routeE.T,
+                        Description = description,
+                        Timestamp = DateTime.Now
+                    };
+                    await AddLog(log, routeE);
+                    return Ok(new
                     {
-                        return Unauthorized();
-                    }
+                        id = id,
+                        type = routeE.T.GetDescription()
+                    });
+                }
+                else
+                {
+                    return Unauthorized();
                 }
             }
+
             return NotFound();
         }
     }

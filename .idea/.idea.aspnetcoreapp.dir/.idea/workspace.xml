@@ -23,9 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/AuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +45,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
-        <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
         <option value="$PROJECT_DIR$/Models/GroupAuthentication.cs" />
         <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuthenticationController.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
-        <option value="$PROJECT_DIR$/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
+        <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
       </list>
     </option>
@@ -71,7 +78,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.aspnetcoreapp">
@@ -124,6 +131,16 @@
       <workItem from="1604454024020" duration="260000" />
       <workItem from="1605570437495" duration="872000" />
       <workItem from="1605620377753" duration="61000" />
+      <workItem from="1605661307278" duration="263000" />
+      <workItem from="1605661998509" duration="676000" />
+      <workItem from="1605793506174" duration="2282000" />
+      <workItem from="1605798818507" duration="537000" />
+      <workItem from="1605950268145" duration="2926000" />
+      <workItem from="1605960913573" duration="4605000" />
+      <workItem from="1605968265407" duration="363000" />
+      <workItem from="1606053910138" duration="1396000" />
+      <workItem from="1606101111765" duration="4094000" />
+      <workItem from="1606174357462" duration="1800000" />
     </task>
     <servers />
   </component>
@@ -152,33 +169,41 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="329" y="0" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1280.800@0.0.1280.800" timestamp="1603941741265" />
-    <state width="1238" height="2" key="GridCell.Tab.0.bottom" timestamp="1604329610223">
+    <state width="1238" height="406" key="GridCell.Tab.0.bottom" timestamp="1606105644127">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604329610223" />
+    <state width="1238" height="406" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606105644127" />
     <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603896182324" />
-    <state width="1238" height="2" key="GridCell.Tab.0.center" timestamp="1604329610223">
+    <state width="1238" height="241" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1606055188075" />
+    <state width="1238" height="406" key="GridCell.Tab.0.center" timestamp="1606105644126">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="2" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604329610223" />
+    <state width="1238" height="406" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606105644126" />
     <state width="1238" height="2" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
-    <state width="1238" height="2" key="GridCell.Tab.0.left" timestamp="1604329610222">
+    <state width="1238" height="241" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1606055188072" />
+    <state width="1238" height="406" key="GridCell.Tab.0.left" timestamp="1606105644125">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="2" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604329610222" />
+    <state width="1238" height="406" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606105644125" />
     <state width="1238" height="2" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
-    <state width="1238" height="2" key="GridCell.Tab.0.right" timestamp="1604329610223">
+    <state width="1238" height="241" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1606055188072" />
+    <state width="1238" height="406" key="GridCell.Tab.0.right" timestamp="1606105644126">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="2" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604329610223" />
+    <state width="1238" height="406" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606105644126" />
     <state width="1238" height="2" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603896182323" />
-    <state x="192" y="72" key="SettingsEditor" timestamp="1605570448286">
+    <state width="1238" height="241" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1606055188074" />
+    <state x="192" y="72" key="SettingsEditor" timestamp="1605962988061">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605570448286" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1603934358280">
+    <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605962988061" />
+    <state x="309" y="139" width="661" height="522" key="find.popup" timestamp="1605793584288">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1603934358280" />
+    <state x="309" y="139" width="661" height="522" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1605793584288" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606104734259">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606104734259" />
   </component>
 </project>
