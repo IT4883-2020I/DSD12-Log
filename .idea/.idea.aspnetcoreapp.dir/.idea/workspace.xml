@@ -23,14 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/AuthenticationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,8 +46,8 @@
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -140,7 +132,7 @@
       <workItem from="1605968265407" duration="363000" />
       <workItem from="1606053910138" duration="1396000" />
       <workItem from="1606101111765" duration="4094000" />
-      <workItem from="1606174357462" duration="1800000" />
+      <workItem from="1606174357462" duration="1838000" />
     </task>
     <servers />
   </component>
