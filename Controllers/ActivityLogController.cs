@@ -44,11 +44,7 @@ namespace aspnetcoreapp.Controllers
             log.Timestamp = DateTime.Now;
             _dbContext.DroneLogs.Add(log);
             await _dbContext.SaveChangesAsync();
-            return Ok(new
-            {
-                id = log.EntityId,
-                type = ApiType.ActivityLog.GetDescription()
-            });
+            return Ok(form);
         }
 
         public class DroneLogDTO
@@ -104,11 +100,7 @@ namespace aspnetcoreapp.Controllers
             log.Timestamp = DateTime.Now;
             _dbContext.UserLog.Add(log);
             await _dbContext.SaveChangesAsync();
-            return Ok(new
-            {
-                id = log.EntityId,
-                type = ApiType.ActivityLog.GetDescription()
-            });
+            return Ok(log);
         }
 
 
@@ -199,11 +191,7 @@ namespace aspnetcoreapp.Controllers
             }
 
             await _dbContext.SaveChangesAsync();
-            return Ok(new
-            {
-                id = log.EntityId,
-                type = ApiType.ActivityLog.GetDescription()
-            });
+            return Ok(form);
         }
 
         [HttpGet("activity/{groupName}")]
