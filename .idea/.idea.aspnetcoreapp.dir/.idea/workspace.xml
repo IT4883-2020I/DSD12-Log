@@ -23,16 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/NewLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/NewLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/NewLogController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +51,11 @@
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -152,6 +146,8 @@
       <workItem from="1606439814469" duration="1347000" />
       <workItem from="1606442016447" duration="494000" />
       <workItem from="1606616626576" duration="6246000" />
+      <workItem from="1606642867523" duration="827000" />
+      <workItem from="1606651683940" duration="703000" />
     </task>
     <servers />
   </component>
@@ -180,38 +176,38 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="329" y="0" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1280.800@0.0.1280.800" timestamp="1603941741265" />
-    <state width="1238" height="355" key="GridCell.Tab.0.bottom" timestamp="1606619817369">
+    <state width="1238" height="355" key="GridCell.Tab.0.bottom" timestamp="1606634994286">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="355" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606619817369" />
+    <state width="1238" height="355" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606634994286" />
     <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603896182324" />
     <state width="1238" height="241" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1606055188075" />
-    <state width="1238" height="355" key="GridCell.Tab.0.center" timestamp="1606619817368">
+    <state width="1238" height="355" key="GridCell.Tab.0.center" timestamp="1606634994285">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="355" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606619817368" />
+    <state width="1238" height="355" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606634994285" />
     <state width="1238" height="2" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="241" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1606055188072" />
-    <state width="1238" height="355" key="GridCell.Tab.0.left" timestamp="1606619817367">
+    <state width="1238" height="355" key="GridCell.Tab.0.left" timestamp="1606634994283">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="355" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606619817367" />
+    <state width="1238" height="355" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606634994283" />
     <state width="1238" height="2" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="241" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1606055188072" />
-    <state width="1238" height="355" key="GridCell.Tab.0.right" timestamp="1606619817368">
+    <state width="1238" height="355" key="GridCell.Tab.0.right" timestamp="1606634994285">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="355" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606619817368" />
+    <state width="1238" height="355" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606634994285" />
     <state width="1238" height="2" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603896182323" />
     <state width="1238" height="241" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1606055188074" />
     <state x="192" y="72" key="SettingsEditor" timestamp="1605962988061">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605962988061" />
-    <state x="309" y="139" width="661" height="580" key="find.popup" timestamp="1606621976807">
+    <state x="309" y="139" width="661" height="580" key="find.popup" timestamp="1606643465965">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="309" y="139" width="661" height="580" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606621976807" />
+    <state x="309" y="139" width="661" height="580" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606643465965" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606619831123">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

@@ -45,15 +45,16 @@ namespace aspnetcoreapp.Controllers
             return Ok();
         }
 
-        public struct MinMaxDate
+        public class MinMaxDate
         {
-            public DateTime MinDate { get; set; }
-            public DateTime MaxDate { get; set; }
+            public DateTime MinDate { get; set; } = DateTime.MinValue;
+            public DateTime MaxDate { get; set; } = DateTime.MaxValue;
         }
 
         public async Task<ActionResult> Post<TEntity>(TEntity entity, ApiType apiType = ApiType.Empty)
             where TEntity : EntityLog
         {
+            entity.Timestamp = DateTime.Now;
             if (apiType == ApiType.Empty)
             {
                 apiType = ApiType.Add;
@@ -69,14 +70,14 @@ namespace aspnetcoreapp.Controllers
                 entity.Type = apiType;
                 _dbContext.Set<TEntity>().Add(entity);
                 await _dbContext.SaveChangesAsync();
-                return Ok();
+                return Ok(entity);
             }
             else
             {
                 entity.Type = apiType;
                 _dbContext.Set<TEntity>().Add(entity);
                 await _dbContext.SaveChangesAsync();
-                return Ok();
+                return Ok(entity);
             }
         }
 
