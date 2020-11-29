@@ -21,7 +21,7 @@ namespace aspnetcoreapp.Controllers
             : base(logger, dbContext, mapper, configuration)
         {
         }
-        
+
         [HttpGet("drones")]
         public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form, string username,
             string password) =>
@@ -29,6 +29,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpDelete("drones/{id}")]
         [HttpPost("drones/{id}")]
+        [HttpPost("drones-has-problems/{id}")]
         [HttpPut("drones/{id}")]
         public async Task<ActionResult> PostDrone([FromBody] DroneLog form, int id, string username, string password)
         {
@@ -37,8 +38,16 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
+            var route = Request.Path.Value;
             form.EntityId = id;
-            return await Post<DroneLog>(form);
+            if (route.Contains("drones-has-problems"))
+            {
+                return await Post<DroneLog>(form, ApiType.HasProblem);
+            }
+            else
+            {
+                return await Post<DroneLog>(form);
+            }
         }
 
         [HttpGet("payload")]
@@ -55,6 +64,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<Payload>(form);
         }
@@ -66,6 +76,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpDelete("user/{id}")]
         [HttpPost("user/{id}")]
+        [HttpPost("user-role/{id}")]
         [HttpPut("user/{id}")]
         public async Task<ActionResult> PostUser([FromBody] UserLog form, int id, string username, string password)
         {
@@ -73,8 +84,15 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
-            return await Post<UserLog>(form);
+            var apiType = ApiType.Empty;
+            if (Request.Path.Value.Contains("user-role"))
+            {
+                apiType = ApiType.Role;
+            }
+
+            return await Post<UserLog>(form, apiType);
         }
 
         [HttpGet("video")]
@@ -91,6 +109,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<VideoLog>(form);
         }
@@ -109,6 +128,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<ImageLog>(form);
         }
@@ -120,6 +140,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpDelete("incident/{id}")]
         [HttpPost("incident/{id}")]
+        [HttpPost("incident-confirm/{id}")]
         [HttpPut("incident/{id}")]
         public async Task<ActionResult> PostIncident([FromBody] IncidentLog form, int id, string username,
             string password)
@@ -128,8 +149,15 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
-            return await Post<IncidentLog>(form);
+            var apiType = ApiType.Empty;
+            if (Request.Path.Value.Contains("incident-confirm"))
+            {
+                apiType = ApiType.Confirm;
+            }
+
+            return await Post<IncidentLog>(form, apiType);
         }
 
         [HttpGet("monitor-object")]
@@ -147,6 +175,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<ObjectObserve>(form);
         }
@@ -159,7 +188,8 @@ namespace aspnetcoreapp.Controllers
         [HttpPost("statistical-frequence/{id}")]
         [HttpPost("statistical-address/{id}")]
         [HttpPost("statistical-incident/{id}")]
-        public async Task<ActionResult> PostStatical([FromBody] StaticalLog form, int id, string username, string password)
+        public async Task<ActionResult> PostStatical([FromBody] StaticalLog form, int id, string username,
+            string password)
         {
             var route = Request.Path.Value;
             _logger.LogInformation("PostStatical " + route);
@@ -177,6 +207,7 @@ namespace aspnetcoreapp.Controllers
             {
                 apiType = ApiType.HasProblem;
             }
+
             form.EntityId = id;
             return await Post<StaticalLog>(form, apiType);
         }
@@ -188,15 +219,29 @@ namespace aspnetcoreapp.Controllers
 
         [HttpDelete("warning/{id}")]
         [HttpPost("warning/{id}")]
+        [HttpPost("warning-level/{id}")]
+        [HttpPost("solution-handling-warning/{id}")]
         [HttpPut("warning/{id}")]
-        public async Task<ActionResult> PostWarning([FromBody] WarningLog form, int id, string username, string password)
+        public async Task<ActionResult> PostWarning([FromBody] WarningLog form, int id, string username,
+            string password)
         {
             if (!_authService.IsAuthenticate(WarningLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
-            return await Post<WarningLog>(form);
+            var apiType = ApiType.Empty;
+            if (Request.Path.Value.Contains("warning-level"))
+            {
+                apiType = ApiType.WarningLevel;
+            }
+            else if (Request.Path.Value.Contains("solution-handling-warning"))
+            {
+                apiType = ApiType.SolutionHandling;
+            }
+
+            return await Post<WarningLog>(form, apiType);
         }
 
         [HttpGet("monitor-region")]
@@ -214,6 +259,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<MonitorRegionLog>(form);
         }
@@ -225,16 +271,25 @@ namespace aspnetcoreapp.Controllers
 
         [HttpDelete("resolve-problem/{id}")]
         [HttpPost("resolve-problem/{id}")]
+        [HttpPost("result-resolve-problem/{id}")]
         [HttpPut("resolve-problem/{id}")]
-        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemLog form , int id, string username,
+        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemLog form, int id,
+            string username,
             string password)
         {
             if (!_authService.IsAuthenticate(ResolveProblemLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
-            return await Post<ResolveProblemLog>(form);
+            var apiType = ApiType.Empty;
+            if (Request.Path.Value.Contains("result-resolve-problem"))
+            {
+                apiType = ApiType.ResultResolveProblem;
+            }
+
+            return await Post<ResolveProblemLog>(form, apiType);
         }
 
         [HttpGet("uav-connect")]
@@ -245,13 +300,14 @@ namespace aspnetcoreapp.Controllers
         [HttpDelete("uav-connect/{id}")]
         [HttpPost("uav-connect/{id}")]
         [HttpPut("uav-connect/{id}")]
-        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectLog form , int id, string username,
+        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectLog form, int id, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(UavConnectLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
+
             form.EntityId = id;
             return await Post<UavConnectLog>(form);
         }

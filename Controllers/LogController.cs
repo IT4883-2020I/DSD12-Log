@@ -13,7 +13,7 @@ using System.Net.Http;
 
 namespace aspnetcoreapp.Controllers
 {
-    [Route("api")]
+    [Route("api-old")]
     [ApiController]
     public class LogController : ControllerBase
     {

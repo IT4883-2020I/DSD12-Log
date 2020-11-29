@@ -55,6 +55,7 @@ namespace aspnetcoreapp.Controllers
             where TEntity : EntityLog
         {
             entity.Timestamp = DateTime.Now;
+            _logger.LogInformation(entity.ToJson());
             if (apiType == ApiType.Empty)
             {
                 apiType = ApiType.Add;

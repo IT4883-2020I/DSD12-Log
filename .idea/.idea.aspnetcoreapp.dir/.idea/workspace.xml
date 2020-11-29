@@ -54,8 +54,8 @@
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
       </list>
     </option>
   </component>
@@ -147,7 +147,7 @@
       <workItem from="1606442016447" duration="494000" />
       <workItem from="1606616626576" duration="6246000" />
       <workItem from="1606642867523" duration="827000" />
-      <workItem from="1606651683940" duration="703000" />
+      <workItem from="1606651683940" duration="1637000" />
     </task>
     <servers />
   </component>
