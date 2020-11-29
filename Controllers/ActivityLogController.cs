@@ -16,24 +16,25 @@ namespace aspnetcoreapp.Controllers
     [ApiController]
     public class ActivityLogController : CustomController
     {
-        public ActivityLogController(ILogger<ActivityLogController> logger, ApplicationDbContext dbContext, IMapper mapper,
+        public ActivityLogController(ILogger<ActivityLogController> logger, ApplicationDbContext dbContext,
+            IMapper mapper,
             IConfiguration configuration)
             : base(logger, dbContext, mapper, configuration)
         {
         }
 
-        public struct GetForm
+        public class GetForm
         {
-            public DateTime MinDate { get; set; }
-            public DateTime MaxDate { get; set; }
+            public DateTime MinDate { get; set; } = DateTime.MinValue;
+            public DateTime MaxDate { get; set; } = DateTime.MaxValue;
             public string Username { get; set; }
             public string Password { get; set; }
         }
 
         [HttpPost("activity/drone")]
-        public async Task<ActionResult> PostDroneLog([FromBody] DroneLogRequest form)
+        public async Task<ActionResult> PostDroneLog([FromBody] DroneLog form, string username, string password)
         {
-            if (!_authService.IsAuthenticateByEntityName("drone", form.Username, form.Password))
+            if (!_authService.IsAuthenticateByEntityName("drone", username, password))
             {
                 return Unauthorized();
             }
@@ -61,8 +62,9 @@ namespace aspnetcoreapp.Controllers
             public int Longitude { get; set; }
             public int Latitude { get; set; }
         }
+
         [HttpGet("activity/drone")]
-        public async Task<ActionResult> GetDroneLog([FromBody] GetForm form)
+        public async Task<ActionResult> GetDroneLog([FromQuery] GetForm form)
         {
             if (_authService.IsAuthenticate(1, form.Username, form.Password))
             {
@@ -97,7 +99,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
-            
+
             log.Type = ApiType.ActivityLog;
             log.Timestamp = DateTime.Now;
             _dbContext.UserLog.Add(log);
@@ -122,7 +124,7 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("activity/user")]
-        public async Task<ActionResult> GetUserLog([FromBody] GetForm form)
+        public async Task<ActionResult> GetUserLog([FromQuery] GetForm form)
         {
             if (_authService.IsAuthenticate(3, form.Username, form.Password))
             {
@@ -151,13 +153,14 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpPost("activity/{groupName}")]
-        public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityActivityLogInput form)
+        public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityActivityLog form,
+            string username, string password)
         {
-            if (!_authService.IsAuthenticateByEntityName(groupName, form.UserName, form.Password))
+            if (!_authService.IsAuthenticateByEntityName(groupName, username, password))
             {
                 return Unauthorized();
             }
-            
+
             var log = _mapper.Map<EntityActivityLog>(form);
             log.Type = ApiType.ActivityLog;
             log.Timestamp = DateTime.Now;
@@ -204,7 +207,7 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("activity/{groupName}")]
-        public async Task<ActionResult> GetActivityLog(string groupName, [FromBody] GetForm form)
+        public async Task<ActionResult> GetActivityLog(string groupName, [FromQuery] GetForm form)
         {
             if (_authService.IsAuthenticateByEntityName(groupName, form.Username, form.Password))
             {
