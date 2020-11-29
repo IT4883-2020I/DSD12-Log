@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
 
 namespace aspnetcoreapp.Controllers
 {
@@ -118,6 +119,7 @@ namespace aspnetcoreapp.Controllers
                             _dbContext.Set<VideoLog>().Add(_mapper.Map<VideoLog>(entity));
                             break;
                     }
+
                     break;
                 case 5:
                     _dbContext.Set<IncidentLog>().Add(_mapper.Map<IncidentLog>(entity));
@@ -163,112 +165,10 @@ namespace aspnetcoreapp.Controllers
             public string Password { get; set; }
         }
 
-        [HttpGet("{routeName}")]
-        public async Task<ActionResult<List<EntityLogDTO>>> Get(string routeName, [FromBody] GetForm getForm)
+        public struct MinMaxDate
         {
-            _logger.LogInformation(getForm.ToJson());
-            List<EntityLog> entities = new List<EntityLog>();
-            foreach (var routeE in Routes)
-            {
-                if (routeE.R == routeName && routeE.T == ApiType.Get)
-                {
-                    if (_authService.IsAuthenticate(routeE.G, getForm.Username, getForm.Password))
-                    {
-                        switch (routeE.G)
-                        {
-                            case 1:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<DroneLog>().AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 2:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<Payload>().AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 3:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<UserLog>().AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 4:
-                                switch (routeName)
-                                {
-                                    case "image":
-                                        entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ImageLog>()
-                                            .AsNoTracking()
-                                            .ToListAsync());
-                                        break;
-                                    case "video":
-                                        entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<VideoLog>()
-                                            .AsNoTracking()
-                                            .ToListAsync());
-                                        break;
-                                }
-
-                                break;
-                            case 5:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<IncidentLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 6:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ObjectObserve>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 7:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<StaticalLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 8:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<WarningLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 10:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<MonitorRegionLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 11:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<ResolveProblemLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                            case 12:
-                                entities = _mapper.Map<List<EntityLog>>(await _dbContext.Set<UavConnectLog>()
-                                    .AsNoTracking()
-                                    .ToListAsync());
-                                break;
-                        }
-
-                        var result = new List<EntityLogDTO>();
-                        foreach (var entity in entities)
-                        {
-                            if (getForm.MinDate <= entity.Timestamp && entity.Timestamp <= getForm.MaxDate)
-                            {
-                                EntityLogDTO dto = new EntityLogDTO()
-                                {
-                                    EntityId = entity.EntityId,
-                                    Type = entity.Type.GetDescription(),
-                                    Description = entity.Description,
-                                    Name = entity.Name,
-                                    Timestamp = entity.Timestamp.ToShortTimeString() + " " +
-                                                entity.Timestamp.ToShortDateString()
-                                };
-                                result.Add(dto);
-                            }
-                        }
-
-                        return result;
-                    }
-                    else
-                    {
-                        return Unauthorized();
-                    }
-                }
-            }
-
-            return Ok();
+            public DateTime MinDate { get; set; }
+            public DateTime MaxDate { get; set; }
         }
 
         public struct UsernamePassword
@@ -281,7 +181,12 @@ namespace aspnetcoreapp.Controllers
         public async Task<ActionResult> AddAddLog(string routeName, int id, string name, string description,
             [FromBody] UsernamePassword form)
         {
-            foreach (var routeE in Routes.Where(routeE => routeE.R == routeName && routeE.T != ApiType.Edit && routeE.T != ApiType.Delete && routeE.T != ApiType.ActivityLog && routeE.T != ApiType.Get))
+            foreach (var routeE in Routes.Where(routeE =>
+                routeE.R == routeName &&
+                routeE.T != ApiType.Edit &&
+                routeE.T != ApiType.Delete &&
+                routeE.T != ApiType.ActivityLog &&
+                routeE.T != ApiType.Get))
             {
                 if (_authService.IsAuthenticate(routeE.G, form.Username, form.Password))
                 {

@@ -27,6 +27,7 @@ namespace aspnetcoreapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:DefaultConnection"]));
+            // services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:DevelopmentDB"]));
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup));
         }

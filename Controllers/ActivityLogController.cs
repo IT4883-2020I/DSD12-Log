@@ -8,21 +8,18 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace aspnetcoreapp.Controllers
 {
     [Route("api")]
-    public class ActivityLogController : ControllerBase
+    [ApiController]
+    public class ActivityLogController : CustomController
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly AuthenticationService _authService;
-        private readonly IMapper _autoMapper;
-
-        public ActivityLogController(ApplicationDbContext dbContext, IMapper autoMapper, IConfiguration configuration)
+        public ActivityLogController(ILogger<ActivityLogController> logger, ApplicationDbContext dbContext, IMapper mapper,
+            IConfiguration configuration)
+            : base(logger, dbContext, mapper, configuration)
         {
-            _dbContext = dbContext;
-            _authService = new AuthenticationService(configuration);
-            _autoMapper = autoMapper;
         }
 
         public struct GetForm
@@ -41,7 +38,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            var log = _autoMapper.Map<DroneLog>(form);
+            var log = _mapper.Map<DroneLog>(form);
             log.Type = ApiType.ActivityLog;
             log.Timestamp = DateTime.Now;
             _dbContext.DroneLogs.Add(log);
@@ -94,14 +91,13 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpPost("activity/user")]
-        public async Task<ActionResult> PostUserLog([FromBody] UserLogRequest form)
+        public async Task<ActionResult> PostUserLog([FromBody] UserLog log, string username, string password)
         {
-            if (!_authService.IsAuthenticateByEntityName("user", form.Username, form.Password))
+            if (!_authService.IsAuthenticate(UserLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
-
-            var log = _autoMapper.Map<UserLog>(form);
+            
             log.Type = ApiType.ActivityLog;
             log.Timestamp = DateTime.Now;
             _dbContext.UserLog.Add(log);
@@ -155,47 +151,47 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpPost("activity/{groupName}")]
-        public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityStateLogInput form)
+        public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityActivityLogInput form)
         {
             if (!_authService.IsAuthenticateByEntityName(groupName, form.UserName, form.Password))
             {
                 return Unauthorized();
             }
-
-            var log = _autoMapper.Map<EntityStateLog>(form);
+            
+            var log = _mapper.Map<EntityActivityLog>(form);
             log.Type = ApiType.ActivityLog;
             log.Timestamp = DateTime.Now;
             switch (groupName)
             {
                 case "payload":
-                    _dbContext.Payload.Add(_autoMapper.Map<Payload>(log));
+                    _dbContext.Payload.Add(_mapper.Map<Payload>(log));
                     break;
                 case "image-log":
-                    _dbContext.ImageLog.Add(_autoMapper.Map<ImageLog>(log));
+                    _dbContext.ImageLog.Add(_mapper.Map<ImageLog>(log));
                     break;
                 case "video-log":
-                    _dbContext.VideoLog.Add(_autoMapper.Map<VideoLog>(log));
+                    _dbContext.VideoLog.Add(_mapper.Map<VideoLog>(log));
                     break;
                 case "incident":
-                    _dbContext.IncidentLog.Add(_autoMapper.Map<IncidentLog>(log));
+                    _dbContext.IncidentLog.Add(_mapper.Map<IncidentLog>(log));
                     break;
                 case "object-observe":
-                    _dbContext.ObjectObserve.Add(_autoMapper.Map<ObjectObserve>(log));
+                    _dbContext.ObjectObserve.Add(_mapper.Map<ObjectObserve>(log));
                     break;
                 case "statical":
-                    _dbContext.StaticalLog.Add(_autoMapper.Map<StaticalLog>(log));
+                    _dbContext.StaticalLog.Add(_mapper.Map<StaticalLog>(log));
                     break;
                 case "warning":
-                    _dbContext.WarningLog.Add(_autoMapper.Map<WarningLog>(log));
+                    _dbContext.WarningLog.Add(_mapper.Map<WarningLog>(log));
                     break;
                 case "monitor-region":
-                    _dbContext.MonitorRegionLog.Add(_autoMapper.Map<MonitorRegionLog>(log));
+                    _dbContext.MonitorRegionLog.Add(_mapper.Map<MonitorRegionLog>(log));
                     break;
                 case "resolve-problem":
-                    _dbContext.ResolveProblemLog.Add(_autoMapper.Map<ResolveProblemLog>(log));
+                    _dbContext.ResolveProblemLog.Add(_mapper.Map<ResolveProblemLog>(log));
                     break;
                 case "uav-connect":
-                    _dbContext.UavConnectLog.Add(_autoMapper.Map<UavConnectLog>(log));
+                    _dbContext.UavConnectLog.Add(_mapper.Map<UavConnectLog>(log));
                     break;
             }
 
@@ -212,40 +208,23 @@ namespace aspnetcoreapp.Controllers
         {
             if (_authService.IsAuthenticateByEntityName(groupName, form.Username, form.Password))
             {
-                List<EntityStateLog> list = null;
-                switch (groupName)
+                List<EntityActivityLog> list = groupName switch
                 {
-                    case "payload":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.Payload.ToListAsync());
-                        break;
-                    case "image-log":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.ImageLog.ToListAsync());
-                        break;
-                    case "video-log":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.VideoLog.ToListAsync());
-                        break;
-                    case "incident":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.IncidentLog.ToListAsync());
-                        break;
-                    case "object-observe":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.ObjectObserve.ToListAsync());
-                        break;
-                    case "statical":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.StaticalLog.ToListAsync());
-                        break;
-                    case "warning":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.WarningLog.ToListAsync());
-                        break;
-                    case "monitor-region":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.MonitorRegionLog.ToListAsync());
-                        break;
-                    case "resolve-problem":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.ResolveProblemLog.ToListAsync());
-                        break;
-                    case "uav-connect":
-                        list = _autoMapper.Map<List<EntityStateLog>>(await _dbContext.UavConnectLog.ToListAsync());
-                        break;
-                }
+                    "payload" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.Payload.ToListAsync()),
+                    "image-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ImageLog.ToListAsync()),
+                    "video-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.VideoLog.ToListAsync()),
+                    "incident" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.IncidentLog.ToListAsync()),
+                    "object-observe" => _mapper.Map<List<EntityActivityLog>>(
+                        await _dbContext.ObjectObserve.ToListAsync()),
+                    "statical" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.StaticalLog.ToListAsync()),
+                    "warning" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.WarningLog.ToListAsync()),
+                    "monitor-region" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.MonitorRegionLog
+                        .ToListAsync()),
+                    "resolve-problem" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ResolveProblemLog
+                        .ToListAsync()),
+                    "uav-connect" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.UavConnectLog.ToListAsync()),
+                    _ => null
+                };
 
                 if (list != null)
                 {
@@ -254,10 +233,7 @@ namespace aspnetcoreapp.Controllers
                         where log.Timestamp >= form.MinDate
                         where log.Timestamp <= form.MaxDate
                         select log;
-                    var result = new List<EntityStateLogDTO>();
-                    foreach (var log in logs)
-                    {
-                        result.Add(new EntityStateLogDTO
+                    var result = logs.Select(log => new EntityStateLogDTO
                         {
                             EntityId = log.EntityId,
                             Type = log.Type.GetDescription(),
@@ -265,8 +241,8 @@ namespace aspnetcoreapp.Controllers
                             Name = log.Name,
                             Description = log.Description,
                             Timestamp = log.Timestamp.ToShortTimeString() + " " + log.Timestamp.ToShortDateString()
-                        });
-                    }
+                        })
+                        .ToList();
 
                     return Ok(result);
                 }

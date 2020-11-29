@@ -22,17 +22,17 @@ namespace aspnetcoreapp.Helpers
             CreateMap<EntityLog, ResolveProblemLog>().ReverseMap();
             CreateMap<EntityLog, UavConnectLog>().ReverseMap();
 
-            CreateMap<EntityStateLogInput, EntityStateLog>();
-            CreateMap<EntityStateLog, Payload>().ReverseMap();
-            CreateMap<EntityStateLog, ImageLog>().ReverseMap();
-            CreateMap<EntityStateLog, VideoLog>().ReverseMap();
-            CreateMap<EntityStateLog, IncidentLog>().ReverseMap();
-            CreateMap<EntityStateLog, ObjectObserve>().ReverseMap();
-            CreateMap<EntityStateLog, StaticalLog>().ReverseMap();
-            CreateMap<EntityStateLog, WarningLog>().ReverseMap();
-            CreateMap<EntityStateLog, MonitorRegionLog>().ReverseMap();
-            CreateMap<EntityStateLog, ResolveProblemLog>().ReverseMap();
-            CreateMap<EntityStateLog, UavConnectLog>().ReverseMap();
+            CreateMap<EntityActivityLogInput, EntityActivityLog>();
+            CreateMap<EntityActivityLog, Payload>().ReverseMap();
+            CreateMap<EntityActivityLog, ImageLog>().ReverseMap();
+            CreateMap<EntityActivityLog, VideoLog>().ReverseMap();
+            CreateMap<EntityActivityLog, IncidentLog>().ReverseMap();
+            CreateMap<EntityActivityLog, ObjectObserve>().ReverseMap();
+            CreateMap<EntityActivityLog, StaticalLog>().ReverseMap();
+            CreateMap<EntityActivityLog, WarningLog>().ReverseMap();
+            CreateMap<EntityActivityLog, MonitorRegionLog>().ReverseMap();
+            CreateMap<EntityActivityLog, ResolveProblemLog>().ReverseMap();
+            CreateMap<EntityActivityLog, UavConnectLog>().ReverseMap();
 
             CreateMap<DroneLog, ActivityLogController.DroneLogDTO>();
             CreateMap<DroneLogRequest, DroneLog>();

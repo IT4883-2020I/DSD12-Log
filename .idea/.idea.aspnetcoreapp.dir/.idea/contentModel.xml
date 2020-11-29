@@ -13,6 +13,7 @@
         <e p="CustomController.cs" t="Include" />
         <e p="DroneLogController.cs" t="Include" />
         <e p="LogController.cs" t="Include" />
+        <e p="NewLogController.cs" t="Include" />
       </e>
       <e p="ExtensionMethods.cs" t="Include" />
       <e p="Helpers" t="Include">
@@ -43,6 +44,10 @@
         <e p="20201122141303_NewActivityLog.Designer.cs" t="Include" />
         <e p="20201123035921_newUserLog.cs" t="Include" />
         <e p="20201123035921_newUserLog.Designer.cs" t="Include" />
+        <e p="20201129030015_groupID.cs" t="Include" />
+        <e p="20201129030015_groupID.Designer.cs" t="Include" />
+        <e p="20201129030424_groupIDSecond.cs" t="Include" />
+        <e p="20201129030424_groupIDSecond.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

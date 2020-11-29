@@ -15,18 +15,12 @@ namespace aspnetcoreapp.Models
         public DateTime Timestamp { get; set; }
     }
 
-    public class EntityStateLog
+    public class EntityActivityLog : EntityLog
     {
-        public int Id { get; set; }
-        public int EntityId { get; set; }
-        public string Name { get; set; }
         public string State { get; set; }
-        public ApiType Type { get; set; }
-        public string Description { get; set; }
-        public DateTime Timestamp { get; set; }
     }
 
-    public class EntityStateLogInput : EntityStateLog
+    public class EntityActivityLogInput : EntityActivityLog
     {
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -53,6 +47,7 @@ namespace aspnetcoreapp.Models
 
     public class DroneLog : EntityLog
     {
+        public static int GroupId = 1;
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
@@ -64,12 +59,14 @@ namespace aspnetcoreapp.Models
         public string Password { get; set; }
     }
 
-    public class Payload : EntityStateLog
+    public class Payload : EntityActivityLog
     {
+        public static int GroupId = 2;
     }
 
     public class UserLog : EntityLog
     {
+        public static int GroupId = 3;
         public string Role { get; set; }
         public string WorkName { get; set; }
     }
@@ -80,16 +77,19 @@ namespace aspnetcoreapp.Models
         public string Password { get; set; }
     }
 
-    public class ImageLog : EntityStateLog
+    public class ImageLog : EntityActivityLog
     {
+        public static int GroupId = 4;
     }
 
-    public class VideoLog : EntityStateLog
+    public class VideoLog : EntityActivityLog
     {
+        public static int GroupId = 4;
     }
 
-    public class IncidentLog : EntityStateLog
+    public class IncidentLog : EntityActivityLog
     {
+        public static int GroupId = 5;
     }
 
     public class IncidentLogRequest : IncidentLog
@@ -98,32 +98,39 @@ namespace aspnetcoreapp.Models
         public string Password { get; set; }
     }
 
-    public class ObjectObserve : EntityStateLog
+    public class ObjectObserve : EntityActivityLog
     {
+        public static int GroupId = 6;
     }
 
-    public class StaticalLog : EntityStateLog
+    public class StaticalLog : EntityActivityLog
     {
+        public static int GroupId = 7;
     }
 
-    public class WarningLog : EntityStateLog
+    public class WarningLog : EntityActivityLog
     {
+        public static int GroupId = 8;
     }
 
-    public class MonitorRegionLog : EntityStateLog
+    public class MonitorRegionLog : EntityActivityLog
     {
+        public static int GroupId = 10;
     }
 
-    public class ResolveProblemLog : EntityStateLog
+    public class ResolveProblemLog : EntityActivityLog
     {
+        public static int GroupId = 11;
     }
 
-    public class UavConnectLog : EntityStateLog
+    public class UavConnectLog : EntityActivityLog
     {
+        public static int GroupId = 12;
     }
 
     public enum ApiType
     {
+        Empty,
         Get,
         [Description("Add")] Add,
         [Description("Delete")] Delete,
