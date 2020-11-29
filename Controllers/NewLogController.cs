@@ -25,7 +25,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("drones")]
         public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<DroneLog>(DroneLog.GroupId, form, username, password);
+            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, username, password);
 
         [HttpDelete("drones/{id}")]
         [HttpPost("drones/{id}")]
@@ -53,7 +53,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("payload")]
         public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<Payload>(Payload.GroupId, form, username, password);
+            await Get<Payload, PayloadResponse>(Payload.GroupId, form, username, password);
 
         [HttpDelete("payload/{id}")]
         [HttpPost("payload/{id}")]
@@ -72,7 +72,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("user")]
         public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<UserLog>(UserLog.GroupId, form, username, password);
+            await Get<UserLog, UserLogResponse>(UserLog.GroupId, form, username, password);
 
         [HttpDelete("user/{id}")]
         [HttpPost("user/{id}")]
@@ -98,7 +98,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("video")]
         public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<VideoLog>(VideoLog.GroupId, form, username, password);
+            await Get<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, username, password);
 
         [HttpDelete("video/{id}")]
         [HttpPost("video/{id}")]
@@ -117,7 +117,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("image")]
         public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<ImageLog>(ImageLog.GroupId, form, username, password);
+            await Get<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, username, password);
 
         [HttpDelete("image/{id}")]
         [HttpPost("image/{id}")]
@@ -136,7 +136,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("incident")]
         public async Task<ActionResult> GetIncident([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<IncidentLog>(IncidentLog.GroupId, form, username, password);
+            await Get<IncidentLog, IncidentLogResponse>(IncidentLog.GroupId, form, username, password);
 
         [HttpDelete("incident/{id}")]
         [HttpPost("incident/{id}")]
@@ -163,7 +163,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("monitor-object")]
         public async Task<ActionResult>
             GetObjectObserve([FromQuery] MinMaxDate form, string username, string password) =>
-            await Get<ObjectObserve>(ObjectObserve.GroupId, form, username, password);
+            await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, username, password);
 
         [HttpDelete("monitor-object/{id}")]
         [HttpPost("monitor-object/{id}")]
@@ -183,7 +183,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("receive-statistical")]
         public async Task<ActionResult> GetStatical([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<StaticalLog>(StaticalLog.GroupId, form, username, password);
+            await Get<StaticalLog, StaticalLogResponse>(StaticalLog.GroupId, form, username, password);
 
         [HttpPost("statistical-frequence/{id}")]
         [HttpPost("statistical-address/{id}")]
@@ -215,7 +215,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("warning")]
         public async Task<ActionResult> GetWarning([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<WarningLog>(WarningLog.GroupId, form, username, password);
+            await Get<WarningLog, WarningLogResponse>(WarningLog.GroupId, form, username, password);
 
         [HttpDelete("warning/{id}")]
         [HttpPost("warning/{id}")]
@@ -247,7 +247,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("monitor-region")]
         public async Task<ActionResult>
             GetMonitorRegion([FromQuery] MinMaxDate form, string username, string password) =>
-            await Get<MonitorRegionLog>(MonitorRegionLog.GroupId, form, username, password);
+            await Get<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form, username, password);
 
         [HttpDelete("monitor-region/{id}")]
         [HttpPost("monitor-region/{id}")]
@@ -267,7 +267,8 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("resolve-problem")]
         public async Task<ActionResult> GetResolveProblemLog([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<ResolveProblemLog>(ResolveProblemLog.GroupId, form, username, password);
+            await Get<ResolveProblemLog, ResolveProblemLogResponse>(ResolveProblemLog.GroupId, form, username,
+                password);
 
         [HttpDelete("resolve-problem/{id}")]
         [HttpPost("resolve-problem/{id}")]
@@ -295,7 +296,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("uav-connect")]
         public async Task<ActionResult> GetUavConnectLog([FromQuery] MinMaxDate form, string username,
             string password) =>
-            await Get<UavConnectLog>(UavConnectLog.GroupId, form, username, password);
+            await Get<UavConnectLog, UavConnectLogResponse>(UavConnectLog.GroupId, form, username, password);
 
         [HttpDelete("uav-connect/{id}")]
         [HttpPost("uav-connect/{id}")]

@@ -233,7 +233,7 @@ namespace aspnetcoreapp.Controllers
                         where log.Timestamp >= form.MinDate
                         where log.Timestamp <= form.MaxDate
                         select log;
-                    var result = logs.Select(log => new EntityStateLogDTO
+                    var result = logs.Select(log => new EntityActivityLogDTO
                         {
                             EntityId = log.EntityId,
                             Type = log.Type.GetDescription(),

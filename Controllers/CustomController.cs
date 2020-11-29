@@ -82,8 +82,9 @@ namespace aspnetcoreapp.Controllers
             }
         }
 
-        public async Task<ActionResult> Get<TEntity>(int group, MinMaxDate form, string username, string password)
-            where TEntity : EntityLog
+        public async Task<ActionResult> Get<TEntity, TResponse>(int group, MinMaxDate form, string username,
+            string password)
+            where TEntity : EntityLog where TResponse : EntityLogDTO
         {
             _logger.LogInformation(form.ToJson());
             if (_authService.IsAuthenticate(group, username, password))
@@ -94,7 +95,17 @@ namespace aspnetcoreapp.Controllers
                         entity.Type != ApiType.ActivityLog)
                     .AsNoTracking()
                     .ToListAsync();
-                return Ok(list);
+                var result = new List<TResponse>();
+                foreach (var entityLog in list)
+                {
+                    var entityResponseLog = _mapper.Map<TResponse>(entityLog);
+                    entityResponseLog.Type = entityLog.Type.GetDescription();
+                    entityResponseLog.Timestamp =
+                        entityLog.Timestamp.ToShortTimeString() + " " + entityLog.Timestamp.ToShortDateString();
+                    result.Add(entityResponseLog);
+                }
+
+                return Ok(result);
             }
             else
             {

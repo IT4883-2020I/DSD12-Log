@@ -24,9 +24,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/NewLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/NewLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtensionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,24 +43,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2084E29B-1ACE-459A-9486-54EAA090887C/17/HttpRequest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AE4502-6E31-4460-B8F5-5B79438045B8/14/Profile.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/GroupAuthentication.cs" />
-        <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuthenticationController.cs" />
         <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
-        <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
+        <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
         <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
+        <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -147,7 +153,7 @@
       <workItem from="1606442016447" duration="494000" />
       <workItem from="1606616626576" duration="6246000" />
       <workItem from="1606642867523" duration="827000" />
-      <workItem from="1606651683940" duration="1637000" />
+      <workItem from="1606651683940" duration="4860000" />
     </task>
     <servers />
   </component>
@@ -208,9 +214,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="309" y="139" width="661" height="580" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606643465965" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606619831123">
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606657879462">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606619831123" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606657879462" />
   </component>
 </project>

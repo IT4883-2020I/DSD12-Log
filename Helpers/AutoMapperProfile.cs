@@ -38,6 +38,18 @@ namespace aspnetcoreapp.Helpers
             CreateMap<DroneLogRequest, DroneLog>();
             CreateMap<UserLogRequest, UserLog>();
 
+            CreateMap<DroneLog, DroneLogResponse>();
+            CreateMap<Payload, PayloadResponse>();
+            CreateMap<UserLog, UserLogResponse>();
+            CreateMap<ImageLog, ImageLogResponse>();
+            CreateMap<VideoLog, VideoLogResponse>();
+            CreateMap<IncidentLog, IncidentLogResponse>();
+            CreateMap<ObjectObserve, ObjectObserveResponse>();
+            CreateMap<StaticalLog, StaticalLogResponse>();
+            CreateMap<WarningLog, WarningLogResponse>();
+            CreateMap<MonitorRegionLog, MonitorRegionLogResponse>();
+            CreateMap<ResolveProblemLog, ResolveProblemLogResponse>();
+            CreateMap<UavConnectLog, UavConnectLogResponse>();
         }
     }
 }
