@@ -23,8 +23,8 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
                     Type = apiType,
-                    Description = "Drone " + apiType.GetDescription(),
-                    Name = "Drone " + Utility.RandomString(2),
+                    Description = "Image " + apiType.GetDescription(),
+                    Name = "Image " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
@@ -58,8 +58,8 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
                     Type = apiType,
-                    Description = "Drone " + apiType.GetDescription(),
-                    Name = "Drone " + Utility.RandomString(2),
+                    Description = "Video " + apiType.GetDescription(),
+                    Name = "Video " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };

@@ -24,8 +24,8 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
                     Type = apiType,
-                    Description = "Drone " + apiType.GetDescription(),
-                    Name = "Drone " + Utility.RandomString(2),
+                    Description = "MonitorRegion " + apiType.GetDescription(),
+                    Name = "MonitorRegion " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
