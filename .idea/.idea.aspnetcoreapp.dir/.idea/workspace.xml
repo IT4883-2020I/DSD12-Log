@@ -24,7 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,6 @@
         <option value="$PROJECT_DIR$/Models/Statical.cs" />
         <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/ApiType.cs" />
-        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
         <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
         <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
         <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
@@ -71,6 +71,7 @@
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
       </list>
     </option>
   </component>
@@ -172,7 +173,7 @@
       <workItem from="1606746334515" duration="2414000" />
       <workItem from="1606789796994" duration="3822000" />
       <workItem from="1606812399980" duration="1061000" />
-      <workItem from="1606813629938" duration="504000" />
+      <workItem from="1606813629938" duration="1091000" />
     </task>
     <servers />
   </component>
@@ -268,9 +269,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="-1" y="129" width="1269" height="590" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606804199057" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606813060441">
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606829050923">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606813060441" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606829050923" />
   </component>
 </project>

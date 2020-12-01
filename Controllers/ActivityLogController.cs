@@ -118,17 +118,19 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("activity/user")]
         public async Task<ActionResult> GetUserLog([FromQuery] GetForm form)
         {
-            if (_authService.IsAuthenticate(3, form.Username, form.Password))
+            if (_authService.IsAuthenticate(UserLog.GroupId, form.Username, form.Password))
             {
                 return Ok(await _dbContext.UserLog
                     .Where(log => log.Type == ApiType.ActivityLog)
                     .Where(log => log.Timestamp >= form.MinDate)
                     .Where(log => log.Timestamp <= form.MaxDate).Select(log =>
-                        new UserLogDTO
+                        new UserLogResponse()
                         {
-                            EntityId = log.EntityId,
+                            UserId = log.UserId,
                             Type = log.Type.GetDescription(),
+                            TargetId = log.EntityId,
                             Description = log.Description,
+                            Metadata = log.Metadata,
                             Timestamp = log.Timestamp.ToShortTimeString() + " " + log.Timestamp.ToShortDateString(),
                         }
                     )
