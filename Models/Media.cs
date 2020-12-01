@@ -8,6 +8,7 @@ namespace aspnetcoreapp.Models
 
     public class ImageLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 
     public class VideoLog : EntityActivityLog
@@ -18,5 +19,6 @@ namespace aspnetcoreapp.Models
 
     public class VideoLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

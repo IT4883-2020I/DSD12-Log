@@ -53,6 +53,10 @@
         <e p="20201130145237_seeder.Designer.cs" t="Include" />
         <e p="20201130145851_seeder1.cs" t="Include" />
         <e p="20201130145851_seeder1.Designer.cs" t="Include" />
+        <e p="20201201064828_seeder2.cs" t="Include" />
+        <e p="20201201064828_seeder2.Designer.cs" t="Include" />
+        <e p="20201201065354_seeder3.cs" t="Include" />
+        <e p="20201201065354_seeder3.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

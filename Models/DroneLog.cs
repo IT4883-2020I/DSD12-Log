@@ -44,6 +44,7 @@ namespace aspnetcoreapp.Models
 
     public class DroneLogResponse : EntityLogDTO
     {
+        public string Name { get; set; }
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }

@@ -8,5 +8,6 @@ namespace aspnetcoreapp.Models
 
     public class ResolveProblemLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

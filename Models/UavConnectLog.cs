@@ -8,5 +8,6 @@ namespace aspnetcoreapp.Models
 
     public class UavConnectLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

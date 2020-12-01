@@ -9,5 +9,6 @@ namespace aspnetcoreapp.Models
 
     public class MonitorRegionLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

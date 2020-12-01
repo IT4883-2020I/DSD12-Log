@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -81,8 +82,33 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("user")]
         public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<UserLog, UserLogResponse>(UserLog.GroupId, form, username, password);
+            string password)
+        {
+            if (_authService.IsAuthenticate(UserLog.GroupId, username, password))
+            {
+                var list = await _dbContext.Set<UserLog>()
+                    .Where(entity =>
+                        entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate &&
+                        entity.Type != ApiType.ActivityLog)
+                    .AsNoTracking()
+                    .ToListAsync();
+                var result = list.Select(entityLog => new UserLogResponse()
+                    {
+                        TargetId = entityLog.EntityId,
+                        UserId = entityLog.UserId,
+                        Metadata = entityLog.Metadata,
+                        Description = entityLog.Description,
+                        Type = entityLog.Type.GetDescription(),
+                        Timestamp = entityLog.Timestamp.ToShortTimeString() + " " + entityLog.Timestamp.ToShortDateString(),
+                    })
+                    .ToList();
+                return Ok(result);
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
 
 
         [HttpPost("user/{type}")]
@@ -108,9 +134,9 @@ namespace aspnetcoreapp.Controllers
             {
                 var userLog = new UserLog()
                 {
-                    EntityId = form.user_id,
+                    EntityId = form.target_id,
                     Metadata = form.meta_data,
-                    TargetId = form.target_id,
+                    UserId = form.user_id,
                     Description = form.description,
                     Timestamp = DateTime.Now
                 };

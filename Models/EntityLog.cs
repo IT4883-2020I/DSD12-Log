@@ -31,12 +31,16 @@ namespace aspnetcoreapp.Models
         public string State { get; set; }
     }
 
-    public class EntityLogDTO
+    public class EntityLogDTO : TypeAndTimeStamp
     {
         public int EntityId { get; set; }
-        public string Type { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
+        
+    }
+
+    public class TypeAndTimeStamp
+    {
+        public string Type { get; set; }   
         public string Timestamp { get; set; }
     }
 

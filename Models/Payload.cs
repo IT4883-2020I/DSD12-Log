@@ -8,5 +8,6 @@ namespace aspnetcoreapp.Models
 
     public class PayloadResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

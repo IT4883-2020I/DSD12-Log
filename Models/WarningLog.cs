@@ -8,5 +8,6 @@ namespace aspnetcoreapp.Models
 
     public class WarningLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }

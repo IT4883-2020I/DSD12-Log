@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using aspnetcoreapp;
@@ -9,9 +10,10 @@ using aspnetcoreapp;
 namespace aspnetcoreapp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201201064828_seeder2")]
+    partial class seeder2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,59 +100,59 @@ namespace aspnetcoreapp.Migrations
                             EntityLogPrimaryKeyId = 10,
                             Description = "Drone Delete",
                             EntityId = 0,
-                            Latitude = 47,
-                            Longitude = 29,
-                            Name = "Drone CE",
-                            RegionName = "OKLKL",
-                            Timestamp = new DateTime(2020, 12, 1, 5, 14, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 32,
+                            Longitude = 39,
+                            Name = "Drone FI",
+                            RegionName = "EPNXG",
+                            Timestamp = new DateTime(2020, 12, 1, 7, 33, 0, 0, DateTimeKind.Unspecified),
                             Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 11,
-                            Description = "Drone Delete",
+                            Description = "Drone Add",
                             EntityId = 2,
-                            Latitude = 43,
-                            Longitude = 31,
-                            Name = "Drone OF",
-                            RegionName = "ASNPD",
-                            Timestamp = new DateTime(2020, 12, 2, 8, 13, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
+                            Latitude = 37,
+                            Longitude = 19,
+                            Name = "Drone UI",
+                            RegionName = "WUWYA",
+                            Timestamp = new DateTime(2020, 12, 2, 6, 44, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 12,
-                            Description = "Drone Edit",
+                            Description = "Drone Add",
                             EntityId = 4,
-                            Latitude = 19,
-                            Longitude = 37,
-                            Name = "Drone OO",
-                            RegionName = "UACJK",
-                            Timestamp = new DateTime(2020, 12, 2, 1, 33, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 25,
+                            Longitude = 39,
+                            Name = "Drone OM",
+                            RegionName = "KFDKW",
+                            Timestamp = new DateTime(2020, 12, 2, 15, 19, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 13,
-                            Description = "Drone Add",
+                            Description = "Drone Edit",
                             EntityId = 6,
-                            Latitude = 27,
-                            Longitude = 32,
-                            Name = "Drone AP",
-                            RegionName = "VTLRJ",
-                            Timestamp = new DateTime(2020, 12, 1, 5, 40, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 33,
+                            Longitude = 24,
+                            Name = "Drone VD",
+                            RegionName = "VQMSC",
+                            Timestamp = new DateTime(2020, 12, 1, 17, 13, 0, 0, DateTimeKind.Unspecified),
+                            Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 14,
                             Description = "Drone Edit",
                             EntityId = 8,
-                            Latitude = 44,
-                            Longitude = 37,
-                            Name = "Drone NL",
-                            RegionName = "KWKYF",
-                            Timestamp = new DateTime(2020, 12, 1, 7, 32, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 40,
+                            Longitude = 22,
+                            Name = "Drone IC",
+                            RegionName = "BKHIZ",
+                            Timestamp = new DateTime(2020, 12, 1, 12, 36, 0, 0, DateTimeKind.Unspecified),
                             Type = 4
                         },
                         new
@@ -158,47 +160,47 @@ namespace aspnetcoreapp.Migrations
                             EntityLogPrimaryKeyId = 15,
                             Description = "Drone Add",
                             EntityId = 10,
-                            Latitude = 43,
-                            Longitude = 21,
-                            Name = "Drone GC",
-                            RegionName = "RKETV",
-                            Timestamp = new DateTime(2020, 12, 1, 4, 15, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 44,
+                            Longitude = 33,
+                            Name = "Drone TC",
+                            RegionName = "SYUAX",
+                            Timestamp = new DateTime(2020, 12, 1, 9, 36, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 16,
-                            Description = "Drone Edit",
+                            Description = "Drone Delete",
                             EntityId = 12,
-                            Latitude = 22,
-                            Longitude = 48,
-                            Name = "Drone QB",
-                            RegionName = "PJFAU",
-                            Timestamp = new DateTime(2020, 12, 2, 12, 3, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 23,
+                            Longitude = 34,
+                            Name = "Drone XQ",
+                            RegionName = "HWGSK",
+                            Timestamp = new DateTime(2020, 12, 1, 14, 12, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 17,
-                            Description = "Drone Edit",
+                            Description = "Drone Delete",
                             EntityId = 14,
-                            Latitude = 40,
-                            Longitude = 25,
-                            Name = "Drone MB",
-                            RegionName = "VLPRQ",
-                            Timestamp = new DateTime(2020, 12, 2, 14, 5, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 36,
+                            Longitude = 42,
+                            Name = "Drone PY",
+                            RegionName = "DWBQS",
+                            Timestamp = new DateTime(2020, 12, 1, 5, 35, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 18,
                             Description = "Drone Add",
                             EntityId = 16,
-                            Latitude = 10,
-                            Longitude = 35,
-                            Name = "Drone GM",
-                            RegionName = "COEHD",
-                            Timestamp = new DateTime(2020, 12, 1, 8, 21, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 38,
+                            Longitude = 17,
+                            Name = "Drone AD",
+                            RegionName = "RWXPN",
+                            Timestamp = new DateTime(2020, 12, 2, 14, 31, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
@@ -206,299 +208,299 @@ namespace aspnetcoreapp.Migrations
                             EntityLogPrimaryKeyId = 19,
                             Description = "Drone Add",
                             EntityId = 18,
-                            Latitude = 27,
-                            Longitude = 38,
-                            Name = "Drone UF",
-                            RegionName = "OARZK",
-                            Timestamp = new DateTime(2020, 12, 1, 4, 46, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 17,
+                            Longitude = 23,
+                            Name = "Drone MT",
+                            RegionName = "CCRXT",
+                            Timestamp = new DateTime(2020, 12, 2, 15, 36, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 20,
-                            Description = "Drone Delete",
+                            Description = "Drone Add",
                             EntityId = 20,
-                            Latitude = 31,
-                            Longitude = 35,
-                            Name = "Drone PE",
-                            RegionName = "QMCZV",
-                            Timestamp = new DateTime(2020, 12, 1, 15, 14, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
+                            Latitude = 41,
+                            Longitude = 25,
+                            Name = "Drone LP",
+                            RegionName = "OCLGP",
+                            Timestamp = new DateTime(2020, 12, 2, 1, 9, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 21,
-                            Description = "Drone Edit",
+                            Description = "Drone Add",
                             EntityId = 22,
                             Latitude = 19,
-                            Longitude = 26,
-                            Name = "Drone TL",
-                            RegionName = "VKDUY",
-                            Timestamp = new DateTime(2020, 12, 2, 11, 21, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Longitude = 23,
+                            Name = "Drone MH",
+                            RegionName = "UQFCG",
+                            Timestamp = new DateTime(2020, 12, 1, 12, 44, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 22,
                             Description = "Drone Add",
                             EntityId = 24,
-                            Latitude = 32,
-                            Longitude = 42,
-                            Name = "Drone VV",
-                            RegionName = "IDRGB",
-                            Timestamp = new DateTime(2020, 12, 2, 3, 21, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 13,
+                            Longitude = 16,
+                            Name = "Drone MX",
+                            RegionName = "AUIBW",
+                            Timestamp = new DateTime(2020, 12, 1, 11, 1, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 23,
-                            Description = "Drone Delete",
-                            EntityId = 26,
-                            Latitude = 20,
-                            Longitude = 46,
-                            Name = "Drone BO",
-                            RegionName = "WYLUY",
-                            Timestamp = new DateTime(2020, 12, 2, 17, 18, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
-                        },
-                        new
-                        {
-                            EntityLogPrimaryKeyId = 24,
                             Description = "Drone Add",
-                            EntityId = 28,
-                            Latitude = 12,
-                            Longitude = 18,
-                            Name = "Drone BF",
-                            RegionName = "FAAEK",
-                            Timestamp = new DateTime(2020, 12, 1, 3, 2, 0, 0, DateTimeKind.Unspecified),
+                            EntityId = 26,
+                            Latitude = 40,
+                            Longitude = 26,
+                            Name = "Drone SX",
+                            RegionName = "TEPHF",
+                            Timestamp = new DateTime(2020, 12, 1, 11, 2, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
-                            EntityLogPrimaryKeyId = 25,
+                            EntityLogPrimaryKeyId = 24,
                             Description = "Drone Delete",
-                            EntityId = 30,
-                            Latitude = 18,
-                            Longitude = 20,
-                            Name = "Drone RI",
-                            RegionName = "KKLTC",
-                            Timestamp = new DateTime(2020, 12, 2, 17, 31, 0, 0, DateTimeKind.Unspecified),
+                            EntityId = 28,
+                            Latitude = 40,
+                            Longitude = 27,
+                            Name = "Drone SL",
+                            RegionName = "CZCQE",
+                            Timestamp = new DateTime(2020, 12, 2, 5, 30, 0, 0, DateTimeKind.Unspecified),
                             Type = 3
                         },
                         new
                         {
+                            EntityLogPrimaryKeyId = 25,
+                            Description = "Drone Add",
+                            EntityId = 30,
+                            Latitude = 32,
+                            Longitude = 29,
+                            Name = "Drone AV",
+                            RegionName = "HTUWU",
+                            Timestamp = new DateTime(2020, 12, 2, 1, 49, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
+                        },
+                        new
+                        {
                             EntityLogPrimaryKeyId = 26,
-                            Description = "Drone Edit",
+                            Description = "Drone Delete",
                             EntityId = 32,
-                            Latitude = 14,
-                            Longitude = 10,
-                            Name = "Drone ZM",
-                            RegionName = "OMQHD",
-                            Timestamp = new DateTime(2020, 12, 2, 5, 43, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 30,
+                            Longitude = 35,
+                            Name = "Drone SF",
+                            RegionName = "VOWZD",
+                            Timestamp = new DateTime(2020, 12, 2, 13, 27, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 27,
-                            Description = "Drone Edit",
+                            Description = "Drone Add",
                             EntityId = 34,
-                            Latitude = 37,
-                            Longitude = 21,
-                            Name = "Drone JV",
-                            RegionName = "QTDWE",
-                            Timestamp = new DateTime(2020, 12, 2, 7, 26, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 48,
+                            Longitude = 14,
+                            Name = "Drone HZ",
+                            RegionName = "FENKV",
+                            Timestamp = new DateTime(2020, 12, 1, 11, 22, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 28,
-                            Description = "Drone Edit",
+                            Description = "Drone Add",
                             EntityId = 36,
-                            Latitude = 24,
-                            Longitude = 43,
-                            Name = "Drone HT",
-                            RegionName = "VCPYS",
-                            Timestamp = new DateTime(2020, 12, 1, 7, 43, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 23,
+                            Longitude = 37,
+                            Name = "Drone QZ",
+                            RegionName = "TOAHK",
+                            Timestamp = new DateTime(2020, 12, 2, 7, 23, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 29,
                             Description = "Drone Add",
                             EntityId = 38,
-                            Latitude = 18,
-                            Longitude = 41,
-                            Name = "Drone BG",
-                            RegionName = "XDWRJ",
-                            Timestamp = new DateTime(2020, 12, 1, 17, 43, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 32,
+                            Longitude = 15,
+                            Name = "Drone AM",
+                            RegionName = "IBTDR",
+                            Timestamp = new DateTime(2020, 12, 1, 14, 27, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 30,
-                            Description = "Drone Add",
+                            Description = "Drone Edit",
                             EntityId = 40,
-                            Latitude = 30,
-                            Longitude = 25,
-                            Name = "Drone HX",
-                            RegionName = "QPFLK",
-                            Timestamp = new DateTime(2020, 12, 1, 15, 33, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 40,
+                            Longitude = 27,
+                            Name = "Drone YN",
+                            RegionName = "IZMQW",
+                            Timestamp = new DateTime(2020, 12, 1, 14, 47, 0, 0, DateTimeKind.Unspecified),
+                            Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 31,
-                            Description = "Drone Add",
+                            Description = "Drone Delete",
                             EntityId = 42,
-                            Latitude = 23,
-                            Longitude = 42,
-                            Name = "Drone JI",
-                            RegionName = "NENRY",
-                            Timestamp = new DateTime(2020, 12, 1, 15, 11, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 24,
+                            Longitude = 39,
+                            Name = "Drone AK",
+                            RegionName = "TALZF",
+                            Timestamp = new DateTime(2020, 12, 2, 8, 20, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 32,
-                            Description = "Drone Add",
+                            Description = "Drone Edit",
                             EntityId = 44,
-                            Latitude = 48,
-                            Longitude = 31,
-                            Name = "Drone KD",
-                            RegionName = "PRXAC",
-                            Timestamp = new DateTime(2020, 12, 2, 17, 10, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 40,
+                            Longitude = 40,
+                            Name = "Drone OF",
+                            RegionName = "UTDFA",
+                            Timestamp = new DateTime(2020, 12, 1, 12, 16, 0, 0, DateTimeKind.Unspecified),
+                            Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 33,
                             Description = "Drone Add",
                             EntityId = 46,
-                            Latitude = 31,
-                            Longitude = 48,
-                            Name = "Drone VM",
-                            RegionName = "SJJZC",
-                            Timestamp = new DateTime(2020, 12, 1, 5, 16, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 28,
+                            Longitude = 14,
+                            Name = "Drone CJ",
+                            RegionName = "POQBY",
+                            Timestamp = new DateTime(2020, 12, 1, 2, 25, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 34,
-                            Description = "Drone Delete",
+                            Description = "Drone Add",
                             EntityId = 48,
-                            Latitude = 48,
-                            Longitude = 39,
-                            Name = "Drone JJ",
-                            RegionName = "MYGOD",
-                            Timestamp = new DateTime(2020, 12, 1, 9, 33, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
+                            Latitude = 36,
+                            Longitude = 42,
+                            Name = "Drone IF",
+                            RegionName = "RUCWV",
+                            Timestamp = new DateTime(2020, 12, 1, 3, 4, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 35,
-                            Description = "Drone Delete",
-                            EntityId = 50,
-                            Latitude = 18,
-                            Longitude = 10,
-                            Name = "Drone CI",
-                            RegionName = "EJKNT",
-                            Timestamp = new DateTime(2020, 12, 2, 5, 34, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
-                        },
-                        new
-                        {
-                            EntityLogPrimaryKeyId = 36,
-                            Description = "Drone Delete",
-                            EntityId = 52,
-                            Latitude = 27,
-                            Longitude = 42,
-                            Name = "Drone FC",
-                            RegionName = "VWBRE",
-                            Timestamp = new DateTime(2020, 12, 2, 2, 21, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
-                        },
-                        new
-                        {
-                            EntityLogPrimaryKeyId = 37,
-                            Description = "Drone Add",
-                            EntityId = 54,
-                            Latitude = 39,
-                            Longitude = 45,
-                            Name = "Drone YD",
-                            RegionName = "MYTBX",
-                            Timestamp = new DateTime(2020, 12, 2, 11, 17, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
-                        },
-                        new
-                        {
-                            EntityLogPrimaryKeyId = 38,
                             Description = "Drone Edit",
-                            EntityId = 56,
-                            Latitude = 45,
-                            Longitude = 33,
-                            Name = "Drone TW",
-                            RegionName = "SYEZC",
-                            Timestamp = new DateTime(2020, 12, 1, 3, 9, 0, 0, DateTimeKind.Unspecified),
+                            EntityId = 50,
+                            Latitude = 13,
+                            Longitude = 14,
+                            Name = "Drone ZD",
+                            RegionName = "BROJF",
+                            Timestamp = new DateTime(2020, 12, 2, 14, 13, 0, 0, DateTimeKind.Unspecified),
                             Type = 4
                         },
                         new
                         {
-                            EntityLogPrimaryKeyId = 39,
+                            EntityLogPrimaryKeyId = 36,
                             Description = "Drone Add",
-                            EntityId = 58,
-                            Latitude = 42,
-                            Longitude = 31,
-                            Name = "Drone PN",
-                            RegionName = "IJWSZ",
-                            Timestamp = new DateTime(2020, 12, 1, 4, 44, 0, 0, DateTimeKind.Unspecified),
+                            EntityId = 52,
+                            Latitude = 27,
+                            Longitude = 20,
+                            Name = "Drone HS",
+                            RegionName = "QUJYW",
+                            Timestamp = new DateTime(2020, 12, 2, 9, 22, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
+                        },
+                        new
+                        {
+                            EntityLogPrimaryKeyId = 37,
+                            Description = "Drone Edit",
+                            EntityId = 54,
+                            Latitude = 13,
+                            Longitude = 46,
+                            Name = "Drone LK",
+                            RegionName = "UIAHH",
+                            Timestamp = new DateTime(2020, 12, 2, 14, 38, 0, 0, DateTimeKind.Unspecified),
+                            Type = 4
+                        },
+                        new
+                        {
+                            EntityLogPrimaryKeyId = 38,
+                            Description = "Drone Delete",
+                            EntityId = 56,
+                            Latitude = 18,
+                            Longitude = 36,
+                            Name = "Drone OD",
+                            RegionName = "QGHKX",
+                            Timestamp = new DateTime(2020, 12, 2, 4, 5, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
+                        },
+                        new
+                        {
+                            EntityLogPrimaryKeyId = 39,
+                            Description = "Drone Delete",
+                            EntityId = 58,
+                            Latitude = 32,
+                            Longitude = 22,
+                            Name = "Drone VY",
+                            RegionName = "NIDIZ",
+                            Timestamp = new DateTime(2020, 12, 2, 2, 35, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 40,
                             Description = "Drone Delete",
                             EntityId = 60,
-                            Latitude = 19,
-                            Longitude = 22,
-                            Name = "Drone UK",
-                            RegionName = "AVEGU",
-                            Timestamp = new DateTime(2020, 12, 2, 12, 17, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 27,
+                            Longitude = 38,
+                            Name = "Drone LI",
+                            RegionName = "LILET",
+                            Timestamp = new DateTime(2020, 12, 1, 5, 4, 0, 0, DateTimeKind.Unspecified),
                             Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 41,
-                            Description = "Drone Add",
+                            Description = "Drone Delete",
                             EntityId = 62,
-                            Latitude = 41,
-                            Longitude = 26,
-                            Name = "Drone HR",
-                            RegionName = "VACFQ",
-                            Timestamp = new DateTime(2020, 12, 2, 4, 35, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 48,
+                            Longitude = 47,
+                            Name = "Drone XM",
+                            RegionName = "CIBMH",
+                            Timestamp = new DateTime(2020, 12, 1, 13, 15, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 42,
-                            Description = "Drone Add",
+                            Description = "Drone Delete",
                             EntityId = 64,
-                            Latitude = 22,
-                            Longitude = 48,
-                            Name = "Drone IL",
-                            RegionName = "GSVVX",
-                            Timestamp = new DateTime(2020, 12, 2, 3, 1, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 19,
+                            Longitude = 44,
+                            Name = "Drone TK",
+                            RegionName = "GYTYS",
+                            Timestamp = new DateTime(2020, 12, 2, 4, 16, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 43,
                             Description = "Drone Add",
                             EntityId = 66,
-                            Latitude = 16,
-                            Longitude = 32,
-                            Name = "Drone KG",
-                            RegionName = "ZVJVJ",
-                            Timestamp = new DateTime(2020, 12, 2, 10, 37, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 29,
+                            Longitude = 11,
+                            Name = "Drone JU",
+                            RegionName = "QXKND",
+                            Timestamp = new DateTime(2020, 12, 2, 5, 44, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
                         },
                         new
@@ -506,72 +508,72 @@ namespace aspnetcoreapp.Migrations
                             EntityLogPrimaryKeyId = 44,
                             Description = "Drone Edit",
                             EntityId = 68,
-                            Latitude = 35,
-                            Longitude = 48,
-                            Name = "Drone WX",
-                            RegionName = "LCBBU",
-                            Timestamp = new DateTime(2020, 12, 2, 17, 29, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 31,
+                            Longitude = 30,
+                            Name = "Drone GW",
+                            RegionName = "JLWZZ",
+                            Timestamp = new DateTime(2020, 12, 2, 6, 21, 0, 0, DateTimeKind.Unspecified),
                             Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 45,
-                            Description = "Drone Edit",
+                            Description = "Drone Add",
                             EntityId = 70,
-                            Latitude = 25,
-                            Longitude = 31,
-                            Name = "Drone RP",
-                            RegionName = "OXECR",
-                            Timestamp = new DateTime(2020, 12, 1, 6, 39, 0, 0, DateTimeKind.Unspecified),
-                            Type = 4
+                            Latitude = 49,
+                            Longitude = 44,
+                            Name = "Drone RD",
+                            RegionName = "XWHPN",
+                            Timestamp = new DateTime(2020, 12, 1, 2, 43, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 46,
-                            Description = "Drone Add",
+                            Description = "Drone Delete",
                             EntityId = 72,
-                            Latitude = 37,
-                            Longitude = 14,
-                            Name = "Drone ST",
-                            RegionName = "RQMGU",
-                            Timestamp = new DateTime(2020, 12, 2, 7, 43, 0, 0, DateTimeKind.Unspecified),
-                            Type = 2
+                            Latitude = 40,
+                            Longitude = 44,
+                            Name = "Drone ZX",
+                            RegionName = "VMCAC",
+                            Timestamp = new DateTime(2020, 12, 1, 2, 34, 0, 0, DateTimeKind.Unspecified),
+                            Type = 3
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 47,
                             Description = "Drone Edit",
                             EntityId = 74,
-                            Latitude = 14,
-                            Longitude = 43,
-                            Name = "Drone PY",
-                            RegionName = "JCHZL",
-                            Timestamp = new DateTime(2020, 12, 1, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            Latitude = 39,
+                            Longitude = 18,
+                            Name = "Drone VH",
+                            RegionName = "XJNWB",
+                            Timestamp = new DateTime(2020, 12, 2, 8, 49, 0, 0, DateTimeKind.Unspecified),
                             Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 48,
-                            Description = "Drone Delete",
+                            Description = "Drone Edit",
                             EntityId = 76,
-                            Latitude = 22,
-                            Longitude = 12,
-                            Name = "Drone PL",
-                            RegionName = "TFTOG",
-                            Timestamp = new DateTime(2020, 12, 2, 16, 28, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
+                            Latitude = 15,
+                            Longitude = 48,
+                            Name = "Drone NQ",
+                            RegionName = "NCDWB",
+                            Timestamp = new DateTime(2020, 12, 1, 9, 40, 0, 0, DateTimeKind.Unspecified),
+                            Type = 4
                         },
                         new
                         {
                             EntityLogPrimaryKeyId = 49,
-                            Description = "Drone Delete",
+                            Description = "Drone Add",
                             EntityId = 78,
-                            Latitude = 46,
-                            Longitude = 48,
-                            Name = "Drone JK",
-                            RegionName = "VXHZE",
-                            Timestamp = new DateTime(2020, 12, 2, 3, 43, 0, 0, DateTimeKind.Unspecified),
-                            Type = 3
+                            Latitude = 23,
+                            Longitude = 39,
+                            Name = "Drone VO",
+                            RegionName = "BNBVL",
+                            Timestamp = new DateTime(2020, 12, 1, 16, 43, 0, 0, DateTimeKind.Unspecified),
+                            Type = 2
                         });
                 });
 
@@ -831,13 +833,13 @@ namespace aspnetcoreapp.Migrations
                     b.Property<string>("Metadata")
                         .HasColumnType("text");
 
+                    b.Property<int>("TargetId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Type")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("EntityLogPrimaryKeyId");

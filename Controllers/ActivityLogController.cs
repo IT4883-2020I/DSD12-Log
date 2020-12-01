@@ -127,12 +127,9 @@ namespace aspnetcoreapp.Controllers
                         new UserLogDTO
                         {
                             EntityId = log.EntityId,
-                            Name = log.Name,
                             Type = log.Type.GetDescription(),
                             Description = log.Description,
                             Timestamp = log.Timestamp.ToShortTimeString() + " " + log.Timestamp.ToShortDateString(),
-                            Role = log.Role,
-                            WorkName = log.WorkName
                         }
                     )
                     .AsNoTracking()
@@ -229,7 +226,6 @@ namespace aspnetcoreapp.Controllers
                             EntityId = log.EntityId,
                             Type = log.Type.GetDescription(),
                             State = log.State,
-                            Name = log.Name,
                             Description = log.Description,
                             Timestamp = log.Timestamp.ToShortTimeString() + " " + log.Timestamp.ToShortDateString()
                         })

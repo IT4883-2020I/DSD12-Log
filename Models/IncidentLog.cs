@@ -9,5 +9,6 @@ namespace aspnetcoreapp.Models
 
     public class IncidentLogResponse : EntityActivityLogDTO
     {
+        public string Name { get; set; }
     }
 }
