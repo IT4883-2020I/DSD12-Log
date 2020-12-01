@@ -7,10 +7,10 @@ namespace aspnetcoreapp.Helpers
     public static class Utility
     {
         public static Random Random = new Random();
-        
+
         public static ApiType GetRandomApiType()
         {
-            var rand  = Random.Next(0,3);
+            var rand = Random.Next(0, 3);
             var apiType = new ApiType[]
             {
                 ApiType.Add,
@@ -20,25 +20,26 @@ namespace aspnetcoreapp.Helpers
             };
             return apiType[rand];
         }
-        
-        public static string RandomString(int size, bool lowerCase = false)  
-        {  
+
+        public static string RandomString(int size, bool lowerCase = false)
+        {
             var builder = new StringBuilder(size);
-            var offset = lowerCase ? 'a' : 'A';  
+            var offset = lowerCase ? 'a' : 'A';
             const int lettersOffset = 26; // A...Z or a..z: length=26  
-  
-            for (var i = 0; i < size; i++)  
-            {  
-                var @char = (char)Random.Next(offset, offset + lettersOffset);  
-                builder.Append(@char);  
-            }  
-  
-            return lowerCase ? builder.ToString().ToLower() : builder.ToString();  
+
+            for (var i = 0; i < size; i++)
+            {
+                var @char = (char) Random.Next(offset, offset + lettersOffset);
+                builder.Append(@char);
+            }
+
+            return lowerCase ? builder.ToString().ToLower() : builder.ToString();
         }
 
-        public static ApiType GetTypeFromString(string s)
+        public static ApiType GetTypeFromUrl(string url)
         {
-            return s switch
+            var splits = url.Split('/');
+            return splits[^1] switch
             {
                 "add" => ApiType.Add,
                 "delete" => ApiType.Delete,

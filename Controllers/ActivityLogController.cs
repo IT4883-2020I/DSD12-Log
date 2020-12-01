@@ -31,21 +31,21 @@ namespace aspnetcoreapp.Controllers
             public string Password { get; set; }
         }
 
-        [HttpPost("activity/drone")]
-        public async Task<ActionResult> PostDroneLog([FromBody] DroneLog form, string username, string password)
-        {
-            if (!_authService.IsAuthenticateByEntityName("drone", username, password))
-            {
-                return Unauthorized();
-            }
-
-            var log = _mapper.Map<DroneLog>(form);
-            log.Type = ApiType.ActivityLog;
-            log.Timestamp = DateTime.Now;
-            _dbContext.DroneLogs.Add(log);
-            await _dbContext.SaveChangesAsync();
-            return Ok(form);
-        }
+        // [HttpPost("activity/drone")]
+        // public async Task<ActionResult> PostDroneLog([FromBody] DroneLog form, string username, string password)
+        // {
+        //     if (!_authService.IsAuthenticateByEntityName("drone", username, password))
+        //     {
+        //         return Unauthorized();
+        //     }
+        //
+        //     var log = _mapper.Map<DroneLog>(form);
+        //     log.Type = ApiType.ActivityLog;
+        //     log.Timestamp = DateTime.Now;
+        //     _dbContext.DroneLogs.Add(log);
+        //     await _dbContext.SaveChangesAsync();
+        //     return Ok(form);
+        // }
 
         public class DroneLogDTO
         {
@@ -88,33 +88,6 @@ namespace aspnetcoreapp.Controllers
             }
         }
 
-        [HttpPost("activity/user")]
-        public async Task<ActionResult> PostUserLog([FromBody] UserLog log, string username, string password)
-        {
-            if (!_authService.IsAuthenticate(UserLog.GroupId, username, password))
-            {
-                return Unauthorized();
-            }
-
-            log.Type = ApiType.ActivityLog;
-            log.Timestamp = DateTime.Now;
-            _dbContext.UserLog.Add(log);
-            await _dbContext.SaveChangesAsync();
-            return Ok(log);
-        }
-
-
-        public class UserLogDTO
-        {
-            public int EntityId { get; set; }
-            public string Name { get; set; }
-            public string Type { get; set; }
-            public string Description { get; set; }
-            public string Timestamp { get; set; }
-            public string Role { get; set; }
-            public string WorkName { get; set; }
-        }
-
         [HttpGet("activity/user")]
         public async Task<ActionResult> GetUserLog([FromQuery] GetForm form)
         {
@@ -143,59 +116,71 @@ namespace aspnetcoreapp.Controllers
             }
         }
 
-        [HttpPost("activity/{groupName}")]
-        public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityActivityLog form,
-            string username, string password)
+        // [HttpPost("activity/{groupName}")]
+        // public async Task<ActionResult> PostActivityLog(string groupName, [FromBody] EntityActivityLog form,
+        //     string username, string password)
+        // {
+        //     if (!_authService.IsAuthenticateByEntityName(groupName, username, password))
+        //     {
+        //         return Unauthorized();
+        //     }
+        //
+        //     var log = _mapper.Map<EntityActivityLog>(form);
+        //     log.Type = ApiType.ActivityLog;
+        //     log.Timestamp = DateTime.Now;
+        //     switch (groupName)
+        //     {
+        //         case "payload":
+        //             _dbContext.Payloads.Add(_mapper.Map<Payload>(log));
+        //             break;
+        //         case "image-log":
+        //             _dbContext.ImageLogs.Add(_mapper.Map<ImageLog>(log));
+        //             break;
+        //         case "video-log":
+        //             _dbContext.VideoLogs.Add(_mapper.Map<VideoLog>(log));
+        //             break;
+        //         case "incident":
+        //             _dbContext.IncidentLogs.Add(_mapper.Map<IncidentLog>(log));
+        //             break;
+        //         case "object-observe":
+        //             _dbContext.ObjectObserves.Add(_mapper.Map<ObjectObserve>(log));
+        //             break;
+        //         case "statical":
+        //             _dbContext.StaticalLogs.Add(_mapper.Map<StaticalLog>(log));
+        //             break;
+        //         case "warning":
+        //             _dbContext.WarningLogs.Add(_mapper.Map<WarningLog>(log));
+        //             break;
+        //         case "monitor-region":
+        //             _dbContext.MonitorRegionLogs.Add(_mapper.Map<MonitorRegionLog>(log));
+        //             break;
+        //         case "resolve-problem":
+        //             _dbContext.ResolveProblemLogs.Add(_mapper.Map<ResolveProblemLog>(log));
+        //             break;
+        //         case "uav-connect":
+        //             _dbContext.UavConnectLogs.Add(_mapper.Map<UavConnectLog>(log));
+        //             break;
+        //     }
+        //
+        //     await _dbContext.SaveChangesAsync();
+        //     return Ok(form);
+        // }
+
+        
+        [HttpGet("activity/payload")]
+        [HttpGet("activity/image-log")]
+        [HttpGet("activity/video-log")]
+        [HttpGet("activity/incident")]
+        [HttpGet("activity/object-observe")]
+        [HttpGet("activity/statical")]
+        [HttpGet("activity/warning")]
+        [HttpGet("activity/monitor-region")]
+        [HttpGet("activity/resolve-problem")]
+        [HttpGet("activity/uav-connect")]
+
+        public async Task<ActionResult> GetActivityLog([FromQuery] GetForm form)
         {
-            if (!_authService.IsAuthenticateByEntityName(groupName, username, password))
-            {
-                return Unauthorized();
-            }
-
-            var log = _mapper.Map<EntityActivityLog>(form);
-            log.Type = ApiType.ActivityLog;
-            log.Timestamp = DateTime.Now;
-            switch (groupName)
-            {
-                case "payload":
-                    _dbContext.Payloads.Add(_mapper.Map<Payload>(log));
-                    break;
-                case "image-log":
-                    _dbContext.ImageLogs.Add(_mapper.Map<ImageLog>(log));
-                    break;
-                case "video-log":
-                    _dbContext.VideoLogs.Add(_mapper.Map<VideoLog>(log));
-                    break;
-                case "incident":
-                    _dbContext.IncidentLogs.Add(_mapper.Map<IncidentLog>(log));
-                    break;
-                case "object-observe":
-                    _dbContext.ObjectObserves.Add(_mapper.Map<ObjectObserve>(log));
-                    break;
-                case "statical":
-                    _dbContext.StaticalLogs.Add(_mapper.Map<StaticalLog>(log));
-                    break;
-                case "warning":
-                    _dbContext.WarningLogs.Add(_mapper.Map<WarningLog>(log));
-                    break;
-                case "monitor-region":
-                    _dbContext.MonitorRegionLogs.Add(_mapper.Map<MonitorRegionLog>(log));
-                    break;
-                case "resolve-problem":
-                    _dbContext.ResolveProblemLogs.Add(_mapper.Map<ResolveProblemLog>(log));
-                    break;
-                case "uav-connect":
-                    _dbContext.UavConnectLogs.Add(_mapper.Map<UavConnectLog>(log));
-                    break;
-            }
-
-            await _dbContext.SaveChangesAsync();
-            return Ok(form);
-        }
-
-        [HttpGet("activity/{groupName}")]
-        public async Task<ActionResult> GetActivityLog(string groupName, [FromQuery] GetForm form)
-        {
+            var groupName = Request.Path.Value.Split('/')[^1];
             if (_authService.IsAuthenticateByEntityName(groupName, form.Username, form.Password))
             {
                 List<EntityActivityLog> list = groupName switch

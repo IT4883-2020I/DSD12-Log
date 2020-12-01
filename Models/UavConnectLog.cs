@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 12;
         public string Name { get; set; }
-        
+
         public static UavConnectLog[] GetSeederData()
         {
             var droneSeeder = new List<UavConnectLog>();
@@ -39,5 +39,9 @@ namespace aspnetcoreapp.Models
     public class UavConnectLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+    }
+
+    public class UavConnectRequest : CommonRequest
+    {
     }
 }

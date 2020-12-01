@@ -18,8 +18,7 @@ namespace aspnetcoreapp
                 new Book {Id = 1, Name = "Dev", Price = 10, Quantity = 20},
                 new Book {Id = 2, Name = "Banana", Price = 5, Quantity = 10}
             };
-            modelBuilder.Entity<Book>()
-                .HasData(books);
+            modelBuilder.Entity<Book>().HasData(books);
             modelBuilder.Entity<DroneLog>().HasData(DroneLog.GetSeederData());
             modelBuilder.Entity<Payload>().HasData(Payload.GetSeederData());
             modelBuilder.Entity<ImageLog>().HasData(ImageLog.GetSeederData());
@@ -46,6 +45,5 @@ namespace aspnetcoreapp
         public DbSet<MonitorRegionLog> MonitorRegionLogs { get; set; }
         public DbSet<ResolveProblemLog> ResolveProblemLogs { get; set; }
         public DbSet<UavConnectLog> UavConnectLogs { get; set; }
-
     }
 }

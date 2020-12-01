@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Microsoft.OpenApi.Models;
 
 namespace aspnetcoreapp
 {
@@ -26,9 +27,10 @@ namespace aspnetcoreapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(Configuration["ConnectionStrings:DefaultConnection"]));
+                options.UseNpgsql(Configuration["ConnectionStrings:DefaultConnection"]));
             // services.AddDbContext<ApplicationDbContext>(options =>
-                // options.UseNpgsql(Configuration["ConnectionStrings:DevelopmentDB"]));
+            // options.UseNpgsql(Configuration["ConnectionStrings:DevelopmentDB"]));
+            services.AddControllers();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup));
             services.AddCors(options =>
@@ -41,11 +43,26 @@ namespace aspnetcoreapp
                             .AllowAnyMethod();
                     });
             });
+            services.AddSwaggerGen(
+                config =>
+                {
+                    config.SwaggerDoc("v1", new OpenApiInfo()
+                    {
+                        Version = "v1",
+                        Title = "IT4883 Logging Project"
+                    });
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "IT4883 Logging Project");
+            });
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

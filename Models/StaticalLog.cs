@@ -41,4 +41,5 @@ namespace aspnetcoreapp.Models
     {
         public string Name { get; set; }
     }
+    public class StaticalRequest: CommonRequest{}
 }

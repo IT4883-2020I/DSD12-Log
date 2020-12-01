@@ -77,4 +77,7 @@ namespace aspnetcoreapp.Models
     {
         public string Name { get; set; }
     }
+    
+    public class VideoLogRequest: CommonRequest{}
+    public class ImageLogRequest: CommonRequest{}
 }

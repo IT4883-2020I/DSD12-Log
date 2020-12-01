@@ -8,7 +8,10 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 1;
         public string Name { get; set; }
-
+        public string RegionName { get; set; }
+        public int Longitude { get; set; }
+        public int Latitude { get; set; }
+        
         public static DroneLog[] GetSeederData()
         {
             var droneSeeder = new List<DroneLog>();
@@ -37,9 +40,6 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
 
-        public string RegionName { get; set; }
-        public int Longitude { get; set; }
-        public int Latitude { get; set; }
     }
 
     public class DroneLogResponse : EntityLogDTO
@@ -48,5 +48,15 @@ namespace aspnetcoreapp.Models
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
+    }
+
+    public class DroneLogRequest
+    {
+        public string Name { get; set; }
+        public string RegionName { get; set; }
+        public int Longitude { get; set; }
+        public int Latitude { get; set; }
+        public int EntityId { get; set; }
+        public string Description { get; set; }
     }
 }

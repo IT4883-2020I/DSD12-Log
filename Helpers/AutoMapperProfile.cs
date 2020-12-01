@@ -35,7 +35,6 @@ namespace aspnetcoreapp.Helpers
             CreateMap<EntityActivityLog, UavConnectLog>().ReverseMap();
 
             CreateMap<DroneLog, ActivityLogController.DroneLogDTO>();
-            CreateMap<DroneLogRequest, DroneLog>();
             CreateMap<UserLogRequest, UserLog>();
 
             CreateMap<DroneLog, DroneLogResponse>();
@@ -50,6 +49,18 @@ namespace aspnetcoreapp.Helpers
             CreateMap<MonitorRegionLog, MonitorRegionLogResponse>();
             CreateMap<ResolveProblemLog, ResolveProblemLogResponse>();
             CreateMap<UavConnectLog, UavConnectLogResponse>();
+
+            CreateMap<DroneLogRequest, DroneLog>();
+            CreateMap<PayloadRequest, Payload>();
+            CreateMap<ImageLogRequest, ImageLog>();
+            CreateMap<VideoLogRequest, VideoLog>();
+            CreateMap<IncidentLogRequest, IncidentLog>();
+            CreateMap<ObjectObserveRequest, ObjectObserve>();
+            CreateMap<StaticalRequest, StaticalLog>();
+            CreateMap<WarningLogRequest, WarningLog>();
+            CreateMap<MonitorLogRequest, MonitorRegionLog>();
+            CreateMap<ResolveProblemRequest, ResolveProblemLog>();
+            CreateMap<UavConnectRequest, UavConnectLog>();
         }
     }
 }

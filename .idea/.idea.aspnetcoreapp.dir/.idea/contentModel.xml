@@ -12,8 +12,17 @@
         <e p="ActivityLogController.cs" t="Include" />
         <e p="CustomController.cs" t="Include" />
         <e p="DroneLogController.cs" t="Include" />
+        <e p="IncidentLogController.cs" t="Include" />
         <e p="LogController.cs" t="Include" />
-        <e p="NewLogController.cs" t="Include" />
+        <e p="MediaLogController.cs" t="Include" />
+        <e p="MonitorObjectLogController.cs" t="Include" />
+        <e p="MonitorRegionLogController.cs" t="Include" />
+        <e p="PayloadLogController.cs" t="Include" />
+        <e p="ResolveProblemLogController.cs" t="Include" />
+        <e p="StaticalLogController.cs" t="Include" />
+        <e p="UavConnectLogController.cs" t="Include" />
+        <e p="UserLogController.cs" t="Include" />
+        <e p="WarningLogController.cs" t="Include" />
       </e>
       <e p="ExtensionMethods.cs" t="Include" />
       <e p="Helpers" t="Include">

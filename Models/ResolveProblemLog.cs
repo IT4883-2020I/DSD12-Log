@@ -39,4 +39,5 @@ namespace aspnetcoreapp.Models
     public class ResolveProblemLogResponse : EntityActivityLogDTO
     {
     }
+    public class ResolveProblemRequest: CommonRequest{}
 }

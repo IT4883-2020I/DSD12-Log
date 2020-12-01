@@ -7,8 +7,7 @@ namespace aspnetcoreapp.Models
 {
     public class EntityLog
     {
-        [Key]
-        public int EntityLogPrimaryKeyId { get; set; }
+        [Key] public int EntityLogPrimaryKeyId { get; set; }
         public int EntityId { get; set; }
         public ApiType Type { get; set; }
         public string Description { get; set; }
@@ -35,32 +34,20 @@ namespace aspnetcoreapp.Models
     {
         public int EntityId { get; set; }
         public string Description { get; set; }
-        
+
     }
 
     public class TypeAndTimeStamp
     {
-        public string Type { get; set; }   
+        public string Type { get; set; }
         public string Timestamp { get; set; }
     }
 
-
-    public class DroneLogRequest : DroneLog
+    public class CommonRequest
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public int EntityId { get; set; }
+        public string Description { get; set; }
+        public string State { get; set; }
+        public string Name { get; set; }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
