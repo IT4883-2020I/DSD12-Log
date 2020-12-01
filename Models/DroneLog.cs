@@ -7,6 +7,7 @@ namespace aspnetcoreapp.Models
     public class DroneLog : EntityLog
     {
         public static int GroupId = 1;
+        public string Name { get; set; }
 
         public static DroneLog[] GetSeederData()
         {

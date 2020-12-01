@@ -10,7 +10,6 @@ namespace aspnetcoreapp.Models
         [Key]
         public int EntityLogPrimaryKeyId { get; set; }
         public int EntityId { get; set; }
-        public string Name { get; set; }
         public ApiType Type { get; set; }
         public string Description { get; set; }
         public DateTime Timestamp { get; set; }
@@ -43,13 +42,6 @@ namespace aspnetcoreapp.Models
 
 
     public class DroneLogRequest : DroneLog
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
-
-
-    public class UserLogRequest : UserLog
     {
         public string Username { get; set; }
         public string Password { get; set; }

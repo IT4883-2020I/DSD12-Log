@@ -22,10 +22,8 @@ namespace aspnetcoreapp.Models
         [Description("Common Incident")] CommonIncident = 15,
         [Description("Warning Level")] WarningLevel = 16,
         [Description("Solution Handling")] SolutionHandling = 17,
-
         [Description("Result Resolve Problem")]
         ResultResolveProblem = 18,
-
         [Description("Update Status Resolve Problem")]
         UpdateStatusResolveProblem = 19,
         [Description("Devide Monitor Region")] ActivityLog = 20,

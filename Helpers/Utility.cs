@@ -23,14 +23,7 @@ namespace aspnetcoreapp.Helpers
         
         public static string RandomString(int size, bool lowerCase = false)  
         {  
-            var builder = new StringBuilder(size);  
-  
-            // Unicode/ASCII Letters are divided into two blocks
-            // (Letters 65–90 / 97–122):
-            // The first group containing the uppercase letters and
-            // the second group containing the lowercase.  
-
-            // char is a single Unicode character  
+            var builder = new StringBuilder(size);
             char offset = lowerCase ? 'a' : 'A';  
             const int lettersOffset = 26; // A...Z or a..z: length=26  
   
@@ -41,6 +34,18 @@ namespace aspnetcoreapp.Helpers
             }  
   
             return lowerCase ? builder.ToString().ToLower() : builder.ToString();  
-        } 
+        }
+
+        public static ApiType GetTypeFromString(string s)
+        {
+            return s switch
+            {
+                "add" => ApiType.Add,
+                "delete" => ApiType.Delete,
+                "edit" => ApiType.Edit,
+                "activity" => ApiType.ActivityLog,
+                _ => ApiType.Empty
+            };
+        }
     }
 }
