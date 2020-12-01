@@ -21,42 +21,8 @@
         <e p="Utility.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20201002000723_First.cs" t="Include" />
-        <e p="20201002000723_First.Designer.cs" t="Include" />
-        <e p="20201012132806_droneLog.cs" t="Include" />
-        <e p="20201012132806_droneLog.Designer.cs" t="Include" />
-        <e p="20201018142847_6groups.cs" t="Include" />
-        <e p="20201018142847_6groups.Designer.cs" t="Include" />
-        <e p="20201018143327_6groups1.cs" t="Include" />
-        <e p="20201018143327_6groups1.Designer.cs" t="Include" />
-        <e p="20201019005131_6groups2.cs" t="Include" />
-        <e p="20201019005131_6groups2.Designer.cs" t="Include" />
-        <e p="20201022135845_11group.cs" t="Include" />
-        <e p="20201022135845_11group.Designer.cs" t="Include" />
-        <e p="20201022140540_11groups.cs" t="Include" />
-        <e p="20201022140540_11groups.Designer.cs" t="Include" />
-        <e p="20201119135056_netEntityLog.cs" t="Include" />
-        <e p="20201119135056_netEntityLog.Designer.cs" t="Include" />
-        <e p="20201119144112_AddPerson.cs" t="Include" />
-        <e p="20201119144112_AddPerson.Designer.cs" t="Include" />
-        <e p="20201119144531_newLog.cs" t="Include" />
-        <e p="20201119144531_newLog.Designer.cs" t="Include" />
-        <e p="20201122141303_NewActivityLog.cs" t="Include" />
-        <e p="20201122141303_NewActivityLog.Designer.cs" t="Include" />
-        <e p="20201123035921_newUserLog.cs" t="Include" />
-        <e p="20201123035921_newUserLog.Designer.cs" t="Include" />
-        <e p="20201129030015_groupID.cs" t="Include" />
-        <e p="20201129030015_groupID.Designer.cs" t="Include" />
-        <e p="20201129030424_groupIDSecond.cs" t="Include" />
-        <e p="20201129030424_groupIDSecond.Designer.cs" t="Include" />
-        <e p="20201130145237_seeder.cs" t="Include" />
-        <e p="20201130145237_seeder.Designer.cs" t="Include" />
-        <e p="20201130145851_seeder1.cs" t="Include" />
-        <e p="20201130145851_seeder1.Designer.cs" t="Include" />
-        <e p="20201201064828_seeder2.cs" t="Include" />
-        <e p="20201201064828_seeder2.Designer.cs" t="Include" />
-        <e p="20201201065354_seeder3.cs" t="Include" />
-        <e p="20201201065354_seeder3.Designer.cs" t="Include" />
+        <e p="20201201090105_seeder.cs" t="Include" />
+        <e p="20201201090105_seeder.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
