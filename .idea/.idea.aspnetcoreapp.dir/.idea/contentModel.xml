@@ -18,6 +18,7 @@
       <e p="ExtensionMethods.cs" t="Include" />
       <e p="Helpers" t="Include">
         <e p="AutoMapperProfile.cs" t="Include" />
+        <e p="Utility.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
         <e p="20201002000723_First.cs" t="Include" />
@@ -48,12 +49,28 @@
         <e p="20201129030015_groupID.Designer.cs" t="Include" />
         <e p="20201129030424_groupIDSecond.cs" t="Include" />
         <e p="20201129030424_groupIDSecond.Designer.cs" t="Include" />
+        <e p="20201130145237_seeder.cs" t="Include" />
+        <e p="20201130145237_seeder.Designer.cs" t="Include" />
+        <e p="20201130145851_seeder1.cs" t="Include" />
+        <e p="20201130145851_seeder1.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
+        <e p="ApiType.cs" t="Include" />
         <e p="Book.cs" t="Include" />
+        <e p="DroneLog.cs" t="Include" />
         <e p="EntityLog.cs" t="Include" />
         <e p="GroupAuthentication.cs" t="Include" />
+        <e p="IncidentLog.cs" t="Include" />
+        <e p="Media.cs" t="Include" />
+        <e p="MonitorRegionLog.cs" t="Include" />
+        <e p="ObjectObserve.cs" t="Include" />
+        <e p="Payload.cs" t="Include" />
+        <e p="ResolveProblemLog.cs" t="Include" />
+        <e p="StaticalLog.cs" t="Include" />
+        <e p="UavConnectLog.cs" t="Include" />
+        <e p="UserLog.cs" t="Include" />
+        <e p="WarningLog.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

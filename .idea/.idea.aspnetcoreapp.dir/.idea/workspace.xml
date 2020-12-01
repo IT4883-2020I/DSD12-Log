@@ -23,8 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Helpers/Utility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ApiType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ObjectObserve.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/StaticalLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/WarningLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/NewLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/NewLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +52,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Models/ObjectObserve.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2084E29B-1ACE-459A-9486-54EAA090887C/17/HttpRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AE4502-6E31-4460-B8F5-5B79438045B8/14/Profile.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/GroupAuthentication.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuthenticationController.cs" />
         <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
@@ -49,16 +66,33 @@
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
         <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/Payload.cs" />
+        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
+        <option value="$PROJECT_DIR$/Models/Media.cs" />
+        <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
+        <option value="$PROJECT_DIR$/Models/ObjectObserve.cs" />
+        <option value="$PROJECT_DIR$/Models/Statical.cs" />
+        <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
+        <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
+        <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
+        <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
+        <option value="$PROJECT_DIR$/Models/ApiType.cs" />
+        <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1jEbZ6fprnHOYgA8EpIhZBfEOUl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -147,7 +181,10 @@
       <workItem from="1606616626576" duration="6246000" />
       <workItem from="1606642867523" duration="827000" />
       <workItem from="1606651683940" duration="5051000" />
-      <workItem from="1606662513080" duration="533000" />
+      <workItem from="1606662513080" duration="787000" />
+      <workItem from="1606694009407" duration="1692000" />
+      <workItem from="1606697529869" duration="577000" />
+      <workItem from="1606746334515" duration="2414000" />
     </task>
     <servers />
   </component>
@@ -172,6 +209,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="104" y="59" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606694157618">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="104" y="59" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1606694157618" />
     <state x="329" y="0" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1603941741265">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -204,13 +245,13 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605962988061" />
-    <state x="309" y="139" width="661" height="580" key="find.popup" timestamp="1606643465965">
+    <state x="-1" y="129" width="1269" height="590" key="find.popup" timestamp="1606747929187">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="309" y="139" width="661" height="580" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606643465965" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606662521317">
+    <state x="-1" y="129" width="1269" height="590" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606747929187" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606749572172">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606662521317" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606749572172" />
   </component>
 </project>

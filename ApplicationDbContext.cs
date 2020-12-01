@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using aspnetcoreapp.Models;
 using Microsoft.EntityFrameworkCore;
@@ -9,14 +10,19 @@ namespace aspnetcoreapp
         public ApplicationDbContext([NotNull] DbContextOptions options) : base(options)
         {
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var books = new Book[]
+            {
+                new Book {Id = 1, Name = "Dev", Price = 10, Quantity = 20},
+                new Book {Id = 2, Name = "Banana", Price = 5, Quantity = 10}
+            };
             modelBuilder.Entity<Book>()
-            .HasData(
-                new Book { Id = 1, Name = "Dev", Price = 10, Quantity = 20 },
-                new Book { Id = 2, Name = "Banana", Price = 5, Quantity = 10 }
-            );
+                .HasData(books);
+            modelBuilder.Entity<DroneLog>().HasData(DroneLog.GetSeederData());
         }
+
         public DbSet<Book> Books { get; set; }
         public DbSet<DroneLog> DroneLogs { get; set; }
         public DbSet<Payload> Payload { get; set; }
@@ -30,5 +36,6 @@ namespace aspnetcoreapp
         public DbSet<MonitorRegionLog> MonitorRegionLog { get; set; }
         public DbSet<ResolveProblemLog> ResolveProblemLog { get; set; }
         public DbSet<UavConnectLog> UavConnectLog { get; set; }
+
     }
 }

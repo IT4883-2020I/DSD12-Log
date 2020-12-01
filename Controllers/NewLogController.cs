@@ -27,11 +27,11 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, username, password);
 
-        [HttpDelete("drones/{id}")]
-        [HttpPost("drones/{id}")]
-        [HttpPost("drones-has-problems/{id}")]
-        [HttpPut("drones/{id}")]
-        public async Task<ActionResult> PostDrone([FromBody] DroneLog form, int id, string username, string password)
+        [HttpDelete("drones/")]
+        [HttpPost("drones/")]
+        [HttpPost("drones-has-problems/")]
+        [HttpPut("drones/")]
+        public async Task<ActionResult> PostDrone([FromBody] DroneLog form, string username, string password)
         {
             if (!_authService.IsAuthenticate(DroneLog.GroupId, username, password))
             {
@@ -39,7 +39,6 @@ namespace aspnetcoreapp.Controllers
             }
 
             var route = Request.Path.Value;
-            form.EntityId = id;
             if (route.Contains("drones-has-problems"))
             {
                 return await Post<DroneLog>(form, ApiType.HasProblem);
@@ -55,17 +54,16 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<Payload, PayloadResponse>(Payload.GroupId, form, username, password);
 
-        [HttpDelete("payload/{id}")]
-        [HttpPost("payload/{id}")]
-        [HttpPut("payload/{id}")]
-        public async Task<ActionResult> PostPayload([FromBody] Payload form, int id, string username, string password)
+        [HttpDelete("payload/")]
+        [HttpPost("payload/")]
+        [HttpPut("payload/")]
+        public async Task<ActionResult> PostPayload([FromBody] Payload form, string username, string password)
         {
             if (!_authService.IsAuthenticate(Payload.GroupId, username, password))
             {
                 return Unauthorized();
             }
-
-            form.EntityId = id;
+            
             return await Post<Payload>(form);
         }
 
@@ -74,18 +72,18 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<UserLog, UserLogResponse>(UserLog.GroupId, form, username, password);
 
-        [HttpDelete("user/{id}")]
-        [HttpPost("user/{id}")]
-        [HttpPost("user-role/{id}")]
-        [HttpPut("user/{id}")]
-        public async Task<ActionResult> PostUser([FromBody] UserLog form, int id, string username, string password)
+        [HttpDelete("user/")]
+        [HttpPost("user/")]
+        [HttpPost("user-role/")]
+        [HttpPut("user/")]
+        public async Task<ActionResult> PostUser([FromBody] UserLog form, string username, string password)
         {
             if (!_authService.IsAuthenticate(UserLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             var apiType = ApiType.Empty;
             if (Request.Path.Value.Contains("user-role"))
             {
@@ -100,17 +98,17 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, username, password);
 
-        [HttpDelete("video/{id}")]
-        [HttpPost("video/{id}")]
-        [HttpPut("video/{id}")]
-        public async Task<ActionResult> PostVideo([FromBody] VideoLog form, int id, string username, string password)
+        [HttpDelete("video/")]
+        [HttpPost("video/")]
+        [HttpPut("video/")]
+        public async Task<ActionResult> PostVideo([FromBody] VideoLog form, string username, string password)
         {
             if (!_authService.IsAuthenticate(VideoLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             return await Post<VideoLog>(form);
         }
 
@@ -119,17 +117,17 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, username, password);
 
-        [HttpDelete("image/{id}")]
-        [HttpPost("image/{id}")]
-        [HttpPut("image/{id}")]
-        public async Task<ActionResult> PostImage([FromBody] ImageLog form, int id, string username, string password)
+        [HttpDelete("image/")]
+        [HttpPost("image/")]
+        [HttpPut("image/")]
+        public async Task<ActionResult> PostImage([FromBody] ImageLog form, string username, string password)
         {
             if (!_authService.IsAuthenticate(ImageLog.GroupId, username, password))
             {
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             return await Post<ImageLog>(form);
         }
 
@@ -138,11 +136,11 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<IncidentLog, IncidentLogResponse>(IncidentLog.GroupId, form, username, password);
 
-        [HttpDelete("incident/{id}")]
-        [HttpPost("incident/{id}")]
-        [HttpPost("incident-confirm/{id}")]
-        [HttpPut("incident/{id}")]
-        public async Task<ActionResult> PostIncident([FromBody] IncidentLog form, int id, string username,
+        [HttpDelete("incident/")]
+        [HttpPost("incident/")]
+        [HttpPost("incident-confirm/")]
+        [HttpPut("incident/")]
+        public async Task<ActionResult> PostIncident([FromBody] IncidentLog form, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(IncidentLog.GroupId, username, password))
@@ -150,7 +148,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             var apiType = ApiType.Empty;
             if (Request.Path.Value.Contains("incident-confirm"))
             {
@@ -165,10 +163,10 @@ namespace aspnetcoreapp.Controllers
             GetObjectObserve([FromQuery] MinMaxDate form, string username, string password) =>
             await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, username, password);
 
-        [HttpDelete("monitor-object/{id}")]
-        [HttpPost("monitor-object/{id}")]
-        [HttpPut("monitor-object/{id}")]
-        public async Task<ActionResult> PostObjectObserve([FromBody] ObjectObserve form, int id, string username,
+        [HttpDelete("monitor-object/")]
+        [HttpPost("monitor-object/")]
+        [HttpPut("monitor-object/")]
+        public async Task<ActionResult> PostObjectObserve([FromBody] ObjectObserve form, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(ObjectObserve.GroupId, username, password))
@@ -176,7 +174,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             return await Post<ObjectObserve>(form);
         }
 
@@ -185,10 +183,10 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<StaticalLog, StaticalLogResponse>(StaticalLog.GroupId, form, username, password);
 
-        [HttpPost("statistical-frequence/{id}")]
-        [HttpPost("statistical-address/{id}")]
-        [HttpPost("statistical-incident/{id}")]
-        public async Task<ActionResult> PostStatical([FromBody] StaticalLog form, int id, string username,
+        [HttpPost("statistical-frequence/")]
+        [HttpPost("statistical-address/")]
+        [HttpPost("statistical-incident/")]
+        public async Task<ActionResult> PostStatical([FromBody] StaticalLog form, string username,
             string password)
         {
             var route = Request.Path.Value;
@@ -208,7 +206,7 @@ namespace aspnetcoreapp.Controllers
                 apiType = ApiType.HasProblem;
             }
 
-            form.EntityId = id;
+
             return await Post<StaticalLog>(form, apiType);
         }
 
@@ -217,12 +215,12 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<WarningLog, WarningLogResponse>(WarningLog.GroupId, form, username, password);
 
-        [HttpDelete("warning/{id}")]
-        [HttpPost("warning/{id}")]
-        [HttpPost("warning-level/{id}")]
-        [HttpPost("solution-handling-warning/{id}")]
-        [HttpPut("warning/{id}")]
-        public async Task<ActionResult> PostWarning([FromBody] WarningLog form, int id, string username,
+        [HttpDelete("warning/")]
+        [HttpPost("warning/")]
+        [HttpPost("warning-level/")]
+        [HttpPost("solution-handling-warning/")]
+        [HttpPut("warning/")]
+        public async Task<ActionResult> PostWarning([FromBody] WarningLog form, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(WarningLog.GroupId, username, password))
@@ -230,7 +228,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             var apiType = ApiType.Empty;
             if (Request.Path.Value.Contains("warning-level"))
             {
@@ -249,10 +247,10 @@ namespace aspnetcoreapp.Controllers
             GetMonitorRegion([FromQuery] MinMaxDate form, string username, string password) =>
             await Get<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form, username, password);
 
-        [HttpDelete("monitor-region/{id}")]
-        [HttpPost("monitor-region/{id}")]
-        [HttpPut("monitor-region/{id}")]
-        public async Task<ActionResult> PostMonitorRegion([FromBody] MonitorRegionLog form, int id, string username,
+        [HttpDelete("monitor-region/")]
+        [HttpPost("monitor-region/")]
+        [HttpPut("monitor-region/")]
+        public async Task<ActionResult> PostMonitorRegion([FromBody] MonitorRegionLog form, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(MonitorRegionLog.GroupId, username, password))
@@ -260,7 +258,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             return await Post<MonitorRegionLog>(form);
         }
 
@@ -270,11 +268,11 @@ namespace aspnetcoreapp.Controllers
             await Get<ResolveProblemLog, ResolveProblemLogResponse>(ResolveProblemLog.GroupId, form, username,
                 password);
 
-        [HttpDelete("resolve-problem/{id}")]
-        [HttpPost("resolve-problem/{id}")]
-        [HttpPost("result-resolve-problem/{id}")]
-        [HttpPut("resolve-problem/{id}")]
-        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemLog form, int id,
+        [HttpDelete("resolve-problem/")]
+        [HttpPost("resolve-problem/")]
+        [HttpPost("result-resolve-problem/")]
+        [HttpPut("resolve-problem/")]
+        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemLog form,
             string username,
             string password)
         {
@@ -283,7 +281,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             var apiType = ApiType.Empty;
             if (Request.Path.Value.Contains("result-resolve-problem"))
             {
@@ -298,10 +296,10 @@ namespace aspnetcoreapp.Controllers
             string password) =>
             await Get<UavConnectLog, UavConnectLogResponse>(UavConnectLog.GroupId, form, username, password);
 
-        [HttpDelete("uav-connect/{id}")]
-        [HttpPost("uav-connect/{id}")]
-        [HttpPut("uav-connect/{id}")]
-        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectLog form, int id, string username,
+        [HttpDelete("uav-connect/")]
+        [HttpPost("uav-connect/")]
+        [HttpPut("uav-connect/")]
+        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectLog form, string username,
             string password)
         {
             if (!_authService.IsAuthenticate(UavConnectLog.GroupId, username, password))
@@ -309,7 +307,7 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            form.EntityId = id;
+
             return await Post<UavConnectLog>(form);
         }
     }
