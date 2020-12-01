@@ -156,34 +156,34 @@ namespace aspnetcoreapp.Controllers
             switch (groupName)
             {
                 case "payload":
-                    _dbContext.Payload.Add(_mapper.Map<Payload>(log));
+                    _dbContext.Payloads.Add(_mapper.Map<Payload>(log));
                     break;
                 case "image-log":
-                    _dbContext.ImageLog.Add(_mapper.Map<ImageLog>(log));
+                    _dbContext.ImageLogs.Add(_mapper.Map<ImageLog>(log));
                     break;
                 case "video-log":
-                    _dbContext.VideoLog.Add(_mapper.Map<VideoLog>(log));
+                    _dbContext.VideoLogs.Add(_mapper.Map<VideoLog>(log));
                     break;
                 case "incident":
-                    _dbContext.IncidentLog.Add(_mapper.Map<IncidentLog>(log));
+                    _dbContext.IncidentLogs.Add(_mapper.Map<IncidentLog>(log));
                     break;
                 case "object-observe":
-                    _dbContext.ObjectObserve.Add(_mapper.Map<ObjectObserve>(log));
+                    _dbContext.ObjectObserves.Add(_mapper.Map<ObjectObserve>(log));
                     break;
                 case "statical":
-                    _dbContext.StaticalLog.Add(_mapper.Map<StaticalLog>(log));
+                    _dbContext.StaticalLogs.Add(_mapper.Map<StaticalLog>(log));
                     break;
                 case "warning":
-                    _dbContext.WarningLog.Add(_mapper.Map<WarningLog>(log));
+                    _dbContext.WarningLogs.Add(_mapper.Map<WarningLog>(log));
                     break;
                 case "monitor-region":
-                    _dbContext.MonitorRegionLog.Add(_mapper.Map<MonitorRegionLog>(log));
+                    _dbContext.MonitorRegionLogs.Add(_mapper.Map<MonitorRegionLog>(log));
                     break;
                 case "resolve-problem":
-                    _dbContext.ResolveProblemLog.Add(_mapper.Map<ResolveProblemLog>(log));
+                    _dbContext.ResolveProblemLogs.Add(_mapper.Map<ResolveProblemLog>(log));
                     break;
                 case "uav-connect":
-                    _dbContext.UavConnectLog.Add(_mapper.Map<UavConnectLog>(log));
+                    _dbContext.UavConnectLogs.Add(_mapper.Map<UavConnectLog>(log));
                     break;
             }
 
@@ -198,19 +198,19 @@ namespace aspnetcoreapp.Controllers
             {
                 List<EntityActivityLog> list = groupName switch
                 {
-                    "payload" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.Payload.ToListAsync()),
-                    "image-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ImageLog.ToListAsync()),
-                    "video-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.VideoLog.ToListAsync()),
-                    "incident" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.IncidentLog.ToListAsync()),
+                    "payload" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.Payloads.ToListAsync()),
+                    "image-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ImageLogs.ToListAsync()),
+                    "video-log" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.VideoLogs.ToListAsync()),
+                    "incident" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.IncidentLogs.ToListAsync()),
                     "object-observe" => _mapper.Map<List<EntityActivityLog>>(
-                        await _dbContext.ObjectObserve.ToListAsync()),
-                    "statical" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.StaticalLog.ToListAsync()),
-                    "warning" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.WarningLog.ToListAsync()),
-                    "monitor-region" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.MonitorRegionLog
+                        await _dbContext.ObjectObserves.ToListAsync()),
+                    "statical" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.StaticalLogs.ToListAsync()),
+                    "warning" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.WarningLogs.ToListAsync()),
+                    "monitor-region" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.MonitorRegionLogs
                         .ToListAsync()),
-                    "resolve-problem" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ResolveProblemLog
+                    "resolve-problem" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.ResolveProblemLogs
                         .ToListAsync()),
-                    "uav-connect" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.UavConnectLog.ToListAsync()),
+                    "uav-connect" => _mapper.Map<List<EntityActivityLog>>(await _dbContext.UavConnectLogs.ToListAsync()),
                     _ => null
                 };
 

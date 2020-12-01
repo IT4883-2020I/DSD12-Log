@@ -21,21 +21,31 @@ namespace aspnetcoreapp
             modelBuilder.Entity<Book>()
                 .HasData(books);
             modelBuilder.Entity<DroneLog>().HasData(DroneLog.GetSeederData());
+            modelBuilder.Entity<Payload>().HasData(Payload.GetSeederData());
+            modelBuilder.Entity<ImageLog>().HasData(ImageLog.GetSeederData());
+            modelBuilder.Entity<VideoLog>().HasData(VideoLog.GetSeederData());
+            modelBuilder.Entity<IncidentLog>().HasData(IncidentLog.GetSeederData());
+            modelBuilder.Entity<ObjectObserve>().HasData(ObjectObserve.GetSeederData());
+            modelBuilder.Entity<StaticalLog>().HasData(StaticalLog.GetSeederData());
+            modelBuilder.Entity<WarningLog>().HasData(WarningLog.GetSeederData());
+            modelBuilder.Entity<MonitorRegionLog>().HasData(MonitorRegionLog.GetSeederData());
+            modelBuilder.Entity<ResolveProblemLog>().HasData(ResolveProblemLog.GetSeederData());
+            modelBuilder.Entity<UavConnectLog>().HasData(UavConnectLog.GetSeederData());
         }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<DroneLog> DroneLogs { get; set; }
-        public DbSet<Payload> Payload { get; set; }
+        public DbSet<Payload> Payloads { get; set; }
         public DbSet<UserLog> UserLog { get; set; }
-        public DbSet<ImageLog> ImageLog { get; set; }
-        public DbSet<VideoLog> VideoLog { get; set; }
-        public DbSet<IncidentLog> IncidentLog { get; set; }
-        public DbSet<ObjectObserve> ObjectObserve { get; set; }
-        public DbSet<StaticalLog> StaticalLog { get; set; }
-        public DbSet<WarningLog> WarningLog { get; set; }
-        public DbSet<MonitorRegionLog> MonitorRegionLog { get; set; }
-        public DbSet<ResolveProblemLog> ResolveProblemLog { get; set; }
-        public DbSet<UavConnectLog> UavConnectLog { get; set; }
+        public DbSet<ImageLog> ImageLogs { get; set; }
+        public DbSet<VideoLog> VideoLogs { get; set; }
+        public DbSet<IncidentLog> IncidentLogs { get; set; }
+        public DbSet<ObjectObserve> ObjectObserves { get; set; }
+        public DbSet<StaticalLog> StaticalLogs { get; set; }
+        public DbSet<WarningLog> WarningLogs { get; set; }
+        public DbSet<MonitorRegionLog> MonitorRegionLogs { get; set; }
+        public DbSet<ResolveProblemLog> ResolveProblemLogs { get; set; }
+        public DbSet<UavConnectLog> UavConnectLogs { get; set; }
 
     }
 }
