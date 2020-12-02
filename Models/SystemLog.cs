@@ -3,12 +3,11 @@ using aspnetcoreapp.Controllers;
 
 namespace aspnetcoreapp.Models
 {
-    public class SystemLog
+    public class SystemLog : TimeModel
     {
         public int Id { get; set; }
         public ErrorLevel Level { get; set; }
         public string Description { get; set; }
-        public DateTime TimeStamp { get; set; }
     }
 
     public enum ErrorLevel

@@ -62,6 +62,8 @@ namespace aspnetcoreapp.Controllers
             var resolveProblemLogs = await _dbContext.ResolveProblemLogs.AsNoTracking().ToListAsync();
             var uavConnectLogs = await _dbContext.UavConnectLogs.AsNoTracking().ToListAsync();
             var droneLogs = await _dbContext.DroneLogs.AsNoTracking().ToListAsync();
+            var systemLogs = await _dbContext.SystemLogs.ToListAsync();
+            
             list.AddRange(droneLogs);
             list.AddRange(payloads);
             list.AddRange(imageLogs);
@@ -72,6 +74,7 @@ namespace aspnetcoreapp.Controllers
             list.AddRange(monitorRegionLogs);
             list.AddRange(resolveProblemLogs);
             list.AddRange(uavConnectLogs);
+            list.AddRange(systemLogs);
             list.Sort();
             return Ok(list);
         }
@@ -96,7 +99,7 @@ namespace aspnetcoreapp.Controllers
             {
                 Level = level,
                 Description = form.Description,
-                TimeStamp = DateTime.Now
+                Timestamp = DateTime.Now
             };
             _dbContext.SystemLogs.Add(systemLog);
             await _dbContext.SaveChangesAsync();

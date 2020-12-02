@@ -1,3 +1,4 @@
+
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -5,19 +6,14 @@ using System.Reflection;
 
 namespace aspnetcoreapp.Models
 {
-    public class EntityLog : IComparable
+    public class TimeModel : IComparable
     {
-        [Key] public int EntityLogPrimaryKeyId { get; set; }
-        public int EntityId { get; set; }
-        public ApiType Type { get; set; }
-        public string Description { get; set; }
         public DateTime Timestamp { get; set; }
-
-
+        
+        #nullable enable
         public int CompareTo(object? obj)
         {
-            var entityLog = obj as EntityLog;
-            if (entityLog == null) return 1;
+            if (!(obj is TimeModel entityLog)) return 1;
             if (this.Timestamp > entityLog.Timestamp)
             {
                 return 1;
@@ -29,6 +25,14 @@ namespace aspnetcoreapp.Models
 
             return 0;
         }
+    }
+
+    public class EntityLog : TimeModel
+    {
+        [Key] public int EntityLogPrimaryKeyId { get; set; }
+        public int EntityId { get; set; }
+        public ApiType Type { get; set; }
+        public string Description { get; set; }
     }
 
     public class EntityActivityLog : EntityLog
