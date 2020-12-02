@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using aspnetcoreapp.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
@@ -43,15 +44,7 @@ namespace aspnetcoreapp.Service
         {
             if (_configuration["TurnOnAuthentication"] == "true")
             {
-                foreach (var group in GroupAuthentications)
-                {
-                    if (groupId == group.GroupId && username == group.Username && password == group.Password)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return GroupAuthentications.Any(@group => groupId == @group.GroupId && username == @group.Username && password == @group.Password);
             }
             else
             {

@@ -10,7 +10,6 @@ namespace aspnetcoreapp.Models
     {
         public DateTime Timestamp { get; set; }
         
-        #nullable enable
         public int CompareTo(object? obj)
         {
             if (!(obj is TimeModel entityLog)) return 1;
@@ -33,6 +32,7 @@ namespace aspnetcoreapp.Models
         public int EntityId { get; set; }
         public ApiType Type { get; set; }
         public string Description { get; set; }
+        
     }
 
     public class EntityActivityLog : EntityLog

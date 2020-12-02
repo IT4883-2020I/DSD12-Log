@@ -10,9 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/SystemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SystemLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/SystemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SystemLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/AuthenticationService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,6 @@
       <list>
         <option value="$PROJECT_DIR$/Models/GroupAuthentication.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuthenticationController.cs" />
-        <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
         <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Models/Statical.cs" />
@@ -75,8 +73,9 @@
         <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
         <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
+        <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
       </list>
     </option>
   </component>
@@ -181,7 +180,8 @@
       <workItem from="1606813629938" duration="1267000" />
       <workItem from="1606830050662" duration="4438000" />
       <workItem from="1606835550227" duration="490000" />
-      <workItem from="1606867442950" duration="6960000" />
+      <workItem from="1606867442950" duration="7307000" />
+      <workItem from="1606879893337" duration="408000" />
     </task>
     <servers />
   </component>
@@ -236,28 +236,28 @@
       <screen x="0" y="25" width="1280" height="715" />
     </state>
     <state x="0" y="28" width="1280" height="772" key="DiffContextDialog/0.25.1280.715@0.25.1280.715" timestamp="1606812708270" />
-    <state width="1238" height="468" key="GridCell.Tab.0.bottom" timestamp="1606877023826">
+    <state width="1238" height="468" key="GridCell.Tab.0.bottom" timestamp="1606879885374">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606877023826" />
+    <state width="1238" height="468" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606879885374" />
     <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603896182324" />
     <state width="1238" height="393" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1606833217187" />
-    <state width="1238" height="468" key="GridCell.Tab.0.center" timestamp="1606877023824">
+    <state width="1238" height="468" key="GridCell.Tab.0.center" timestamp="1606879885373">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606877023824" />
+    <state width="1238" height="468" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606879885373" />
     <state width="1238" height="2" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
-    <state width="1238" height="468" key="GridCell.Tab.0.left" timestamp="1606877023821">
+    <state width="1238" height="468" key="GridCell.Tab.0.left" timestamp="1606879885373">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606877023821" />
+    <state width="1238" height="468" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606879885373" />
     <state width="1238" height="2" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1606833217185" />
-    <state width="1238" height="468" key="GridCell.Tab.0.right" timestamp="1606877023825">
+    <state width="1238" height="468" key="GridCell.Tab.0.right" timestamp="1606879885374">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606877023825" />
+    <state width="1238" height="468" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606879885374" />
     <state width="1238" height="2" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603896182323" />
     <state width="1238" height="393" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
     <state x="0" y="25" key="MergeDialog" timestamp="1606812696824">
