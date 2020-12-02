@@ -26,6 +26,6 @@ namespace aspnetcoreapp.Models
         ResultResolveProblem = 18,
         [Description("Update Status Resolve Problem")]
         UpdateStatusResolveProblem = 19,
-        [Description("Devide Monitor Region")] ActivityLog = 20,
+        [Description("Activity Log")] ActivityLog = 20,
     }
 }

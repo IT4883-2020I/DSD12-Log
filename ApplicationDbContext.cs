@@ -30,6 +30,7 @@ namespace aspnetcoreapp
             modelBuilder.Entity<MonitorRegionLog>().HasData(MonitorRegionLog.GetSeederData());
             modelBuilder.Entity<ResolveProblemLog>().HasData(ResolveProblemLog.GetSeederData());
             modelBuilder.Entity<UavConnectLog>().HasData(UavConnectLog.GetSeederData());
+            
         }
 
         public DbSet<Book> Books { get; set; }
@@ -45,5 +46,6 @@ namespace aspnetcoreapp
         public DbSet<MonitorRegionLog> MonitorRegionLogs { get; set; }
         public DbSet<ResolveProblemLog> ResolveProblemLogs { get; set; }
         public DbSet<UavConnectLog> UavConnectLogs { get; set; }
+        public DbSet<SystemLog> SystemLogs { get; set; }
     }
 }

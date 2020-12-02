@@ -30,7 +30,6 @@ namespace aspnetcoreapp.Controllers
             GetObjectObserve([FromQuery] MinMaxDate form, string username, string password) =>
             await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, username, password);
 
-
         [HttpPost("monitor-object/delete")]
         [HttpPost("monitor-object/edit")]
         [HttpPost("monitor-object/activity")]

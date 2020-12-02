@@ -5,13 +5,30 @@ using System.Reflection;
 
 namespace aspnetcoreapp.Models
 {
-    public class EntityLog
+    public class EntityLog : IComparable
     {
         [Key] public int EntityLogPrimaryKeyId { get; set; }
         public int EntityId { get; set; }
         public ApiType Type { get; set; }
         public string Description { get; set; }
         public DateTime Timestamp { get; set; }
+
+
+        public int CompareTo(object? obj)
+        {
+            var entityLog = obj as EntityLog;
+            if (entityLog == null) return 1;
+            if (this.Timestamp > entityLog.Timestamp)
+            {
+                return 1;
+            }
+            else if (this.Timestamp < entityLog.Timestamp)
+            {
+                return -1;
+            }
+
+            return 0;
+        }
     }
 
     public class EntityActivityLog : EntityLog
@@ -34,7 +51,6 @@ namespace aspnetcoreapp.Models
     {
         public int EntityId { get; set; }
         public string Description { get; set; }
-
     }
 
     public class TypeAndTimeStamp

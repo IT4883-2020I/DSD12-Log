@@ -10,7 +10,7 @@ namespace aspnetcoreapp.Helpers
 
         public static ApiType GetRandomApiType()
         {
-            var rand = Random.Next(0, 3);
+            var rand = Random.Next(0, 4);
             var apiType = new ApiType[]
             {
                 ApiType.Add,
@@ -47,6 +47,20 @@ namespace aspnetcoreapp.Helpers
                 "activity" => ApiType.ActivityLog,
                 _ => ApiType.Empty
             };
+        }
+
+        public static int CompareEntityLog(EntityLog a, EntityLog b)
+        {
+            if (a.Timestamp > b.Timestamp)
+            {
+                return 1;
+            }
+            else if (a.Timestamp < b.Timestamp)
+            {
+                return -1;
+            }
+
+            return 0;
         }
     }
 }

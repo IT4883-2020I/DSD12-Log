@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using aspnetcoreapp.Helpers;
 using aspnetcoreapp.Models;
 using aspnetcoreapp.Service;
 using AutoMapper;
@@ -95,6 +96,7 @@ namespace aspnetcoreapp.Controllers
                         entity.Type != ApiType.ActivityLog)
                     .AsNoTracking()
                     .ToListAsync();
+                list.Sort(Utility.CompareEntityLog);
                 var result = new List<TResponse>();
                 foreach (var entityLog in list)
                 {

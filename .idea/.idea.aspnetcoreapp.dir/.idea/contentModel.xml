@@ -20,6 +20,7 @@
         <e p="PayloadLogController.cs" t="Include" />
         <e p="ResolveProblemLogController.cs" t="Include" />
         <e p="StaticalLogController.cs" t="Include" />
+        <e p="SystemLogController.cs" t="Include" />
         <e p="UavConnectLogController.cs" t="Include" />
         <e p="UserLogController.cs" t="Include" />
         <e p="WarningLogController.cs" t="Include" />
@@ -30,8 +31,8 @@
         <e p="Utility.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20201201090105_seeder.cs" t="Include" />
-        <e p="20201201090105_seeder.Designer.cs" t="Include" />
+        <e p="20201202014655_Seeder1.cs" t="Include" />
+        <e p="20201202014655_Seeder1.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -47,6 +48,7 @@
         <e p="Payload.cs" t="Include" />
         <e p="ResolveProblemLog.cs" t="Include" />
         <e p="StaticalLog.cs" t="Include" />
+        <e p="SystemLog.cs" t="Include" />
         <e p="UavConnectLog.cs" t="Include" />
         <e p="UserLog.cs" t="Include" />
         <e p="WarningLog.cs" t="Include" />
