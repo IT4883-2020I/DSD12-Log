@@ -9,19 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/SystemLogController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/SystemLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Utility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201201090105_seeder.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201201090105_seeder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ApiType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ApiType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,8 +71,8 @@
         <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Models/ApiType.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -190,7 +177,7 @@
       <workItem from="1606813629938" duration="1267000" />
       <workItem from="1606830050662" duration="4438000" />
       <workItem from="1606835550227" duration="490000" />
-      <workItem from="1606867442950" duration="4949000" />
+      <workItem from="1606867442950" duration="5015000" />
     </task>
     <servers />
   </component>
