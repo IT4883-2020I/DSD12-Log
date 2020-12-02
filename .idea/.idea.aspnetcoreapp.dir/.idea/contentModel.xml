@@ -31,8 +31,10 @@
         <e p="Utility.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20201202014655_Seeder1.cs" t="Include" />
-        <e p="20201202014655_Seeder1.Designer.cs" t="Include" />
+        <e p="20201202020052_Seeder1.cs" t="Include" />
+        <e p="20201202020052_Seeder1.Designer.cs" t="Include" />
+        <e p="20201202020737_Seeder2.cs" t="Include" />
+        <e p="20201202020737_Seeder2.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

@@ -19,6 +19,7 @@ namespace aspnetcoreapp
                 new Book {Id = 2, Name = "Banana", Price = 5, Quantity = 10}
             };
             modelBuilder.Entity<Book>().HasData(books);
+            modelBuilder.Entity<UserLog>().HasData(Models.UserLog.GetSeederData());
             modelBuilder.Entity<DroneLog>().HasData(DroneLog.GetSeederData());
             modelBuilder.Entity<Payload>().HasData(Payload.GetSeederData());
             modelBuilder.Entity<ImageLog>().HasData(ImageLog.GetSeederData());

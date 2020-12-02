@@ -83,8 +83,8 @@ namespace aspnetcoreapp.Controllers
             }
         }
 
-        public async Task<ActionResult> Get<TEntity, TResponse>(int group, MinMaxDate form, string username,
-            string password)
+        public async Task<ActionResult> Get<TEntity, TResponse>(int group, MinMaxDate form, string username = "",
+            string password = "")
             where TEntity : EntityLog where TResponse : TypeAndTimeStamp
         {
             _logger.LogInformation(form.ToJson());

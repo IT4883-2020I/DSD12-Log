@@ -9,7 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/DroneLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DroneLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201202014655_Seeder1.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201202014655_Seeder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AE4502-6E31-4460-B8F5-5B79438045B8/14/Profile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EB067793-5C3F-4219-AEF1-3AB117C20649/7f/9891d85a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7AFCB195-1BDF-4087-9F2D-5BFCFC407B2B/63/88e40553/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Migrations/20201202020737_Seeder2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -37,14 +47,12 @@
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
         <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Models/Statical.cs" />
-        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
         <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
         <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
         <option value="$PROJECT_DIR$/Models/Media.cs" />
         <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
@@ -65,13 +73,15 @@
         <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
         <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
         <option value="$PROJECT_DIR$/Models/ApiType.cs" />
+        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
@@ -177,7 +187,7 @@
       <workItem from="1606813629938" duration="1267000" />
       <workItem from="1606830050662" duration="4438000" />
       <workItem from="1606835550227" duration="490000" />
-      <workItem from="1606867442950" duration="5015000" />
+      <workItem from="1606867442950" duration="6599000" />
     </task>
     <servers />
   </component>
@@ -232,28 +242,28 @@
       <screen x="0" y="25" width="1280" height="715" />
     </state>
     <state x="0" y="28" width="1280" height="772" key="DiffContextDialog/0.25.1280.715@0.25.1280.715" timestamp="1606812708270" />
-    <state width="1238" height="468" key="GridCell.Tab.0.bottom" timestamp="1606835123847">
+    <state width="1238" height="468" key="GridCell.Tab.0.bottom" timestamp="1606876134466">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606835123847" />
+    <state width="1238" height="468" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606876134466" />
     <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603896182324" />
     <state width="1238" height="393" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1606833217187" />
-    <state width="1238" height="468" key="GridCell.Tab.0.center" timestamp="1606835123846">
+    <state width="1238" height="468" key="GridCell.Tab.0.center" timestamp="1606876134462">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606835123846" />
+    <state width="1238" height="468" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606876134462" />
     <state width="1238" height="2" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
-    <state width="1238" height="468" key="GridCell.Tab.0.left" timestamp="1606835123844">
+    <state width="1238" height="468" key="GridCell.Tab.0.left" timestamp="1606876134457">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606835123844" />
+    <state width="1238" height="468" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606876134457" />
     <state width="1238" height="2" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1606833217185" />
-    <state width="1238" height="468" key="GridCell.Tab.0.right" timestamp="1606835123846">
+    <state width="1238" height="468" key="GridCell.Tab.0.right" timestamp="1606876134464">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="468" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606835123846" />
+    <state width="1238" height="468" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606876134464" />
     <state width="1238" height="2" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603896182323" />
     <state width="1238" height="393" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
     <state x="0" y="25" key="MergeDialog" timestamp="1606812696824">
@@ -274,9 +284,9 @@
     </state>
     <state x="-1" y="129" width="1269" height="590" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606869030811" />
     <state x="-1" y="140" width="1269" height="528" key="find.popup/0.25.1280.715@0.25.1280.715" timestamp="1606833468353" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606873870462">
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606875691056">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606873870462" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606875691056" />
   </component>
 </project>

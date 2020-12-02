@@ -23,11 +23,11 @@ namespace aspnetcoreapp.Controllers
             : base(logger, dbContext, mapper, configuration)
         {
         }
+        
 
         [HttpGet("drones")]
-        public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form,[FromQuery] UserPassword up) =>
+            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, up.UserName, up.Password);
 
         [HttpPost("drones/delete")]
         [HttpPost("drones/edit")]
