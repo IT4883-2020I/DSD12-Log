@@ -28,17 +28,16 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("monitor-region")]
         public async Task<ActionResult>
-            GetMonitorRegion([FromQuery] MinMaxDate form, string username, string password) =>
-            await Get<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form, username, password);
+            GetMonitorRegion([FromQuery] MinMaxDate form) =>
+            await Get<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form);
 
         [HttpPost("monitor-region/delete")]
         [HttpPost("monitor-region/edit")]
         [HttpPost("monitor-region/activity")]
         [HttpPost("monitor-region/add")]
-        public async Task<ActionResult> PostMonitorRegion([FromBody] MonitorLogRequest request, string username,
-            string password)
+        public async Task<ActionResult> PostMonitorRegion([FromBody] MonitorLogRequest request)
         {
-            if (!_authService.IsAuthenticate(MonitorRegionLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(MonitorRegionLog.GroupId))
             {
                 return Unauthorized();
             }

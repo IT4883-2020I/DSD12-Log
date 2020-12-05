@@ -27,9 +27,8 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("incident")]
-        public async Task<ActionResult> GetIncident([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<IncidentLog, IncidentLogResponse>(IncidentLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetIncident([FromQuery] MinMaxDate form) =>
+            await Get<IncidentLog, IncidentLogResponse>(IncidentLog.GroupId, form);
 
 
         [HttpPost("incident/delete")]
@@ -37,9 +36,9 @@ namespace aspnetcoreapp.Controllers
         [HttpPost("incident/activity")]
         [HttpPost("incident/add")]
         [HttpPost("incident-confirm")]
-        public async Task<ActionResult> PostIncident([FromBody] IncidentLogRequest request, string username, string password)
+        public async Task<ActionResult> PostIncident([FromBody] IncidentLogRequest request)
         {
-            if (!_authService.IsAuthenticate(IncidentLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(IncidentLog.GroupId))
             {
                 return Unauthorized();
             }

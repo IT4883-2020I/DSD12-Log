@@ -40,11 +40,12 @@ namespace aspnetcoreapp.Service
             new GroupAuthentication() {GroupId = 12, Username = "G12", Password = "123"},
         };
 
-        public bool IsAuthenticate(int groupId, string username, string password)
+        public bool IsAuthenticate(int groupId, string username = "", string password = "")
         {
             if (_configuration["TurnOnAuthentication"] == "true")
             {
-                return GroupAuthentications.Any(@group => groupId == @group.GroupId && username == @group.Username && password == @group.Password);
+                return GroupAuthentications.Any(@group =>
+                    groupId == @group.GroupId && username == @group.Username && password == @group.Password);
             }
             else
             {
@@ -52,7 +53,7 @@ namespace aspnetcoreapp.Service
             }
         }
 
-        public bool IsAuthenticateByEntityName(string entityName, string username, string password)
+        public bool IsAuthenticateByEntityName(string entityName, string username = "", string password = "")
         {
             var groupName = JObject.Parse(group);
             if (groupName[entityName] == null)

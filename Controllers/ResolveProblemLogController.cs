@@ -26,10 +26,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("resolve-problem")]
-        public async Task<ActionResult> GetResolveProblemLog([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<ResolveProblemLog, ResolveProblemLogResponse>(ResolveProblemLog.GroupId, form, username,
-                password);
+        public async Task<ActionResult> GetResolveProblemLog([FromQuery] MinMaxDate form) =>
+            await Get<ResolveProblemLog, ResolveProblemLogResponse>(ResolveProblemLog.GroupId, form);
 
 
         [HttpPost("resolve-problem/delete")]
@@ -37,11 +35,9 @@ namespace aspnetcoreapp.Controllers
         [HttpPost("resolve-problem/activity")]
         [HttpPost("resolve-problem/add")]
         [HttpPost("result-resolve-problem")]
-        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemRequest request,
-            string username,
-            string password)
+        public async Task<ActionResult> PostResolveProblemLog([FromBody] ResolveProblemRequest request)
         {
-            if (!_authService.IsAuthenticate(ResolveProblemLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(ResolveProblemLog.GroupId))
             {
                 return Unauthorized();
             }

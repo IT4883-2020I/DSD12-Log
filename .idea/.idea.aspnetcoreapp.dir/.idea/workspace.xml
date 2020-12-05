@@ -9,8 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/DroneLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DroneLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MediaLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MediaLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/StaticalLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/StaticalLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/WarningLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/WarningLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtensionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Service/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/AuthenticationService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,14 +54,10 @@
         <option value="$PROJECT_DIR$/Models/GroupAuthentication.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuthenticationController.cs" />
         <option value="$PROJECT_DIR$/Controllers/LogController.cs" />
-        <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Models/Statical.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Controllers/NewLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
-        <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
         <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
         <option value="$PROJECT_DIR$/Models/Media.cs" />
         <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
@@ -55,27 +68,33 @@
         <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
         <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
         <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
+        <option value="$PROJECT_DIR$/Controllers/SystemLog.cs" />
+        <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
+        <option value="$PROJECT_DIR$/Models/ApiType.cs" />
+        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
+        <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
+        <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
+        <option value="$PROJECT_DIR$/Middleware/GroupAuthentication.cs" />
+        <option value="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" />
+        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/IncidentLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/PayloadLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/StaticalLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
-        <option value="$PROJECT_DIR$/Models/ApiType.cs" />
-        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
-        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
         <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
       </list>
     </option>
   </component>
@@ -181,7 +200,14 @@
       <workItem from="1606830050662" duration="4438000" />
       <workItem from="1606835550227" duration="490000" />
       <workItem from="1606867442950" duration="7307000" />
-      <workItem from="1606879893337" duration="408000" />
+      <workItem from="1606879893337" duration="787000" />
+      <workItem from="1606904513074" duration="551000" />
+      <workItem from="1606917272772" duration="332000" />
+      <workItem from="1606918346175" duration="10000" />
+      <workItem from="1607005705222" duration="223000" />
+      <workItem from="1607092097984" duration="506000" />
+      <workItem from="1607167850889" duration="1768000" />
+      <workItem from="1607177717284" duration="657000" />
     </task>
     <servers />
   </component>
@@ -278,9 +304,9 @@
     </state>
     <state x="-1" y="129" width="1269" height="590" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606869030811" />
     <state x="-1" y="140" width="1269" height="528" key="find.popup/0.25.1280.715@0.25.1280.715" timestamp="1606833468353" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606877269363">
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606880600360">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606877269363" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606880600360" />
   </component>
 </project>

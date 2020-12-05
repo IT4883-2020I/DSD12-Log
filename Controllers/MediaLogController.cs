@@ -26,18 +26,17 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("video")]
-        public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form) =>
+            await Get<VideoLog, VideoLogResponse>(VideoLog.GroupId, form);
 
 
         [HttpPost("video/delete")]
         [HttpPost("video/edit")]
         [HttpPost("video/activity")]
         [HttpPost("video/add")]
-        public async Task<ActionResult> PostVideo([FromBody] VideoLogRequest request, string username, string password)
+        public async Task<ActionResult> PostVideo([FromBody] VideoLogRequest request)
         {
-            if (!_authService.IsAuthenticate(VideoLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(VideoLog.GroupId))
             {
                 return Unauthorized();
             }
@@ -53,18 +52,17 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("image")]
-        public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form) =>
+            await Get<ImageLog, ImageLogResponse>(ImageLog.GroupId, form);
 
 
         [HttpPost("image/delete")]
         [HttpPost("image/edit")]
         [HttpPost("image/activity")]
         [HttpPost("image/add")]
-        public async Task<ActionResult> PostImage([FromBody] ImageLogRequest request, string username, string password)
+        public async Task<ActionResult> PostImage([FromBody] ImageLogRequest request)
         {
-            if (!_authService.IsAuthenticate(ImageLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(ImageLog.GroupId))
             {
                 return Unauthorized();
             }

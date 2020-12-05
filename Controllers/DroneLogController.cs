@@ -24,19 +24,18 @@ namespace aspnetcoreapp.Controllers
         {
         }
         
-
         [HttpGet("drones")]
         public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form,[FromQuery] UserPassword up) =>
-            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, up.UserName, up.Password);
+            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form);
 
         [HttpPost("drones/delete")]
         [HttpPost("drones/edit")]
         [HttpPost("drones/activity")]
         [HttpPost("drones/add")]
         [HttpPost("drones-has-problems")]
-        public async Task<ActionResult> PostDrone([FromBody] DroneLogRequest request, string username, string password)
+        public async Task<ActionResult> PostDrone([FromBody] DroneLogRequest request)
         {
-            if (!_authService.IsAuthenticate(DroneLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(DroneLog.GroupId))
             {
                 return Unauthorized();
             }

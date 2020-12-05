@@ -26,19 +26,17 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("receive-statistical")]
-        public async Task<ActionResult> GetStatical([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<StaticalLog, StaticalLogResponse>(StaticalLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetStatical([FromQuery] MinMaxDate form) =>
+            await Get<StaticalLog, StaticalLogResponse>(StaticalLog.GroupId, form);
 
         [HttpPost("statistical-frequence")]
         [HttpPost("statistical-address")]
         [HttpPost("statistical-incident")]
-        public async Task<ActionResult> PostStatical([FromBody] StaticalRequest request, string username,
-            string password)
+        public async Task<ActionResult> PostStatical([FromBody] StaticalRequest request)
         {
             var route = Request.Path.Value;
             _logger.LogInformation("PostStatical " + route);
-            if (!_authService.IsAuthenticate(StaticalLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(StaticalLog.GroupId))
             {
                 return Unauthorized();
             }

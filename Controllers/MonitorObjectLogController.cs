@@ -27,17 +27,16 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("monitor-object")]
         public async Task<ActionResult>
-            GetObjectObserve([FromQuery] MinMaxDate form, string username, string password) =>
-            await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, username, password);
+            GetObjectObserve([FromQuery] MinMaxDate form) =>
+            await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form);
 
         [HttpPost("monitor-object/delete")]
         [HttpPost("monitor-object/edit")]
         [HttpPost("monitor-object/activity")]
         [HttpPost("monitor-object/add")]
-        public async Task<ActionResult> PostObjectObserve([FromBody] ObjectObserveRequest request, string username,
-            string password)
+        public async Task<ActionResult> PostObjectObserve([FromBody] ObjectObserveRequest request)
         {
-            if (!_authService.IsAuthenticate(ObjectObserve.GroupId, username, password))
+            if (!_authService.IsAuthenticate(ObjectObserve.GroupId))
             {
                 return Unauthorized();
             }

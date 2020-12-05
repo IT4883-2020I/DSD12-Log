@@ -54,6 +54,7 @@ namespace aspnetcoreapp.Models
     {
         public string Name { get; set; }
         public string RegionName { get; set; }
+        public string ProjectType { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
         public int EntityId { get; set; }

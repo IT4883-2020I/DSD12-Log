@@ -26,19 +26,17 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("uav-connect")]
-        public async Task<ActionResult> GetUavConnectLog([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<UavConnectLog, UavConnectLogResponse>(UavConnectLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetUavConnectLog([FromQuery] MinMaxDate form) =>
+            await Get<UavConnectLog, UavConnectLogResponse>(UavConnectLog.GroupId, form);
 
 
         [HttpPost("uav-connect/delete")]
         [HttpPost("uav-connect/edit")]
         [HttpPost("uav-connect/activity")]
         [HttpPost("uav-connect/add")]
-        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectRequest request, string username,
-            string password)
+        public async Task<ActionResult> PostUavConnectLog([FromBody] UavConnectRequest request)
         {
-            if (!_authService.IsAuthenticate(UavConnectLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(UavConnectLog.GroupId))
             {
                 return Unauthorized();
             }

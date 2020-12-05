@@ -43,6 +43,7 @@ namespace aspnetcoreapp.Models
         public int target_id { get; set; }
         public string description { get; set; }
         public string meta_data { get; set; }
+        public string project_type { get; set; }
     }
 
     public class UserLogResponse : TypeAndTimeStamp
@@ -51,5 +52,6 @@ namespace aspnetcoreapp.Models
         public string Metadata { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }
+        
     }
 }

@@ -9,7 +9,7 @@ namespace aspnetcoreapp
     {
         public static string GetDescription(this Enum value)
         {
-            FieldInfo field = value.GetType().GetField(value.ToString());
+            var field = value.GetType().GetField(value.ToString());
             if (field == null)
             {
                 return null;

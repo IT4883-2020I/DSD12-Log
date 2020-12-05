@@ -27,10 +27,9 @@ namespace aspnetcoreapp.Controllers
        
 
         [HttpGet("user")]
-        public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form, string username,
-            string password)
+        public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form)
         {
-            if (_authService.IsAuthenticate(UserLog.GroupId, username, password))
+            if (_authService.IsAuthenticate(UserLog.GroupId))
             {
                 var list = await _dbContext.Set<UserLog>()
                     .Where(entity =>
@@ -61,9 +60,9 @@ namespace aspnetcoreapp.Controllers
         [HttpPost("user/edit")]
         [HttpPost("user/activity")]
         [HttpPost("user/add")]
-        public async Task<ActionResult> PostUser([FromBody] UserLogRequest form, string username, string password)
+        public async Task<ActionResult> PostUser([FromBody] UserLogRequest form)
         {
-            if (!_authService.IsAuthenticate(UserLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(UserLog.GroupId))
             {
                 return Unauthorized();
             }
@@ -85,6 +84,7 @@ namespace aspnetcoreapp.Controllers
                     EntityId = form.target_id,
                     Metadata = form.meta_data,
                     UserId = form.user_id,
+                    ProjectType = form.project_type,
                     Description = form.description,
                     Timestamp = DateTime.Now
                 };

@@ -26,9 +26,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("warning")]
-        public async Task<ActionResult> GetWarning([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<WarningLog, WarningLogResponse>(WarningLog.GroupId, form, username, password);
+        public async Task<ActionResult> GetWarning([FromQuery] MinMaxDate form) =>
+            await Get<WarningLog, WarningLogResponse>(WarningLog.GroupId, form);
 
 
         [HttpPost("warning/delete")]
@@ -37,10 +36,9 @@ namespace aspnetcoreapp.Controllers
         [HttpPost("warning/add")]
         [HttpPost("warning-level")]
         [HttpPost("solution-handling-warning")]
-        public async Task<ActionResult> PostWarning([FromBody] WarningLogRequest request, string username,
-            string password)
+        public async Task<ActionResult> PostWarning([FromBody] WarningLogRequest request)
         {
-            if (!_authService.IsAuthenticate(WarningLog.GroupId, username, password))
+            if (!_authService.IsAuthenticate(WarningLog.GroupId))
             {
                 return Unauthorized();
             }

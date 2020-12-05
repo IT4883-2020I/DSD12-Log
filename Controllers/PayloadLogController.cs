@@ -25,18 +25,17 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("payload")]
-        public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form, string username,
-            string password) =>
-            await Get<Payload, PayloadResponse>(Payload.GroupId, form, username, password);
+        public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form) =>
+            await Get<Payload, PayloadResponse>(Payload.GroupId, form);
 
 
         [HttpPost("payload/delete")]
         [HttpPost("payload/edit")]
         [HttpPost("payload/activity")]
         [HttpPost("payload/add")]
-        public async Task<ActionResult> PostPayload([FromBody] PayloadRequest request, string username, string password)
+        public async Task<ActionResult> PostPayload([FromBody] PayloadRequest request)
         {
-            if (!_authService.IsAuthenticate(Payload.GroupId, username, password))
+            if (!_authService.IsAuthenticate(Payload.GroupId))
             {
                 return Unauthorized();
             }

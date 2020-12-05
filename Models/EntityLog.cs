@@ -32,7 +32,7 @@ namespace aspnetcoreapp.Models
         public int EntityId { get; set; }
         public ApiType Type { get; set; }
         public string Description { get; set; }
-        
+        public string ProjectType { get; set; }
     }
 
     public class EntityActivityLog : EntityLog
@@ -67,6 +67,7 @@ namespace aspnetcoreapp.Models
     {
         public int EntityId { get; set; }
         public string Description { get; set; }
+        public string ProjectType { get; set; }
         public string State { get; set; }
         public string Name { get; set; }
     }

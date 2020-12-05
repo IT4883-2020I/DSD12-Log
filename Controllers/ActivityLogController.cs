@@ -27,8 +27,8 @@ namespace aspnetcoreapp.Controllers
         {
             public DateTime MinDate { get; set; } = DateTime.MinValue;
             public DateTime MaxDate { get; set; } = DateTime.MaxValue;
-            public string Username { get; set; }
-            public string Password { get; set; }
+            // public string Username { get; set; }
+            // public string Password { get; set; }
         }
 
         // [HttpPost("activity/drone")]
@@ -62,7 +62,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("activity/drone")]
         public async Task<ActionResult> GetDroneLog([FromQuery] GetForm form)
         {
-            if (_authService.IsAuthenticate(1, form.Username, form.Password))
+            if (_authService.IsAuthenticate(1))
             {
                 return Ok(await _dbContext.DroneLogs
                     .Where(log => log.Type == ApiType.ActivityLog)
@@ -91,7 +91,7 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("activity/user")]
         public async Task<ActionResult> GetUserLog([FromQuery] GetForm form)
         {
-            if (_authService.IsAuthenticate(UserLog.GroupId, form.Username, form.Password))
+            if (_authService.IsAuthenticate(UserLog.GroupId))
             {
                 return Ok(await _dbContext.UserLog
                     .Where(log => log.Type == ApiType.ActivityLog)
@@ -181,7 +181,7 @@ namespace aspnetcoreapp.Controllers
         public async Task<ActionResult> GetActivityLog([FromQuery] GetForm form)
         {
             var groupName = Request.Path.Value.Split('/')[^1];
-            if (_authService.IsAuthenticateByEntityName(groupName, form.Username, form.Password))
+            if (_authService.IsAuthenticateByEntityName(groupName))
             {
                 List<EntityActivityLog> list = groupName switch
                 {
