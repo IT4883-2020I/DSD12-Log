@@ -9,6 +9,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 8;
         public string Name { get; set; }
+        public int RegionId { get; set; }
         
         public static WarningLog[] GetSeederData()
         {
@@ -23,7 +24,9 @@ namespace aspnetcoreapp.Models
                 var droneLog = new WarningLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityId = i * 2,
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
                     Type = apiType,
                     Description = "Warning " + apiType.GetDescription(),
                     Name = "Warning " + Utility.RandomString(2),
@@ -40,8 +43,10 @@ namespace aspnetcoreapp.Models
     public class WarningLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+        public int RegionId { get; set; }
     }
     public class WarningLogRequest : CommonRequest
     {
+        public int RegionId { get; set; }
     }
 }

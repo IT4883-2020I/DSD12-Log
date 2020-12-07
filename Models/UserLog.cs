@@ -9,6 +9,9 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 3;
         public string Metadata { get; set; }
         public int UserId { get; set; }
+        public int RegionId { get; set; }
+        public int IncidentId { get; set; }
+        public int ResolveProblemId { get; set; }
 
         public static UserLog[] GetSeederData()
         {
@@ -23,7 +26,9 @@ namespace aspnetcoreapp.Models
                 var droneLog = new UserLog()
                 {
                     Metadata = "Meta data example " + i,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityLogPrimaryKeyId = i + 10,
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityId = i * 2,
                     Type = apiType,
                     UserId = i * 3 - 1,
@@ -44,6 +49,9 @@ namespace aspnetcoreapp.Models
         public string description { get; set; }
         public string meta_data { get; set; }
         public string project_type { get; set; }
+        public int region_id { get; set; }
+        public int incident_id { get; set; }
+        public int resolve_problem_id { get; set; }
     }
 
     public class UserLogResponse : TypeAndTimeStamp
@@ -52,6 +60,8 @@ namespace aspnetcoreapp.Models
         public string Metadata { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }
-        
+        public int RegionId { get; set; }
+        public int IncidentId { get; set; }
+        public int ResolveProblemId { get; set; }
     }
 }

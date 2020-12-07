@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using aspnetcoreapp.Helpers;
 using aspnetcoreapp.Models;
@@ -113,6 +114,35 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+        }
+
+        public async Task<List<TResponse>> GetEntity<TEntity, TResponse>(int group, MinMaxDate form,
+            string username = "",
+            string password = "")
+            where TEntity : EntityLog where TResponse : TypeAndTimeStamp
+        {
+            _logger.LogInformation(form.ToJson());
+            if (!_authService.IsAuthenticate(@group, username, password))
+            {
+                throw new AuthenticationException();
+            }
+            var list = await _dbContext.Set<TEntity>()
+                .Where(entity =>
+                    entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate &&
+                    entity.Type != ApiType.ActivityLog)
+                .AsNoTracking()
+                .ToListAsync();
+            list.Sort(Utility.CompareEntityLog);
+            var result = new List<TResponse>();
+            foreach (var entityLog in list)
+            {
+                var entityResponseLog = _mapper.Map<TResponse>(entityLog);
+                entityResponseLog.Type = entityLog.Type.GetDescription();
+                entityResponseLog.Timestamp =
+                    entityLog.Timestamp.ToShortTimeString() + " " + entityLog.Timestamp.ToShortDateString();
+                result.Add(entityResponseLog);
+            }
+            return result;
         }
     }
 }

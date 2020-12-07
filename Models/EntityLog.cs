@@ -1,5 +1,5 @@
-
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
@@ -9,7 +9,7 @@ namespace aspnetcoreapp.Models
     public class TimeModel : IComparable
     {
         public DateTime Timestamp { get; set; }
-        
+
         public int CompareTo(object? obj)
         {
             if (!(obj is TimeModel entityLog)) return 1;
@@ -76,5 +76,27 @@ namespace aspnetcoreapp.Models
     {
         public string UserName { get; set; }
         public string Password { get; set; }
+    }
+
+    public static class ProjectType
+    {
+        public const string DeDieu = "DE_DIEU";
+        public const string CayTrong = "CAY_TRONG";
+        public const string ChayRung = "CHAY_RUNG";
+        public const string LuoiDien = "LUOI_DIEN";
+
+        private static readonly Dictionary<int, string> Project = new Dictionary<int, string>()
+        {
+            {1, ProjectType.DeDieu},
+            {2, ProjectType.CayTrong},
+            {3, ProjectType.ChayRung},
+            {4, ProjectType.LuoiDien}
+        };
+
+        public static string GetRandomProjectType()
+        {
+            var rand = new Random().Next(1, 4);
+            return Project[rand];
+        }
     }
 }

@@ -24,7 +24,6 @@ namespace aspnetcoreapp.Controllers
         {
         }
 
-       
 
         [HttpGet("user")]
         public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form)
@@ -37,16 +36,16 @@ namespace aspnetcoreapp.Controllers
                         entity.Type != ApiType.ActivityLog)
                     .AsNoTracking()
                     .ToListAsync();
-                var result = list.Select(entityLog => new UserLogResponse()
-                    {
-                        TargetId = entityLog.EntityId,
-                        UserId = entityLog.UserId,
-                        Metadata = entityLog.Metadata,
-                        Description = entityLog.Description,
-                        Type = entityLog.Type.GetDescription(),
-                        Timestamp = entityLog.Timestamp.ToShortTimeString() + " " + entityLog.Timestamp.ToShortDateString(),
-                    })
-                    .ToList();
+                var result = new List<UserLogResponse>();
+                foreach (var userLog in list)
+                {
+                    var userLogResponse = _mapper.Map<UserLogResponse>(userLog);
+                    userLogResponse.Type = userLog.Type.GetDescription();
+                    userLogResponse.Timestamp = userLog.Timestamp.ToShortTimeString() + " " +
+                                                userLog.Timestamp.ToShortDateString();
+                    result.Add(userLogResponse);
+                }
+
                 return Ok(result);
             }
             else
@@ -86,11 +85,13 @@ namespace aspnetcoreapp.Controllers
                     UserId = form.user_id,
                     ProjectType = form.project_type,
                     Description = form.description,
+                    RegionId = form.region_id,
+                    IncidentId = form.incident_id,
+                    ResolveProblemId = form.resolve_problem_id,
                     Timestamp = DateTime.Now
                 };
                 return await Post<UserLog>(userLog, apiType);
             }
         }
-
     }
 }

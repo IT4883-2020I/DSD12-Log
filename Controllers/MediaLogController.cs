@@ -24,11 +24,24 @@ namespace aspnetcoreapp.Controllers
         {
         }
 
-
+        public class MediaQuery
+        {
+            [FromQuery] public int DroneId { get; set; } = int.MinValue;
+        }
         [HttpGet("video")]
-        public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form) =>
-            await Get<VideoLog, VideoLogResponse>(VideoLog.GroupId, form);
-
+        public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form, MediaQuery query)
+        {
+            var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form);
+            
+            if (query.DroneId != int.MinValue)
+            {
+                return Ok(listEntity.Where(entity => entity.DroneId == query.DroneId).ToList());
+            }
+            else
+            {
+                return Ok(listEntity);
+            }
+        }
 
         [HttpPost("video/delete")]
         [HttpPost("video/edit")]
@@ -52,8 +65,18 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("image")]
-        public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form) =>
-            await Get<ImageLog, ImageLogResponse>(ImageLog.GroupId, form);
+        public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form, MediaQuery query)
+        {
+            var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form);
+            if (query.DroneId != int.MinValue)
+            {
+                return Ok(listEntity.Where(entity => entity.DroneId == query.DroneId).ToList());
+            }
+            else
+            {
+                return Ok(listEntity);
+            }
+        }
 
 
         [HttpPost("image/delete")]

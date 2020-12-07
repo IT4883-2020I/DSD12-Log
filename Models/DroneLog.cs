@@ -11,7 +11,8 @@ namespace aspnetcoreapp.Models
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
-        
+        public int RegionId { get; set; }
+
         public static DroneLog[] GetSeederData()
         {
             var droneSeeder = new List<DroneLog>();
@@ -24,11 +25,13 @@ namespace aspnetcoreapp.Models
                 var apiType = Utility.GetRandomApiType();
                 var droneLog = new DroneLog()
                 {
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityLogPrimaryKeyId = i + 10,
-                    EntityId = i * 2,
+                    EntityId = rand.Next(1, 11),
                     Latitude = rand.Next(10, 50),
                     Longitude = rand.Next(10, 50),
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     RegionName = Utility.RandomString(5),
                     Description = "Drone " + apiType.GetDescription(),
                     Name = "Drone " + Utility.RandomString(2),
@@ -39,7 +42,6 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-
     }
 
     public class DroneLogResponse : EntityLogDTO
@@ -48,6 +50,7 @@ namespace aspnetcoreapp.Models
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
+        public int RegionId { get; set; }
     }
 
     public class DroneLogRequest
@@ -59,5 +62,6 @@ namespace aspnetcoreapp.Models
         public int Latitude { get; set; }
         public int EntityId { get; set; }
         public string Description { get; set; }
+        public int RegionId { get; set; }
     }
 }

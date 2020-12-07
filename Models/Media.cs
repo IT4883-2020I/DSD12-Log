@@ -7,6 +7,8 @@ namespace aspnetcoreapp.Models
     public class ImageLog : EntityActivityLog
     {
         public static int GroupId = 4;
+        public string Name { get; set; }
+        public int DroneId { get; set; }
         
         public static ImageLog[] GetSeederData()
         {
@@ -22,7 +24,9 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
+                    DroneId = rand.Next(1, 11),
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Image " + apiType.GetDescription(),
                     Name = "Image " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -33,17 +37,20 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        public string Name { get; set; }
+       
     }
 
     public class ImageLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+        public int DroneId { get; set; }
     }
 
     public class VideoLog : EntityActivityLog
     {
         public static int GroupId = 4;
+        public int DroneId { get; set; }
+        public string Name { get; set; }
         
         public static VideoLog[] GetSeederData()
         {
@@ -58,8 +65,10 @@ namespace aspnetcoreapp.Models
                 var droneLog = new VideoLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
+                    DroneId = rand.Next(1, 11),
                     EntityId = i * 2,
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Video " + apiType.GetDescription(),
                     Name = "Video " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -70,14 +79,22 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        public string Name { get; set; }
+        
     }
 
     public class VideoLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+        public int DroneId { get; set; }
     }
-    
-    public class VideoLogRequest: CommonRequest{}
-    public class ImageLogRequest: CommonRequest{}
+
+    public class VideoLogRequest : CommonRequest
+    {
+        public int DroneId { get; set; }
+    }
+
+    public class ImageLogRequest : CommonRequest
+    {
+        public int DroneId { get; set; }
+    }
 }

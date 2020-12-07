@@ -23,10 +23,25 @@ namespace aspnetcoreapp.Controllers
             : base(logger, dbContext, mapper, configuration)
         {
         }
-        
+
+        public class DroneQuery
+        {
+            [FromQuery] public int RegionId { get; set; } = int.MinValue;
+        }
+
         [HttpGet("drones")]
-        public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form,[FromQuery] UserPassword up) =>
-            await Get<DroneLog, DroneLogResponse>(DroneLog.GroupId, form);
+        public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form, DroneQuery query)
+        {
+            var listEntity = await GetEntity<DroneLog, DroneLogResponse>(DroneLog.GroupId, form);
+            if (query.RegionId != int.MinValue)
+            {
+                return Ok(listEntity.Where(entity => entity.RegionId == query.RegionId).ToList());
+            }
+            else
+            {
+                return Ok(listEntity);
+            }
+        }
 
         [HttpPost("drones/delete")]
         [HttpPost("drones/edit")]

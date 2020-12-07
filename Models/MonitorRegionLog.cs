@@ -4,12 +4,11 @@ using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
 {
-
     public class MonitorRegionLog : EntityActivityLog
     {
         public static int GroupId = 10;
         public string Name { get; set; }
-        
+
         public static MonitorRegionLog[] GetSeederData()
         {
             var droneSeeder = new List<MonitorRegionLog>();
@@ -23,8 +22,9 @@ namespace aspnetcoreapp.Models
                 var droneLog = new MonitorRegionLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    EntityId = i * 2,
+                    EntityId = GetRandomEntityId(),
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "MonitorRegion " + apiType.GetDescription(),
                     Name = "MonitorRegion " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -35,11 +35,20 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
+
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 5);
+        }
     }
 
     public class MonitorRegionLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
     }
-    public class MonitorLogRequest: CommonRequest{}
+
+    public class MonitorLogRequest : CommonRequest
+    {
+    }
 }

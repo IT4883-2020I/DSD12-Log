@@ -8,6 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 6;
         public string Name { get; set; }
+        public int RegionId { get; set; }
         
         public static ObjectObserve[] GetSeederData()
         {
@@ -22,8 +23,10 @@ namespace aspnetcoreapp.Models
                 var droneLog = new ObjectObserve()
                 {
                     EntityLogPrimaryKeyId = i + 10,
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityId = i * 2,
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "ObjectObserve " + apiType.GetDescription(),
                     Name = "ObjectObserve " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -39,6 +42,11 @@ namespace aspnetcoreapp.Models
     public class ObjectObserveResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+        public int RegionId { get; set; }
     }
-    public class ObjectObserveRequest: CommonRequest{}
+
+    public class ObjectObserveRequest : CommonRequest
+    {
+        public int RegionId { get; set; }
+    }
 }

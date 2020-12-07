@@ -7,6 +7,7 @@ namespace aspnetcoreapp.Models
     public class ResolveProblemLog : EntityActivityLog
     {
         public static int GroupId = 11;
+        public int RegionId { get; set; }
         
         public static ResolveProblemLog[] GetSeederData()
         {
@@ -23,9 +24,11 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
                     Type = apiType,
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "ResolveProblem " + apiType.GetDescription(),
                     Name = "ResolveProblem " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
                     State = i % 2 + ""
                 };
                 droneSeeder.Add(droneLog);
@@ -38,6 +41,11 @@ namespace aspnetcoreapp.Models
 
     public class ResolveProblemLogResponse : EntityActivityLogDTO
     {
+        public int RegionId { get; set; }
     }
-    public class ResolveProblemRequest: CommonRequest{}
+
+    public class ResolveProblemRequest : CommonRequest
+    {
+        public int RegionId { get; set; }
+    }
 }

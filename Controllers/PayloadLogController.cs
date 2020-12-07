@@ -18,15 +18,27 @@ namespace aspnetcoreapp.Controllers
     [ApiController]
     public class PayloadLogController : CustomController
     {
-        public PayloadLogController(ILogger<PayloadLogController> logger, ApplicationDbContext dbContext, IMapper mapper,
+        public PayloadLogController(ILogger<PayloadLogController> logger, ApplicationDbContext dbContext,
+            IMapper mapper,
             IConfiguration configuration)
             : base(logger, dbContext, mapper, configuration)
         {
         }
+        
 
         [HttpGet("payload")]
-        public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form) =>
-            await Get<Payload, PayloadResponse>(Payload.GroupId, form);
+        public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form, int droneId = int.MinValue)
+        {
+            var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form);
+            if (droneId != int.MinValue)
+            {
+                return Ok(listEntity.Where(entity => entity.DroneId == droneId).ToList());
+            }
+            else
+            {
+                return Ok(listEntity);
+            }
+        }
 
 
         [HttpPost("payload/delete")]
@@ -39,6 +51,7 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
+
             var form = _mapper.Map<Payload>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
             if (apiType == ApiType.Empty)

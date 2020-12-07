@@ -8,6 +8,9 @@ namespace aspnetcoreapp.Models
     public class IncidentLog : EntityActivityLog
     {
         public static int GroupId = 5;
+        public int RegionId { get; set; }
+        public int ImageId { get; set; }
+        public int VideoId { get; set; }
         
         public static IncidentLog[] GetSeederData()
         {
@@ -23,6 +26,8 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = i * 2,
+                    RegionId = MonitorRegionLog.GetRandomEntityId(),
+                    ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Type = apiType,
                     Description = "Incident " + apiType.GetDescription(),
                     Name = "Incident " + Utility.RandomString(2),
@@ -40,7 +45,15 @@ namespace aspnetcoreapp.Models
     public class IncidentLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
+        public int RegionId { get; set; }
+        public int ImageId { get; set; }
+        public int VideoId { get; set; }
     }
 
-    public class IncidentLogRequest: CommonRequest{}
+    public class IncidentLogRequest : CommonRequest
+    {
+        public int RegionId { get; set; }
+        public int ImageId { get; set; }
+        public int VideoId { get; set; }
+    }
 }
