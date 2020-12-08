@@ -9,7 +9,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 2;
         public string Name { get; set; }
         public int DroneId { get; set; }
-        
+
         public static Payload[] GetSeederData()
         {
             var droneSeeder = new List<Payload>();
@@ -23,8 +23,8 @@ namespace aspnetcoreapp.Models
                 var droneLog = new Payload()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    DroneId = rand.Next(1, 11),
-                    EntityId = i * 2,
+                    DroneId = DroneLog.GetRandomEntityId(),
+                    EntityId = Payload.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Type = apiType,
                     Description = "Payload " + apiType.GetDescription(),
@@ -36,6 +36,12 @@ namespace aspnetcoreapp.Models
             }
 
             return droneSeeder.ToArray();
+        }
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 11);
         }
     }
 

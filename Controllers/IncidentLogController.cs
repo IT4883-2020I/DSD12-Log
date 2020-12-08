@@ -27,8 +27,24 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("incident")]
-        public async Task<ActionResult> GetIncident([FromQuery] MinMaxDate form) =>
-            await Get<IncidentLog, IncidentLogResponse>(IncidentLog.GroupId, form);
+        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form, int? videoId, int? imageId,
+            int? regionId,
+            string projectType)
+        {
+            var listEntity = await GetEntity<IncidentLog, IncidentLogResponse>(ObjectObserve.GroupId, form, projectType);
+            var result = new List<IncidentLogResponse>();
+            foreach (var incidentLog in listEntity)
+            {
+                if ((videoId == null || incidentLog.VideoId == videoId) &&
+                    (imageId == null || incidentLog.ImageId == imageId) &&
+                    (regionId == null || incidentLog.RegionId == regionId))
+                {
+                    result.Add(incidentLog);
+                }
+            }
+
+            return result;
+        }
 
 
         [HttpPost("incident/delete")]
@@ -48,7 +64,7 @@ namespace aspnetcoreapp.Controllers
             {
                 apiType = ApiType.Confirm;
             }
-            
+
             var form = _mapper.Map<IncidentLog>(request);
             apiType = Utility.GetTypeFromUrl(Request.Path.Value);
             if (apiType == ApiType.Empty)

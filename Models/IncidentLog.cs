@@ -11,6 +11,7 @@ namespace aspnetcoreapp.Models
         public int RegionId { get; set; }
         public int ImageId { get; set; }
         public int VideoId { get; set; }
+        public string Name { get; set; }
         
         public static IncidentLog[] GetSeederData()
         {
@@ -25,8 +26,10 @@ namespace aspnetcoreapp.Models
                 var droneLog = new IncidentLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    EntityId = i * 2,
+                    EntityId = IncidentLog.GetRandomEntityId(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
+                    VideoId = VideoLog.GetRandomEntityId(),
+                    ImageId = ImageLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Type = apiType,
                     Description = "Incident " + apiType.GetDescription(),
@@ -39,7 +42,12 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        public string Name { get; set; }
+
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 15);
+        }
     }
 
     public class IncidentLogResponse : EntityActivityLogDTO

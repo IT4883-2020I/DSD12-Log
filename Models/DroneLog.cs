@@ -23,24 +23,31 @@ namespace aspnetcoreapp.Models
                 var ranHour = rand.Next(1, 18);
                 var ranMinute = rand.Next(1, 50);
                 var apiType = Utility.GetRandomApiType();
+                var entityId = rand.Next(1, 11);
                 var droneLog = new DroneLog()
                 {
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
-                    EntityLogPrimaryKeyId = i + 10,
-                    EntityId = rand.Next(1, 11),
+                    EntityLogPrimaryKeyId = i + 1,
+                    EntityId = DroneLog.GetRandomEntityId(),
                     Latitude = rand.Next(10, 50),
                     Longitude = rand.Next(10, 50),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
-                    RegionName = Utility.RandomString(5),
+                    RegionName = "MonitorRegion " + MonitorRegionLog.GetRandomEntityId(),
                     Description = "Drone " + apiType.GetDescription(),
-                    Name = "Drone " + Utility.RandomString(2),
+                    Name = "Drone " + entityId,
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0)
                 };
                 droneSeeder.Add(droneLog);
             }
 
             return droneSeeder.ToArray();
+        }
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 11);
         }
     }
 

@@ -29,9 +29,10 @@ namespace aspnetcoreapp.Models
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityLogPrimaryKeyId = i + 10,
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
-                    EntityId = i * 2,
+                    EntityId = UserLog.GetRandomEntityId(),
                     Type = apiType,
-                    UserId = i * 3 - 1,
+                    UserId = UserLog.GetRandomEntityId(),
+                    ResolveProblemId = ResolveProblemLog.GetRandomEntityId(),
                     Description = "User " + apiType.GetDescription(),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0)
                 };
@@ -39,6 +40,12 @@ namespace aspnetcoreapp.Models
             }
 
             return droneSeeder.ToArray();
+        }
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 11);
         }
     }
 

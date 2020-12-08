@@ -27,16 +27,16 @@ namespace aspnetcoreapp.Controllers
         
 
         [HttpGet("payload")]
-        public async Task<ActionResult> GetPayload([FromQuery] MinMaxDate form, int droneId = int.MinValue)
+        public async Task<ActionResult<List<PayloadResponse>>> GetPayload([FromQuery] MinMaxDate form, int? droneId, string projectType)
         {
-            var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form);
-            if (droneId != int.MinValue)
+            var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form,projectType);
+            if (droneId != null)
             {
-                return Ok(listEntity.Where(entity => entity.DroneId == droneId).ToList());
+                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
             }
             else
             {
-                return Ok(listEntity);
+                return (listEntity);
             }
         }
 

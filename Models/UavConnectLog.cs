@@ -25,7 +25,7 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     DroneId = rand.Next(1, 11),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
-                    EntityId = i * 2,
+                    EntityId = UavConnectLog.GetRandomEntityId(),
                     Type = apiType,
                     Description = "UavConnect " + apiType.GetDescription(),
                     Name = "UavConnect " + Utility.RandomString(2),
@@ -36,6 +36,12 @@ namespace aspnetcoreapp.Models
             }
 
             return droneSeeder.ToArray();
+        }
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 15);
         }
     }
 

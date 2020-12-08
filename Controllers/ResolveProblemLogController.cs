@@ -26,8 +26,19 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("resolve-problem")]
-        public async Task<ActionResult> GetResolveProblemLog([FromQuery] MinMaxDate form) =>
-            await Get<ResolveProblemLog, ResolveProblemLogResponse>(ResolveProblemLog.GroupId, form);
+        public async Task<ActionResult<List<ResolveProblemLogResponse>>> GetResolveProblemLog([FromQuery] MinMaxDate form,int? regionId,
+        string projectType)
+        {
+            var listEntity = await GetEntity<ResolveProblemLog, ResolveProblemLogResponse>(ObjectObserve.GroupId, form, projectType);
+            if (regionId != null)
+            {
+                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
+            }
+            else
+            {
+                return (listEntity);
+            }
+        }
 
 
         [HttpPost("resolve-problem/delete")]

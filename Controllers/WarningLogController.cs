@@ -26,9 +26,19 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("warning")]
-        public async Task<ActionResult> GetWarning([FromQuery] MinMaxDate form) =>
-            await Get<WarningLog, WarningLogResponse>(WarningLog.GroupId, form);
-
+        public async Task<ActionResult<List<WarningLogResponse>>> GetWarning([FromQuery] MinMaxDate form, int? regionId,
+            string projectType)
+        {
+            var listEntity = await GetEntity<WarningLog, WarningLogResponse>(ObjectObserve.GroupId, form, projectType);
+            if (regionId != null)
+            {
+                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
+            }
+            else
+            {
+                return (listEntity);
+            }
+        }
 
         [HttpPost("warning/delete")]
         [HttpPost("warning/edit")]

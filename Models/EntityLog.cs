@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
 
 namespace aspnetcoreapp.Models
@@ -48,13 +49,13 @@ namespace aspnetcoreapp.Models
 
     public class EntityActivityLogDTO : EntityLogDTO
     {
-        public string State { get; set; }
     }
 
     public class EntityLogDTO : TypeAndTimeStamp
     {
         public int EntityId { get; set; }
         public string Description { get; set; }
+        public string State { get; set; }
     }
 
     public class TypeAndTimeStamp
@@ -95,8 +96,13 @@ namespace aspnetcoreapp.Models
 
         public static string GetRandomProjectType()
         {
-            var rand = new Random().Next(1, 4);
+            var rand = new Random().Next(1, 5);
             return Project[rand];
+        }
+
+        public static bool IsProjectType(string s)
+        {
+            return s != null && Project.Any((pair => pair.Value.ToLower() == s.ToLower()));
         }
     }
 }

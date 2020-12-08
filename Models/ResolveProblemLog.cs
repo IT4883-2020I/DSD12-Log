@@ -22,7 +22,7 @@ namespace aspnetcoreapp.Models
                 var droneLog = new ResolveProblemLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    EntityId = i * 2,
+                    EntityId = ResolveProblemLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "ResolveProblem " + apiType.GetDescription(),
@@ -37,6 +37,12 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         public string Name { get; set; }
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 15);
+        }
     }
 
     public class ResolveProblemLogResponse : EntityActivityLogDTO

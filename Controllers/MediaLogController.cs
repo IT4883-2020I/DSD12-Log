@@ -29,17 +29,17 @@ namespace aspnetcoreapp.Controllers
             [FromQuery] public int DroneId { get; set; } = int.MinValue;
         }
         [HttpGet("video")]
-        public async Task<ActionResult> GetVideo([FromQuery] MinMaxDate form, MediaQuery query)
+        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, int? droneId, string projectType)
         {
-            var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form);
+            var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, projectType);
             
-            if (query.DroneId != int.MinValue)
+            if (droneId != null)
             {
-                return Ok(listEntity.Where(entity => entity.DroneId == query.DroneId).ToList());
+                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
             }
             else
             {
-                return Ok(listEntity);
+                return (listEntity);
             }
         }
 
@@ -65,16 +65,16 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("image")]
-        public async Task<ActionResult> GetImage([FromQuery] MinMaxDate form, MediaQuery query)
+        public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, int? droneId, string projectType)
         {
-            var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form);
-            if (query.DroneId != int.MinValue)
+            var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form,projectType);
+            if (droneId != null)
             {
-                return Ok(listEntity.Where(entity => entity.DroneId == query.DroneId).ToList());
+                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
             }
             else
             {
-                return Ok(listEntity);
+                return (listEntity);
             }
         }
 

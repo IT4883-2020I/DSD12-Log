@@ -26,27 +26,31 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("user")]
-        public async Task<ActionResult> GetUser([FromQuery] MinMaxDate form)
+        public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form, int? regionId, int? problemId,
+            string projectType)
         {
             if (_authService.IsAuthenticate(UserLog.GroupId))
             {
                 var list = await _dbContext.Set<UserLog>()
                     .Where(entity =>
-                        entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate &&
-                        entity.Type != ApiType.ActivityLog)
+                        entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate)
                     .AsNoTracking()
                     .ToListAsync();
                 var result = new List<UserLogResponse>();
                 foreach (var userLog in list)
                 {
-                    var userLogResponse = _mapper.Map<UserLogResponse>(userLog);
-                    userLogResponse.Type = userLog.Type.GetDescription();
-                    userLogResponse.Timestamp = userLog.Timestamp.ToShortTimeString() + " " +
-                                                userLog.Timestamp.ToShortDateString();
-                    result.Add(userLogResponse);
+                    if (userLog.ProjectType == projectType && (regionId == null || userLog.RegionId == regionId) &&
+                        (problemId == null || userLog.ResolveProblemId == problemId))
+                    {
+                        var userLogResponse = _mapper.Map<UserLogResponse>(userLog);
+                        userLogResponse.Type = userLog.Type.GetDescription();
+                        userLogResponse.Timestamp = userLog.Timestamp.ToShortTimeString() + " " +
+                                                    userLog.Timestamp.ToShortDateString();
+                        result.Add(userLogResponse);
+                    }
                 }
 
-                return Ok(result);
+                return (result);
             }
             else
             {
@@ -67,11 +71,6 @@ namespace aspnetcoreapp.Controllers
             }
 
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (Request.Path.Value.Contains("user-role"))
-            {
-                apiType = ApiType.Role;
-            }
-
             if (apiType == ApiType.Empty)
             {
                 return NotFound();

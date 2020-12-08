@@ -26,9 +26,19 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("uav-connect")]
-        public async Task<ActionResult> GetUavConnectLog([FromQuery] MinMaxDate form) =>
-            await Get<UavConnectLog, UavConnectLogResponse>(UavConnectLog.GroupId, form);
-
+        public async Task<ActionResult<List<UavConnectLogResponse>>> GetUavConnectLog([FromQuery] MinMaxDate form,
+            int? droneId, string projectType)
+        {
+            var listEntity = await GetEntity<UavConnectLog, UavConnectLogResponse>(Payload.GroupId, form, projectType);
+            if (droneId != null)
+            {
+                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
+            }
+            else
+            {
+                return (listEntity);
+            }
+        }
 
         [HttpPost("uav-connect/delete")]
         [HttpPost("uav-connect/edit")]

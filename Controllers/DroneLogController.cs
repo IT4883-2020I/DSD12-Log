@@ -24,22 +24,17 @@ namespace aspnetcoreapp.Controllers
         {
         }
 
-        public class DroneQuery
-        {
-            [FromQuery] public int RegionId { get; set; } = int.MinValue;
-        }
-
         [HttpGet("drones")]
-        public async Task<ActionResult> GetDrone([FromQuery] MinMaxDate form, DroneQuery query)
+        public async Task<ActionResult<List<DroneLogResponse>>> GetDrone([FromQuery] MinMaxDate form, int? regionId, string projectType)
         {
-            var listEntity = await GetEntity<DroneLog, DroneLogResponse>(DroneLog.GroupId, form);
-            if (query.RegionId != int.MinValue)
+            var listEntity = await GetEntity<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, projectType);
+            if (regionId != null)
             {
-                return Ok(listEntity.Where(entity => entity.RegionId == query.RegionId).ToList());
+                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
             }
             else
             {
-                return Ok(listEntity);
+                return (listEntity);
             }
         }
 

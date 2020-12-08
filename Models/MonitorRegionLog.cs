@@ -19,14 +19,15 @@ namespace aspnetcoreapp.Models
                 var ranHour = rand.Next(1, 18);
                 var ranMinute = rand.Next(1, 50);
                 var apiType = Utility.GetRandomApiType();
+                var entityId = GetRandomEntityId();
                 var droneLog = new MonitorRegionLog()
                 {
-                    EntityLogPrimaryKeyId = i + 10,
-                    EntityId = GetRandomEntityId(),
+                    EntityLogPrimaryKeyId = i + 1,
+                    EntityId = entityId,
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "MonitorRegion " + apiType.GetDescription(),
-                    Name = "MonitorRegion " + Utility.RandomString(2),
+                    Name = "MonitorRegion " + entityId,
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };

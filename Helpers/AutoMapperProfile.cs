@@ -33,8 +33,7 @@ namespace aspnetcoreapp.Helpers
             CreateMap<EntityActivityLog, MonitorRegionLog>().ReverseMap();
             CreateMap<EntityActivityLog, ResolveProblemLog>().ReverseMap();
             CreateMap<EntityActivityLog, UavConnectLog>().ReverseMap();
-
-            CreateMap<DroneLog, ActivityLogController.DroneLogDTO>();
+            
             CreateMap<UserLogRequest, UserLog>();
 
             CreateMap<DroneLog, DroneLogResponse>();

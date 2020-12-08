@@ -26,9 +26,19 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("monitor-object")]
-        public async Task<ActionResult>
-            GetObjectObserve([FromQuery] MinMaxDate form) =>
-            await Get<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form);
+        public async Task<ActionResult<List<ObjectObserveResponse>>>
+            GetObjectObserve([FromQuery] MinMaxDate form, int? regionId, string projectType)
+        {
+            var listEntity = await GetEntity<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, projectType);
+            if (regionId != null)
+            {
+                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
+            }
+            else
+            {
+                return (listEntity);
+            }
+        }
 
         [HttpPost("monitor-object/delete")]
         [HttpPost("monitor-object/edit")]

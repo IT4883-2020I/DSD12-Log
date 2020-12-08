@@ -116,7 +116,7 @@ namespace aspnetcoreapp.Controllers
             }
         }
 
-        public async Task<List<TResponse>> GetEntity<TEntity, TResponse>(int group, MinMaxDate form,
+        public async Task<List<TResponse>> GetEntity<TEntity, TResponse>(int group, MinMaxDate form, string projectType,
             string username = "",
             string password = "")
             where TEntity : EntityLog where TResponse : TypeAndTimeStamp
@@ -126,10 +126,15 @@ namespace aspnetcoreapp.Controllers
             {
                 throw new AuthenticationException();
             }
+
+            if (!ProjectType.IsProjectType(projectType))
+            {
+                _logger.LogInformation($"projectType was wrong {projectType}");
+                return new List<TResponse>();
+            }
             var list = await _dbContext.Set<TEntity>()
                 .Where(entity =>
-                    entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate &&
-                    entity.Type != ApiType.ActivityLog)
+                    entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate && entity.ProjectType.ToLower() == projectType.ToLower())
                 .AsNoTracking()
                 .ToListAsync();
             list.Sort(Utility.CompareEntityLog);

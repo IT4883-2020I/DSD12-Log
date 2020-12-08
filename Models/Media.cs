@@ -9,7 +9,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public string Name { get; set; }
         public int DroneId { get; set; }
-        
+
         public static ImageLog[] GetSeederData()
         {
             var droneSeeder = new List<ImageLog>();
@@ -23,7 +23,7 @@ namespace aspnetcoreapp.Models
                 var droneLog = new ImageLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    EntityId = i * 2,
+                    EntityId = ImageLog.GetRandomEntityId(),
                     DroneId = rand.Next(1, 11),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
@@ -37,7 +37,12 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-       
+        
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 41);
+        }
     }
 
     public class ImageLogResponse : EntityActivityLogDTO
@@ -51,7 +56,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public int DroneId { get; set; }
         public string Name { get; set; }
-        
+
         public static VideoLog[] GetSeederData()
         {
             var droneSeeder = new List<VideoLog>();
@@ -66,7 +71,7 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     DroneId = rand.Next(1, 11),
-                    EntityId = i * 2,
+                    EntityId = VideoLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Video " + apiType.GetDescription(),
@@ -80,6 +85,11 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
+        public static int GetRandomEntityId()
+        {
+            var rand = new Random();
+            return rand.Next(1, 41);
+        }
     }
 
     public class VideoLogResponse : EntityActivityLogDTO
