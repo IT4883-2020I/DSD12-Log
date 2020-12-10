@@ -24,6 +24,7 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = ResolveProblemLog.GetRandomEntityId(),
                     Type = apiType,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "ResolveProblem " + apiType.GetDescription(),
                     Name = "ResolveProblem " + Utility.RandomString(2),

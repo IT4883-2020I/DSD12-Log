@@ -8,15 +8,15 @@ namespace aspnetcoreapp.Helpers
     {
         public static Random Random = new Random();
 
-        public static ApiType GetRandomApiType()
+        public static LogType GetRandomApiType()
         {
             var rand = Random.Next(0, 4);
-            var apiType = new ApiType[]
+            var apiType = new LogType[]
             {
-                ApiType.Add,
-                ApiType.Delete,
-                ApiType.Edit,
-                ApiType.ActivityLog
+                LogType.Add,
+                LogType.Delete,
+                LogType.Edit,
+                LogType.ActivityLog
             };
             return apiType[rand];
         }
@@ -36,16 +36,16 @@ namespace aspnetcoreapp.Helpers
             return lowerCase ? builder.ToString().ToLower() : builder.ToString();
         }
 
-        public static ApiType GetTypeFromUrl(string url)
+        public static LogType GetTypeFromUrl(string url)
         {
             var splits = url.Split('/');
             return splits[^1] switch
             {
-                "add" => ApiType.Add,
-                "delete" => ApiType.Delete,
-                "edit" => ApiType.Edit,
-                "activity" => ApiType.ActivityLog,
-                _ => ApiType.Empty
+                "add" => LogType.Add,
+                "delete" => LogType.Delete,
+                "edit" => LogType.Edit,
+                "activity" => LogType.ActivityLog,
+                _ => LogType.Empty
             };
         }
 

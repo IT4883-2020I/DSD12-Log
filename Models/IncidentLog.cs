@@ -27,6 +27,7 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = IncidentLog.GetRandomEntityId(),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     VideoId = VideoLog.GetRandomEntityId(),
                     ImageId = ImageLog.GetRandomEntityId(),
@@ -52,6 +53,7 @@ namespace aspnetcoreapp.Models
 
     public class IncidentLogResponse : EntityActivityLogDTO
     {
+        
         public string Name { get; set; }
         public int RegionId { get; set; }
         public int ImageId { get; set; }

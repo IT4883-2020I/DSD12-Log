@@ -26,6 +26,7 @@ namespace aspnetcoreapp.Models
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityId = ObjectObserve.GetRandomEntityId(),
                     Type = apiType,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "ObjectObserve " + apiType.GetDescription(),
                     Name = "ObjectObserve " + Utility.RandomString(2),

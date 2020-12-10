@@ -34,17 +34,17 @@
         <e p="GroupAuthenticationMiddleware.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20201208143128_Test.cs" t="Include" />
-        <e p="20201208143128_Test.Designer.cs" t="Include" />
+        <e p="20201210131128_First.cs" t="Include" />
+        <e p="20201210131128_First.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
-        <e p="ApiType.cs" t="Include" />
         <e p="Book.cs" t="Include" />
         <e p="DroneLog.cs" t="Include" />
         <e p="EntityLog.cs" t="Include" />
         <e p="GroupAuthentication.cs" t="Include" />
         <e p="IncidentLog.cs" t="Include" />
+        <e p="LogType.cs" t="Include" />
         <e p="Media.cs" t="Include" />
         <e p="MonitorRegionLog.cs" t="Include" />
         <e p="ObjectObserve.cs" t="Include" />

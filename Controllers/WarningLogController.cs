@@ -27,17 +27,14 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("warning")]
         public async Task<ActionResult<List<WarningLogResponse>>> GetWarning([FromQuery] MinMaxDate form, int? regionId,
+            int? warningId,
             string projectType)
         {
             var listEntity = await GetEntity<WarningLog, WarningLogResponse>(ObjectObserve.GroupId, form, projectType);
-            if (regionId != null)
-            {
-                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+
+            return (listEntity.Where(entity =>
+                (regionId == null || entity.RegionId == regionId) &&
+                (warningId == null || entity.EntityId == warningId)).ToList());
         }
 
         [HttpPost("warning/delete")]
@@ -53,20 +50,19 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-
             var form = _mapper.Map<WarningLog>(request);
-            var apiType = ApiType.Empty;
+            var apiType = LogType.Empty;
             if (Request.Path.Value.Contains("warning-level"))
             {
-                apiType = ApiType.WarningLevel;
+                apiType = LogType.WarningLevel;
             }
             else if (Request.Path.Value.Contains("solution-handling-warning"))
             {
-                apiType = ApiType.SolutionHandling;
+                apiType = LogType.SolutionHandling;
             }
 
             apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

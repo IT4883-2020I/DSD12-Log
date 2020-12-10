@@ -7,7 +7,7 @@ namespace aspnetcoreapp.Models
     public class ImageLog : EntityActivityLog
     {
         public static int GroupId = 4;
-        public string Name { get; set; }
+        public string Link { get; set; }
         public int DroneId { get; set; }
 
         public static ImageLog[] GetSeederData()
@@ -25,10 +25,11 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = ImageLog.GetRandomEntityId(),
                     DroneId = rand.Next(1, 11),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Image " + apiType.GetDescription(),
-                    Name = "Image " + Utility.RandomString(2),
+                    Link = "Image " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
@@ -47,7 +48,7 @@ namespace aspnetcoreapp.Models
 
     public class ImageLogResponse : EntityActivityLogDTO
     {
-        public string Name { get; set; }
+        public string Link { get; set; }
         public int DroneId { get; set; }
     }
 
@@ -55,7 +56,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 4;
         public int DroneId { get; set; }
-        public string Name { get; set; }
+        public string Link { get; set; }
 
         public static VideoLog[] GetSeederData()
         {
@@ -71,11 +72,12 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     DroneId = rand.Next(1, 11),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     EntityId = VideoLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Video " + apiType.GetDescription(),
-                    Name = "Video " + Utility.RandomString(2),
+                    Link = "Video " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
@@ -94,17 +96,29 @@ namespace aspnetcoreapp.Models
 
     public class VideoLogResponse : EntityActivityLogDTO
     {
-        public string Name { get; set; }
+        public string Link { get; set; }
         public int DroneId { get; set; }
     }
 
-    public class VideoLogRequest : CommonRequest
+    public class VideoLogRequest 
     {
         public int DroneId { get; set; }
+        public int EntityId { get; set; }
+        public int AuthorId { get; set; }
+        public string Description { get; set; }
+        public string ProjectType { get; set; }
+        public string State { get; set; }
+        public string Link { get; set; }
     }
 
-    public class ImageLogRequest : CommonRequest
+    public class ImageLogRequest 
     {
         public int DroneId { get; set; }
+        public int EntityId { get; set; }
+        public int AuthorId { get; set; }
+        public string Description { get; set; }
+        public string ProjectType { get; set; }
+        public string State { get; set; }
+        public string Link { get; set; }
     }
 }

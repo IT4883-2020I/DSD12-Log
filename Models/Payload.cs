@@ -25,6 +25,7 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     DroneId = DroneLog.GetRandomEntityId(),
                     EntityId = Payload.GetRandomEntityId(),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Type = apiType,
                     Description = "Payload " + apiType.GetDescription(),

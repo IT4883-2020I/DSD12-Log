@@ -11,11 +11,5 @@ namespace aspnetcoreapp.Middleware
         {
             _next = next;
         }
-
-        public async Task InvokeAsync(HttpContext context)
-        {
-            var username = context.Request.Query["username"];
-     
-        }
     }
 }

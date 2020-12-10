@@ -82,6 +82,9 @@ namespace aspnetcoreapp.Controllers
         public struct ErrorLogRequest
         {
             public string Description { get; set; }
+            public string ProjectType { get; set; }
+            public string WorkName { get; set; }
+            public int AuthorId { get; set; }
         }
 
         [HttpPost("system/error-log/error")]
@@ -95,21 +98,20 @@ namespace aspnetcoreapp.Controllers
                 return NotFound();
             }
 
-            var systemLog = new SystemLog()
-            {
-                Level = level,
-                Description = form.Description,
-                Timestamp = DateTime.Now
-            };
+            var systemLog = _mapper.Map<SystemLog>(form);
+            systemLog.Timestamp = DateTime.Now;
+            systemLog.Level = level;
             _dbContext.SystemLogs.Add(systemLog);
             await _dbContext.SaveChangesAsync();
             return Ok(systemLog);
         }
 
         [HttpGet("system/error-log")]
-        public async Task<ActionResult> GetErrorLog()
+        public async Task<ActionResult<List<SystemLogResponse>>> GetErrorLog()
         {
-            return Ok(await _dbContext.SystemLogs.ToListAsync());
+            var list = await _dbContext.SystemLogs.ToListAsync();
+            list.Sort();
+            return _mapper.Map<List<SystemLogResponse>>(list);
         }
     }
 }

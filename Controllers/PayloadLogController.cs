@@ -24,20 +24,18 @@ namespace aspnetcoreapp.Controllers
             : base(logger, dbContext, mapper, configuration)
         {
         }
-        
+
 
         [HttpGet("payload")]
-        public async Task<ActionResult<List<PayloadResponse>>> GetPayload([FromQuery] MinMaxDate form, int? droneId, string projectType)
+        public async Task<ActionResult<List<PayloadResponse>>> GetPayload([FromQuery] MinMaxDate form, int? payloadId,
+            int? droneId, string projectType)
         {
-            var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form,projectType);
-            if (droneId != null)
-            {
-                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+            var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form, projectType);
+
+            return (listEntity.Where(entity =>
+                    (droneId == null || entity.DroneId == droneId) &&
+                    (payloadId == null || entity.EntityId == payloadId))
+                .ToList());
         }
 
 
@@ -54,7 +52,7 @@ namespace aspnetcoreapp.Controllers
 
             var form = _mapper.Map<Payload>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

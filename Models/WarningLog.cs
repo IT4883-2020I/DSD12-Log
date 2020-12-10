@@ -28,6 +28,7 @@ namespace aspnetcoreapp.Models
                     EntityId = WarningLog.GetRandomEntityId(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     Type = apiType,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     Description = "Warning " + apiType.GetDescription(),
                     Name = "Warning " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),

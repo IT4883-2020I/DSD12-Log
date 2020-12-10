@@ -42,14 +42,14 @@ namespace aspnetcoreapp.Controllers
             }
 
             var form = _mapper.Map<StaticalLog>(request);
-            var apiType = ApiType.CommonIncident;
+            var apiType = LogType.CommonIncident;
             if (route.Contains("statistical-frequence"))
             {
-                apiType = ApiType.FrequenceIncident;
+                apiType = LogType.FrequenceIncident;
             }
             else if (route.Contains("statistical-address"))
             {
-                apiType = ApiType.HasProblem;
+                apiType = LogType.HasProblem;
             }
 
 

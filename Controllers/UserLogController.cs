@@ -26,7 +26,7 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("user")]
-        public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form, int? regionId, int? problemId,
+        public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form,int? userId, int? regionId, int? problemId,
             string projectType)
         {
             if (_authService.IsAuthenticate(UserLog.GroupId))
@@ -39,8 +39,9 @@ namespace aspnetcoreapp.Controllers
                 var result = new List<UserLogResponse>();
                 foreach (var userLog in list)
                 {
-                    if (userLog.ProjectType == projectType && (regionId == null || userLog.RegionId == regionId) &&
-                        (problemId == null || userLog.ResolveProblemId == problemId))
+                    if (userLog.ProjectType.ToLower() == projectType.ToLower() && (regionId == null || userLog.RegionId == regionId) &&
+                        (problemId == null || userLog.ResolveProblemId == problemId)
+                        &&(userId ==null || userLog.EntityId == userId))
                     {
                         var userLogResponse = _mapper.Map<UserLogResponse>(userLog);
                         userLogResponse.Type = userLog.Type.GetDescription();
@@ -71,7 +72,7 @@ namespace aspnetcoreapp.Controllers
             }
 
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }
@@ -81,7 +82,7 @@ namespace aspnetcoreapp.Controllers
                 {
                     EntityId = form.target_id,
                     Metadata = form.meta_data,
-                    UserId = form.user_id,
+                    AuthorId = form.user_id,
                     ProjectType = form.project_type,
                     Description = form.description,
                     RegionId = form.region_id,

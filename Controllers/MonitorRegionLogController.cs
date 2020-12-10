@@ -27,9 +27,13 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("monitor-region")]
-        public async Task<ActionResult>
-            GetMonitorRegion([FromQuery] MinMaxDate form) =>
-            await Get<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form);
+        public async Task<ActionResult<List<MonitorRegionLogResponse>>>
+            GetMonitorRegion([FromQuery] MinMaxDate form, int? regionId, string projectType)         {
+            var listEntity =
+                await GetEntity<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form, projectType);
+            return (listEntity.Where(entity =>
+                (regionId == null || entity.EntityId == regionId)).ToList());
+        }
 
         [HttpPost("monitor-region/delete")]
         [HttpPost("monitor-region/edit")]
@@ -44,7 +48,7 @@ namespace aspnetcoreapp.Controllers
 
             var form = _mapper.Map<MonitorRegionLog>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

@@ -25,17 +25,14 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("drones")]
-        public async Task<ActionResult<List<DroneLogResponse>>> GetDrone([FromQuery] MinMaxDate form, int? regionId, string projectType)
+        public async Task<ActionResult<List<DroneLogResponse>>> GetDrone([FromQuery] MinMaxDate form, int? droneId,
+            int? regionId, string projectType)
         {
             var listEntity = await GetEntity<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, projectType);
-            if (regionId != null)
-            {
-                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+            return (listEntity.Where(
+                entity => (regionId == null || entity.RegionId == regionId) &&
+                          (droneId == null || entity.EntityId == droneId)
+            ).ToList());
         }
 
         [HttpPost("drones/delete")]
@@ -54,12 +51,12 @@ namespace aspnetcoreapp.Controllers
             var route = Request.Path.Value;
             if (route.Contains("drones-has-problems"))
             {
-                return await Post<DroneLog>(form, ApiType.HasProblem);
+                return await Post<DroneLog>(form, LogType.HasProblem);
             }
             else
             {
                 var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-                if (apiType == ApiType.Empty)
+                if (apiType == LogType.Empty)
                 {
                     return NotFound();
                 }

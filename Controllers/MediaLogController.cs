@@ -28,19 +28,17 @@ namespace aspnetcoreapp.Controllers
         {
             [FromQuery] public int DroneId { get; set; } = int.MinValue;
         }
+
         [HttpGet("video")]
-        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, int? droneId, string projectType)
+        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, int? videoId,
+            int? droneId, string projectType)
         {
             var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, projectType);
-            
-            if (droneId != null)
-            {
-                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+
+
+            return (listEntity.Where(entity =>
+                    (droneId == null || entity.DroneId == droneId) && (videoId == null || entity.EntityId == videoId))
+                .ToList());
         }
 
         [HttpPost("video/delete")]
@@ -56,7 +54,7 @@ namespace aspnetcoreapp.Controllers
 
             var form = _mapper.Map<VideoLog>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }
@@ -65,17 +63,15 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("image")]
-        public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, int? droneId, string projectType)
+        public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, int? droneId,
+            int? imageId,
+            string projectType)
         {
-            var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form,projectType);
-            if (droneId != null)
-            {
-                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+            var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, projectType);
+
+            return (listEntity.Where(entity =>
+                    (droneId == null || entity.DroneId == droneId) && (imageId == null || entity.EntityId == imageId))
+                .ToList());
         }
 
 
@@ -92,7 +88,7 @@ namespace aspnetcoreapp.Controllers
 
             var form = _mapper.Map<ImageLog>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

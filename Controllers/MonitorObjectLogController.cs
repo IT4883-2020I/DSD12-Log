@@ -27,17 +27,13 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("monitor-object")]
         public async Task<ActionResult<List<ObjectObserveResponse>>>
-            GetObjectObserve([FromQuery] MinMaxDate form, int? regionId, string projectType)
+            GetObjectObserve([FromQuery] MinMaxDate form, int? monitorObjectId, int? regionId, string projectType)
         {
-            var listEntity = await GetEntity<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, projectType);
-            if (regionId != null)
-            {
-                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+            var listEntity =
+                await GetEntity<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, projectType);
+            return (listEntity.Where(entity =>
+                (regionId == null || entity.RegionId == regionId) &&
+                (monitorObjectId == null || entity.EntityId == monitorObjectId)).ToList());
         }
 
         [HttpPost("monitor-object/delete")]
@@ -50,10 +46,10 @@ namespace aspnetcoreapp.Controllers
             {
                 return Unauthorized();
             }
-            
+
             var form = _mapper.Map<ObjectObserve>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

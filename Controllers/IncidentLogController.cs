@@ -27,7 +27,7 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("incident")]
-        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form, int? videoId, int? imageId,
+        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form,int? incidentId, int? videoId, int? imageId,
             int? regionId,
             string projectType)
         {
@@ -37,7 +37,8 @@ namespace aspnetcoreapp.Controllers
             {
                 if ((videoId == null || incidentLog.VideoId == videoId) &&
                     (imageId == null || incidentLog.ImageId == imageId) &&
-                    (regionId == null || incidentLog.RegionId == regionId))
+                    (regionId == null || incidentLog.RegionId == regionId) &&
+                    (incidentId == null || incidentLog.EntityId == incidentId))
                 {
                     result.Add(incidentLog);
                 }
@@ -59,15 +60,15 @@ namespace aspnetcoreapp.Controllers
                 return Unauthorized();
             }
 
-            var apiType = ApiType.Empty;
+            var apiType = LogType.Empty;
             if (Request.Path.Value.Contains("incident-confirm"))
             {
-                apiType = ApiType.Confirm;
+                apiType = LogType.Confirm;
             }
 
             var form = _mapper.Map<IncidentLog>(request);
             apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

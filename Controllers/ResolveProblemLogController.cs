@@ -26,18 +26,16 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("resolve-problem")]
-        public async Task<ActionResult<List<ResolveProblemLogResponse>>> GetResolveProblemLog([FromQuery] MinMaxDate form,int? regionId,
-        string projectType)
+        public async Task<ActionResult<List<ResolveProblemLogResponse>>> GetResolveProblemLog(
+            [FromQuery] MinMaxDate form, int? resolveProblemId, int? regionId,
+            string projectType)
         {
-            var listEntity = await GetEntity<ResolveProblemLog, ResolveProblemLogResponse>(ObjectObserve.GroupId, form, projectType);
-            if (regionId != null)
-            {
-                return (listEntity.Where(entity => entity.RegionId == regionId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+            var listEntity =
+                await GetEntity<ResolveProblemLog, ResolveProblemLogResponse>(ObjectObserve.GroupId, form, projectType);
+
+            return (listEntity.Where(entity =>
+                (regionId == null || entity.RegionId == regionId) &&
+                (resolveProblemId == null || entity.EntityId == resolveProblemId)).ToList());
         }
 
 
@@ -54,14 +52,14 @@ namespace aspnetcoreapp.Controllers
             }
 
             var form = _mapper.Map<ResolveProblemLog>(request);
-            var apiType = ApiType.Empty;
+            var apiType = LogType.Empty;
             if (Request.Path.Value.Contains("result-resolve-problem"))
             {
-                apiType = ApiType.ResultResolveProblem;
+                apiType = LogType.ResultResolveProblem;
             }
 
             apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

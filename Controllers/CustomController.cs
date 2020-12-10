@@ -53,31 +53,31 @@ namespace aspnetcoreapp.Controllers
             public DateTime MaxDate { get; set; } = DateTime.MaxValue;
         }
 
-        public async Task<ActionResult> Post<TEntity>(TEntity entity, ApiType apiType = ApiType.Empty)
+        public async Task<ActionResult> Post<TEntity>(TEntity entity, LogType logType = LogType.Empty)
             where TEntity : EntityLog
         {
             entity.Timestamp = DateTime.Now;
             _logger.LogInformation(entity.ToJson());
-            if (apiType == ApiType.Empty)
+            if (logType == LogType.Empty)
             {
-                apiType = ApiType.Add;
+                logType = LogType.Add;
                 if (HttpContext.Request.Method == HttpMethod.Put.Method)
                 {
-                    apiType = ApiType.Edit;
+                    logType = LogType.Edit;
                 }
                 else if (HttpContext.Request.Method == HttpMethod.Delete.Method)
                 {
-                    apiType = ApiType.Delete;
+                    logType = LogType.Delete;
                 }
 
-                entity.Type = apiType;
+                entity.Type = logType;
                 _dbContext.Set<TEntity>().Add(entity);
                 await _dbContext.SaveChangesAsync();
                 return Ok(entity);
             }
             else
             {
-                entity.Type = apiType;
+                entity.Type = logType;
                 _dbContext.Set<TEntity>().Add(entity);
                 await _dbContext.SaveChangesAsync();
                 return Ok(entity);
@@ -94,7 +94,7 @@ namespace aspnetcoreapp.Controllers
                 var list = await _dbContext.Set<TEntity>()
                     .Where(entity =>
                         entity.Timestamp <= form.MaxDate && entity.Timestamp >= form.MinDate &&
-                        entity.Type != ApiType.ActivityLog)
+                        entity.Type != LogType.ActivityLog)
                     .AsNoTracking()
                     .ToListAsync();
                 list.Sort(Utility.CompareEntityLog);

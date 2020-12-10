@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace aspnetcoreapp.Models
 {
-    public enum ApiType
+    public enum LogType
     {
         Empty = -1,
         Get = 1,

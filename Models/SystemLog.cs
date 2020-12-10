@@ -7,7 +7,20 @@ namespace aspnetcoreapp.Models
     {
         public int Id { get; set; }
         public ErrorLevel Level { get; set; }
+        public int AuthorId { get; set; }
         public string Description { get; set; }
+        public string ProjectType { get; set; }
+        public string WorkName { get; set; }
+    }
+
+    public class SystemLogResponse : TimeModel
+    {
+        public int Id { get; set; }
+        public string Level { get; set; }
+        public int AuthorId { get; set; }
+        public string Description { get; set; }
+        public string ProjectType { get; set; }
+        public string WorkName { get; set; }
     }
 
     public enum ErrorLevel

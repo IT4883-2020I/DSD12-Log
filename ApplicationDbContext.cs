@@ -13,12 +13,6 @@ namespace aspnetcoreapp
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var books = new Book[]
-            {
-                new Book {Id = 1, Name = "Dev", Price = 10, Quantity = 20},
-                new Book {Id = 2, Name = "Banana", Price = 5, Quantity = 10}
-            };
-            modelBuilder.Entity<Book>().HasData(books);
             modelBuilder.Entity<UserLog>().HasData(Models.UserLog.GetSeederData());
             modelBuilder.Entity<DroneLog>().HasData(DroneLog.GetSeederData());
             modelBuilder.Entity<Payload>().HasData(Payload.GetSeederData());
@@ -33,8 +27,7 @@ namespace aspnetcoreapp
             modelBuilder.Entity<UavConnectLog>().HasData(UavConnectLog.GetSeederData());
             
         }
-
-        public DbSet<Book> Books { get; set; }
+        
         public DbSet<DroneLog> DroneLogs { get; set; }
         public DbSet<Payload> Payloads { get; set; }
         public DbSet<UserLog> UserLog { get; set; }

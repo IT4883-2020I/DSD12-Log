@@ -24,6 +24,7 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 1,
                     EntityId = entityId,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "MonitorRegion " + apiType.GetDescription(),

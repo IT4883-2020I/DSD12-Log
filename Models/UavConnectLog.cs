@@ -27,6 +27,7 @@ namespace aspnetcoreapp.Models
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityId = UavConnectLog.GetRandomEntityId(),
                     Type = apiType,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     Description = "UavConnect " + apiType.GetDescription(),
                     Name = "UavConnect " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),

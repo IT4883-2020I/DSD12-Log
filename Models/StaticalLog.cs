@@ -23,6 +23,7 @@ namespace aspnetcoreapp.Models
                 var droneLog = new StaticalLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
+                    AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityId = i * 2,
                     RegionId = MonitorRegionLog.GetRandomEntityId(),

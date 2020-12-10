@@ -11,21 +11,27 @@
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ActivityLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/DroneLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DroneLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/MediaLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MediaLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/StaticalLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/StaticalLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/SystemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SystemLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UserLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/WarningLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/WarningLogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201206012433_link1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201206012433_link1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Utility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201208143128_Test.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201208143128_Test.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ApiType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/IncidentLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
@@ -34,6 +40,8 @@
       <change beforePath="$PROJECT_DIR$/Models/ObjectObserve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ObjectObserve.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Payload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/StaticalLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StaticalLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SystemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SystemLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/WarningLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WarningLog.cs" afterDir="false" />
@@ -55,6 +63,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/01AE4502-6E31-4460-B8F5-5B79438045B8/14/Profile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EB067793-5C3F-4219-AEF1-3AB117C20649/7f/9891d85a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7AFCB195-1BDF-4087-9F2D-5BFCFC407B2B/63/88e40553/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EB067793-5C3F-4219-AEF1-3AB117C20649/45/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -69,39 +78,40 @@
         <option value="$PROJECT_DIR$/Controllers/SystemLog.cs" />
         <option value="$PROJECT_DIR$/Helpers/Utility.cs" />
         <option value="$PROJECT_DIR$/Models/ApiType.cs" />
-        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
-        <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
         <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
         <option value="$PROJECT_DIR$/Middleware/GroupAuthentication.cs" />
-        <option value="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" />
-        <option value="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/StaticalLogController.cs" />
         <option value="$PROJECT_DIR$/Service/AuthenticationService.cs" />
-        <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/PayloadLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/IncidentLogController.cs" />
         <option value="$PROJECT_DIR$/Controllers/ActivityLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/IncidentLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/PayloadLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/LogType.cs" />
+        <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
         <option value="$PROJECT_DIR$/Helpers/AutoMapperProfile.cs" />
-        <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
+        <option value="$PROJECT_DIR$/Controllers/SystemLogController.cs" />
+        <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
+        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Middleware/GroupAuthenticationMiddleware.cs" />
+        <option value="$PROJECT_DIR$/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
-        <option value="$PROJECT_DIR$/Models/Media.cs" />
         <option value="$PROJECT_DIR$/Models/Payload.cs" />
-        <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
+        <option value="$PROJECT_DIR$/Models/Media.cs" />
         <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
         <option value="$PROJECT_DIR$/Models/ObjectObserve.cs" />
+        <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
         <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
+        <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
         <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
-        <option value="$PROJECT_DIR$/Models/UserLog.cs" />
-        <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
-        <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
+        <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
@@ -128,7 +138,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.aspnetcoreapp">
@@ -220,7 +230,12 @@
       <workItem from="1607340383847" duration="1252000" />
       <workItem from="1607425983761" duration="1285000" />
       <workItem from="1607433848713" duration="5755000" />
-      <workItem from="1607440712536" duration="94000" />
+      <workItem from="1607440712536" duration="179000" />
+      <workItem from="1607474827249" duration="1609000" />
+      <workItem from="1607481073076" duration="839000" />
+      <workItem from="1607525190627" duration="1286000" />
+      <workItem from="1607558844873" duration="2362000" />
+      <workItem from="1607605621437" duration="361000" />
     </task>
     <servers />
   </component>
@@ -275,28 +290,28 @@
       <screen x="0" y="25" width="1280" height="715" />
     </state>
     <state x="0" y="28" width="1280" height="772" key="DiffContextDialog/0.25.1280.715@0.25.1280.715" timestamp="1606812708270" />
-    <state width="1238" height="301" key="GridCell.Tab.0.bottom" timestamp="1607440610205">
+    <state width="1238" height="301" key="GridCell.Tab.0.bottom" timestamp="1607561870212">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="301" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1607440610205" />
+    <state width="1238" height="301" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1607561870212" />
     <state width="1238" height="2" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1603896182324" />
     <state width="1238" height="393" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1606833217187" />
-    <state width="1238" height="301" key="GridCell.Tab.0.center" timestamp="1607440610202">
+    <state width="1238" height="301" key="GridCell.Tab.0.center" timestamp="1607561870210">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="301" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1607440610202" />
+    <state width="1238" height="301" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1607561870210" />
     <state width="1238" height="2" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
-    <state width="1238" height="301" key="GridCell.Tab.0.left" timestamp="1607440610201">
+    <state width="1238" height="301" key="GridCell.Tab.0.left" timestamp="1607561870210">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="301" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1607440610201" />
+    <state width="1238" height="301" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1607561870210" />
     <state width="1238" height="2" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1603896182322" />
     <state width="1238" height="393" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1606833217185" />
-    <state width="1238" height="301" key="GridCell.Tab.0.right" timestamp="1607440610203">
+    <state width="1238" height="301" key="GridCell.Tab.0.right" timestamp="1607561870211">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="301" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1607440610203" />
+    <state width="1238" height="301" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1607561870211" />
     <state width="1238" height="2" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1603896182323" />
     <state width="1238" height="393" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1606833217186" />
     <state x="0" y="25" key="MergeDialog" timestamp="1606812696824">
@@ -308,18 +323,22 @@
       <screen x="0" y="25" width="1280" height="715" />
     </state>
     <state x="274" y="140" key="MultipleFileMergeDialog/0.25.1280.715@0.25.1280.715" timestamp="1606812696856" />
-    <state x="192" y="72" key="SettingsEditor" timestamp="1607180419464">
+    <state x="192" y="72" key="SettingsEditor" timestamp="1607525356670">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1607180419464" />
+    <state x="192" y="72" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1607525356670" />
+    <state x="512" y="248" key="cloudConfig.SelfSettingsDialog" timestamp="1607525289862">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="512" y="248" key="cloudConfig.SelfSettingsDialog/0.0.1280.800@0.0.1280.800" timestamp="1607525289862" />
     <state x="-1" y="129" width="1269" height="590" key="find.popup" timestamp="1607436621607">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="-1" y="129" width="1269" height="590" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1607436621607" />
     <state x="-1" y="140" width="1269" height="528" key="find.popup/0.25.1280.715@0.25.1280.715" timestamp="1606833468353" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1607438208037">
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1607559739705">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1607438208037" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1607559739705" />
   </component>
 </project>

@@ -8,7 +8,6 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 3;
         public string Metadata { get; set; }
-        public int UserId { get; set; }
         public int RegionId { get; set; }
         public int IncidentId { get; set; }
         public int ResolveProblemId { get; set; }
@@ -31,7 +30,7 @@ namespace aspnetcoreapp.Models
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityId = UserLog.GetRandomEntityId(),
                     Type = apiType,
-                    UserId = UserLog.GetRandomEntityId(),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     ResolveProblemId = ResolveProblemLog.GetRandomEntityId(),
                     Description = "User " + apiType.GetDescription(),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0)
@@ -65,7 +64,7 @@ namespace aspnetcoreapp.Models
     {
         public int TargetId { get; set; }
         public string Metadata { get; set; }
-        public int UserId { get; set; }
+        public int AuthorId { get; set; }
         public string Description { get; set; }
         public int RegionId { get; set; }
         public int IncidentId { get; set; }

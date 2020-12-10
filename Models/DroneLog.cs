@@ -31,6 +31,7 @@ namespace aspnetcoreapp.Models
                     EntityId = DroneLog.GetRandomEntityId(),
                     Latitude = rand.Next(10, 50),
                     Longitude = rand.Next(10, 50),
+                    AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     RegionName = "MonitorRegion " + MonitorRegionLog.GetRandomEntityId(),
@@ -65,6 +66,7 @@ namespace aspnetcoreapp.Models
         public string Name { get; set; }
         public string RegionName { get; set; }
         public string ProjectType { get; set; }
+        public int AuthorId { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
         public int EntityId { get; set; }

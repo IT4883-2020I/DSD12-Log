@@ -27,17 +27,14 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("uav-connect")]
         public async Task<ActionResult<List<UavConnectLogResponse>>> GetUavConnectLog([FromQuery] MinMaxDate form,
+            int? uavId,
             int? droneId, string projectType)
         {
             var listEntity = await GetEntity<UavConnectLog, UavConnectLogResponse>(Payload.GroupId, form, projectType);
-            if (droneId != null)
-            {
-                return (listEntity.Where(entity => entity.DroneId == droneId).ToList());
-            }
-            else
-            {
-                return (listEntity);
-            }
+
+            return (listEntity.Where(entity =>
+                    (droneId == null || entity.DroneId == droneId) && (uavId == null || entity.EntityId == uavId))
+                .ToList());
         }
 
         [HttpPost("uav-connect/delete")]
@@ -53,7 +50,7 @@ namespace aspnetcoreapp.Controllers
 
             var form = _mapper.Map<UavConnectLog>(request);
             var apiType = Utility.GetTypeFromUrl(Request.Path.Value);
-            if (apiType == ApiType.Empty)
+            if (apiType == LogType.Empty)
             {
                 return NotFound();
             }

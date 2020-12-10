@@ -14,16 +14,17 @@ namespace aspnetcoreapp.Models
         public int CompareTo(object? obj)
         {
             if (!(obj is TimeModel entityLog)) return 1;
-            if (this.Timestamp > entityLog.Timestamp)
-            {
-                return 1;
-            }
-            else if (this.Timestamp < entityLog.Timestamp)
-            {
-                return -1;
-            }
-
-            return 0;
+            return Timestamp.CompareTo(entityLog.Timestamp);
+            // if (this.Timestamp > entityLog.Timestamp)
+            // {
+            //     return 1;
+            // }
+            // else if (this.Timestamp < entityLog.Timestamp)
+            // {
+            //     return -1;
+            // }
+            //
+            // return 0;
         }
     }
 
@@ -31,7 +32,8 @@ namespace aspnetcoreapp.Models
     {
         [Key] public int EntityLogPrimaryKeyId { get; set; }
         public int EntityId { get; set; }
-        public ApiType Type { get; set; }
+        public int AuthorId { get; set; }
+        public LogType Type { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
     }
@@ -56,6 +58,7 @@ namespace aspnetcoreapp.Models
         public int EntityId { get; set; }
         public string Description { get; set; }
         public string State { get; set; }
+        public int AuthorId { get; set; }
     }
 
     public class TypeAndTimeStamp
@@ -68,6 +71,7 @@ namespace aspnetcoreapp.Models
     {
         public int EntityId { get; set; }
         public string Description { get; set; }
+        public int AuthorId { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }
         public string Name { get; set; }
