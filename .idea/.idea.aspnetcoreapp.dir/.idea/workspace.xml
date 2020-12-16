@@ -9,35 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/DroneLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DroneLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/IncidentLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MediaLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MediaLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/PayloadLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/WarningLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/WarningLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201210131128_First.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201210131128_First.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/IncidentLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ObjectObserve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ObjectObserve.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Payload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/StaticalLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StaticalLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/WarningLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WarningLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +178,7 @@
       <workItem from="1607558844873" duration="2362000" />
       <workItem from="1607605621437" duration="537000" />
       <workItem from="1608086786001" duration="1064000" />
-      <workItem from="1608089077030" duration="675000" />
+      <workItem from="1608089077030" duration="777000" />
     </task>
     <servers />
   </component>
