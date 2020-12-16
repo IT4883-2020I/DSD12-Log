@@ -11,7 +11,7 @@ namespace aspnetcoreapp.Models
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
 
         public static DroneLog[] GetSeederData()
         {
@@ -45,10 +45,10 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 11);
+            return rand.Next(1, 11).ToString();
         }
     }
 
@@ -58,7 +58,7 @@ namespace aspnetcoreapp.Models
         public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 
     public class DroneLogRequest
@@ -66,11 +66,11 @@ namespace aspnetcoreapp.Models
         public string Name { get; set; }
         public string RegionName { get; set; }
         public string ProjectType { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
-        public int EntityId { get; set; }
+        public string EntityId { get; set; }
         public string Description { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 }

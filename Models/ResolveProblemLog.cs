@@ -7,7 +7,7 @@ namespace aspnetcoreapp.Models
     public class ResolveProblemLog : EntityActivityLog
     {
         public static int GroupId = 11;
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
         
         public static ResolveProblemLog[] GetSeederData()
         {
@@ -39,20 +39,20 @@ namespace aspnetcoreapp.Models
         }
         public string Name { get; set; }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 15);
+            return rand.Next(1, 15).ToString();
         }
     }
 
     public class ResolveProblemLogResponse : EntityActivityLogDTO
     {
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 
     public class ResolveProblemRequest : CommonRequest
     {
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 }

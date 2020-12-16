@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 2;
         public string Name { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
 
         public static Payload[] GetSeederData()
         {
@@ -39,21 +39,21 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 11);
+            return rand.Next(1, 11).ToString();
         }
     }
 
     public class PayloadResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 
     public class PayloadRequest : CommonRequest
     {
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 }

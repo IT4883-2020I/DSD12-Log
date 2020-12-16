@@ -8,9 +8,9 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 3;
         public string Metadata { get; set; }
-        public int RegionId { get; set; }
-        public int IncidentId { get; set; }
-        public int ResolveProblemId { get; set; }
+        public string RegionId { get; set; }
+        public string IncidentId { get; set; }
+        public string ResolveProblemId { get; set; }
 
         public static UserLog[] GetSeederData()
         {
@@ -41,10 +41,10 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 11);
+            return rand.Next(1, 11).ToString();
         }
     }
 
@@ -62,12 +62,12 @@ namespace aspnetcoreapp.Models
 
     public class UserLogResponse : TypeAndTimeStamp
     {
-        public int TargetId { get; set; }
+        public string TargetId { get; set; }
         public string Metadata { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public string Description { get; set; }
-        public int RegionId { get; set; }
-        public int IncidentId { get; set; }
-        public int ResolveProblemId { get; set; }
+        public string RegionId { get; set; }
+        public string IncidentId { get; set; }
+        public string ResolveProblemId { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("resolve-problem")]
         public async Task<ActionResult<List<ResolveProblemLogResponse>>> GetResolveProblemLog(
-            [FromQuery] MinMaxDate form, int? resolveProblemId, int? regionId,
+            [FromQuery] MinMaxDate form, string? resolveProblemId, string? regionId,
             string projectType)
         {
             var listEntity =

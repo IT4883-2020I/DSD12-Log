@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     public class StaticalLog : EntityActivityLog
     {
         public static int GroupId = 7;
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
         
         public static StaticalLog[] GetSeederData()
         {
@@ -25,7 +25,7 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
-                    EntityId = i * 2,
+                    EntityId = (i * 2).ToString(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     Type = apiType,
                     Description = "Statical " + apiType.GetDescription(),
@@ -44,11 +44,11 @@ namespace aspnetcoreapp.Models
     public class StaticalLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 
     public class StaticalRequest : CommonRequest
     {
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 }

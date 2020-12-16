@@ -26,8 +26,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("warning")]
-        public async Task<ActionResult<List<WarningLogResponse>>> GetWarning([FromQuery] MinMaxDate form, int? regionId,
-            int? warningId,
+        public async Task<ActionResult<List<WarningLogResponse>>> GetWarning([FromQuery] MinMaxDate form, string? regionId,
+            string? warningId,
             string projectType)
         {
             var listEntity = await GetEntity<WarningLog, WarningLogResponse>(ObjectObserve.GroupId, form, projectType);

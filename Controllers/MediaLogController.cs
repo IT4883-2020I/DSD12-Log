@@ -30,8 +30,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("video")]
-        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, int? videoId,
-            int? droneId, string projectType)
+        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, string? videoId,
+            string? droneId, string projectType)
         {
             var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, projectType);
 
@@ -63,8 +63,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("image")]
-        public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, int? droneId,
-            int? imageId,
+        public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, string? droneId,
+            string? imageId,
             string projectType)
         {
             var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, projectType);

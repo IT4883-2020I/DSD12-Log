@@ -28,7 +28,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("monitor-region")]
         public async Task<ActionResult<List<MonitorRegionLogResponse>>>
-            GetMonitorRegion([FromQuery] MinMaxDate form, int? regionId, string projectType)         {
+            GetMonitorRegion([FromQuery] MinMaxDate form, string? regionId, string projectType)         {
             var listEntity =
                 await GetEntity<MonitorRegionLog, MonitorRegionLogResponse>(MonitorRegionLog.GroupId, form, projectType);
             return (listEntity.Where(entity =>

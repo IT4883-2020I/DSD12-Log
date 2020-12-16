@@ -8,9 +8,9 @@ namespace aspnetcoreapp.Models
     public class IncidentLog : EntityActivityLog
     {
         public static int GroupId = 5;
-        public int RegionId { get; set; }
-        public int ImageId { get; set; }
-        public int VideoId { get; set; }
+        public string RegionId { get; set; }
+        public string ImageId { get; set; }
+        public string VideoId { get; set; }
         public string Name { get; set; }
         
         public static IncidentLog[] GetSeederData()
@@ -44,10 +44,10 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
 
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 15);
+            return rand.Next(1, 15).ToString();
         }
     }
 
@@ -55,15 +55,15 @@ namespace aspnetcoreapp.Models
     {
         
         public string Name { get; set; }
-        public int RegionId { get; set; }
-        public int ImageId { get; set; }
-        public int VideoId { get; set; }
+        public string RegionId { get; set; }
+        public string ImageId { get; set; }
+        public string VideoId { get; set; }
     }
 
     public class IncidentLogRequest : CommonRequest
     {
-        public int RegionId { get; set; }
-        public int ImageId { get; set; }
-        public int VideoId { get; set; }
+        public string RegionId { get; set; }
+        public string ImageId { get; set; }
+        public string VideoId { get; set; }
     }
 }

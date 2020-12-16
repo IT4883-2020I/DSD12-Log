@@ -27,7 +27,7 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("monitor-object")]
         public async Task<ActionResult<List<ObjectObserveResponse>>>
-            GetObjectObserve([FromQuery] MinMaxDate form, int? monitorObjectId, int? regionId, string projectType)
+            GetObjectObserve([FromQuery] MinMaxDate form, string? monitorObjectId, string? regionId, string projectType)
         {
             var listEntity =
                 await GetEntity<ObjectObserve, ObjectObserveResponse>(ObjectObserve.GroupId, form, projectType);

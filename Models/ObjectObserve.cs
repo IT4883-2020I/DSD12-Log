@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 6;
         public string Name { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
         
         public static ObjectObserve[] GetSeederData()
         {
@@ -39,21 +39,21 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 21);
+            return rand.Next(1, 21).ToString();
         }
     }
 
     public class ObjectObserveResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 
     public class ObjectObserveRequest : CommonRequest
     {
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 }

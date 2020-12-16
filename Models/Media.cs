@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 4;
         public string Link { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
 
         public static ImageLog[] GetSeederData()
         {
@@ -24,7 +24,7 @@ namespace aspnetcoreapp.Models
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     EntityId = ImageLog.GetRandomEntityId(),
-                    DroneId = rand.Next(1, 11),
+                    DroneId = DroneLog.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
@@ -39,23 +39,23 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 41);
+            return rand.Next(1, 41).ToString();
         }
     }
 
     public class ImageLogResponse : EntityActivityLogDTO
     {
         public string Link { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 
     public class VideoLog : EntityActivityLog
     {
         public static int GroupId = 4;
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
         public string Link { get; set; }
 
         public static VideoLog[] GetSeederData()
@@ -71,7 +71,7 @@ namespace aspnetcoreapp.Models
                 var droneLog = new VideoLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    DroneId = rand.Next(1, 11),
+                    DroneId = DroneLog.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
                     EntityId = VideoLog.GetRandomEntityId(),
                     Type = apiType,
@@ -87,24 +87,24 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 41);
+            return rand.Next(1, 41).ToString();
         }
     }
 
     public class VideoLogResponse : EntityActivityLogDTO
     {
         public string Link { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 
     public class VideoLogRequest 
     {
-        public int DroneId { get; set; }
-        public int EntityId { get; set; }
-        public int AuthorId { get; set; }
+        public string DroneId { get; set; }
+        public string EntityId { get; set; }
+        public string AuthorId { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }
@@ -113,9 +113,9 @@ namespace aspnetcoreapp.Models
 
     public class ImageLogRequest 
     {
-        public int DroneId { get; set; }
-        public int EntityId { get; set; }
-        public int AuthorId { get; set; }
+        public string DroneId { get; set; }
+        public string EntityId { get; set; }
+        public string AuthorId { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }

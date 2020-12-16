@@ -27,8 +27,8 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("incident")]
-        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form,int? incidentId, int? videoId, int? imageId,
-            int? regionId,
+        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form,string? incidentId, string? videoId, string? imageId,
+            string? regionId,
             string projectType)
         {
             var listEntity = await GetEntity<IncidentLog, IncidentLogResponse>(ObjectObserve.GroupId, form, projectType);

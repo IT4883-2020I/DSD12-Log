@@ -27,8 +27,8 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("uav-connect")]
         public async Task<ActionResult<List<UavConnectLogResponse>>> GetUavConnectLog([FromQuery] MinMaxDate form,
-            int? uavId,
-            int? droneId, string projectType)
+            string? uavId,
+            string? droneId, string projectType)
         {
             var listEntity = await GetEntity<UavConnectLog, UavConnectLogResponse>(Payload.GroupId, form, projectType);
 

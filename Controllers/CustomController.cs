@@ -33,19 +33,18 @@ namespace aspnetcoreapp.Controllers
             _authService = new AuthenticationService(configuration);
         }
 
-        public async Task<ActionResult> AddLog<TEntity>(int id, int type, string description) where TEntity : EntityLog
-        {
-            var entity = new EntityLog
-            {
-                EntityId = id,
-
-                Description = description,
-                Timestamp = DateTime.Now
-            };
-            _dbContext.Add(entity);
-            await _dbContext.SaveChangesAsync();
-            return Ok();
-        }
+        // public async Task<ActionResult> AddLog<TEntity>(int id, int type, string description) where TEntity : EntityLog
+        // {
+        //     var entity = new EntityLog
+        //     {
+        //         EntityId = id,
+        //         Description = description,
+        //         Timestamp = DateTime.Now
+        //     };
+        //     _dbContext.Add(entity);
+        //     await _dbContext.SaveChangesAsync();
+        //     return Ok();
+        // }
 
         public class MinMaxDate
         {

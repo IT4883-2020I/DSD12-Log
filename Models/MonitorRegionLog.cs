@@ -38,10 +38,10 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
 
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 5);
+            return rand.Next(1, 5).ToString();
         }
     }
 

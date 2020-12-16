@@ -26,7 +26,7 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("user")]
-        public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form,int? userId, int? regionId, int? problemId,
+        public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form,string? userId, string? regionId, string? problemId,
             string projectType)
         {
             if (_authService.IsAuthenticate(UserLog.GroupId))
@@ -47,6 +47,7 @@ namespace aspnetcoreapp.Controllers
                         userLogResponse.Type = userLog.Type.GetDescription();
                         userLogResponse.Timestamp = userLog.Timestamp.ToShortTimeString() + " " +
                                                     userLog.Timestamp.ToShortDateString();
+                        userLogResponse.TargetId = userLog.EntityId; 
                         result.Add(userLogResponse);
                     }
                 }
@@ -80,14 +81,14 @@ namespace aspnetcoreapp.Controllers
             {
                 var userLog = new UserLog()
                 {
-                    EntityId = form.target_id,
+                    EntityId = form.target_id.ToString(),
                     Metadata = form.meta_data,
-                    AuthorId = form.user_id,
+                    AuthorId = form.user_id.ToString(),
                     ProjectType = form.project_type,
                     Description = form.description,
-                    RegionId = form.region_id,
-                    IncidentId = form.incident_id,
-                    ResolveProblemId = form.resolve_problem_id,
+                    RegionId = form.region_id.ToString(),
+                    IncidentId = form.incident_id.ToString(),
+                    ResolveProblemId = form.resolve_problem_id.ToString(),
                     Timestamp = DateTime.Now
                 };
                 return await Post<UserLog>(userLog, apiType);

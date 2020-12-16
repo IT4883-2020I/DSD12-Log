@@ -25,8 +25,8 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("drones")]
-        public async Task<ActionResult<List<DroneLogResponse>>> GetDrone([FromQuery] MinMaxDate form, int? droneId,
-            int? regionId, string projectType)
+        public async Task<ActionResult<List<DroneLogResponse>>> GetDrone([FromQuery] MinMaxDate form, string? droneId,
+            string? regionId, string projectType)
         {
             var listEntity = await GetEntity<DroneLog, DroneLogResponse>(DroneLog.GroupId, form, projectType);
             return (listEntity.Where(

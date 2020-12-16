@@ -27,8 +27,8 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("payload")]
-        public async Task<ActionResult<List<PayloadResponse>>> GetPayload([FromQuery] MinMaxDate form, int? payloadId,
-            int? droneId, string projectType)
+        public async Task<ActionResult<List<PayloadResponse>>> GetPayload([FromQuery] MinMaxDate form, string? payloadId,
+            string? droneId, string projectType)
         {
             var listEntity = await GetEntity<Payload, PayloadResponse>(Payload.GroupId, form, projectType);
 

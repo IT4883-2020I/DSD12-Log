@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 
@@ -31,8 +32,9 @@ namespace aspnetcoreapp.Models
     public class EntityLog : TimeModel
     {
         [Key] public int EntityLogPrimaryKeyId { get; set; }
-        public int EntityId { get; set; }
-        public int AuthorId { get; set; }
+        [Column(TypeName = "varchar(255)")]
+        public string EntityId { get; set; }
+        public string AuthorId { get; set; }
         public LogType Type { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
@@ -55,10 +57,10 @@ namespace aspnetcoreapp.Models
 
     public class EntityLogDTO : TypeAndTimeStamp
     {
-        public int EntityId { get; set; }
+        public string EntityId { get; set; }
         public string Description { get; set; }
         public string State { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
     }
 
     public class TypeAndTimeStamp
@@ -69,9 +71,9 @@ namespace aspnetcoreapp.Models
 
     public class CommonRequest
     {
-        public int EntityId { get; set; }
+        public string EntityId { get; set; }
         public string Description { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }
         public string Name { get; set; }

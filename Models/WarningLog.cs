@@ -9,7 +9,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 8;
         public string Name { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
         
         public static WarningLog[] GetSeederData()
         {
@@ -40,20 +40,20 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 11);
+            return rand.Next(1, 11).ToString();
         }
     }
 
     public class WarningLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
     public class WarningLogRequest : CommonRequest
     {
-        public int RegionId { get; set; }
+        public string RegionId { get; set; }
     }
 }

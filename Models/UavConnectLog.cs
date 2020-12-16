@@ -8,7 +8,7 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 12;
         public string Name { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
 
         public static UavConnectLog[] GetSeederData()
         {
@@ -23,7 +23,7 @@ namespace aspnetcoreapp.Models
                 var droneLog = new UavConnectLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
-                    DroneId = rand.Next(1, 11),
+                    DroneId = DroneLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     EntityId = UavConnectLog.GetRandomEntityId(),
                     Type = apiType,
@@ -39,21 +39,21 @@ namespace aspnetcoreapp.Models
             return droneSeeder.ToArray();
         }
         
-        public static int GetRandomEntityId()
+        public static string GetRandomEntityId()
         {
             var rand = new Random();
-            return rand.Next(1, 15);
+            return rand.Next(1, 15).ToString();
         }
     }
 
     public class UavConnectLogResponse : EntityActivityLogDTO
     {
         public string Name { get; set; }
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 
     public class UavConnectRequest : CommonRequest
     {
-        public int DroneId { get; set; }
+        public string DroneId { get; set; }
     }
 }
