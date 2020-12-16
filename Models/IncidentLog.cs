@@ -9,8 +9,6 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 5;
         public string RegionId { get; set; }
-        public string ImageId { get; set; }
-        public string VideoId { get; set; }
         public string Name { get; set; }
         
         public static IncidentLog[] GetSeederData()
@@ -29,8 +27,6 @@ namespace aspnetcoreapp.Models
                     EntityId = IncidentLog.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
-                    VideoId = VideoLog.GetRandomEntityId(),
-                    ImageId = ImageLog.GetRandomEntityId(),
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Type = apiType,
                     Description = "Incident " + apiType.GetDescription(),
@@ -56,14 +52,10 @@ namespace aspnetcoreapp.Models
         
         public string Name { get; set; }
         public string RegionId { get; set; }
-        public string ImageId { get; set; }
-        public string VideoId { get; set; }
     }
 
     public class IncidentLogRequest : CommonRequest
     {
-        public string RegionId { get; set; }
-        public string ImageId { get; set; }
-        public string VideoId { get; set; }
+        public string RegionId { get; set; } 
     }
 }

@@ -24,7 +24,6 @@ namespace aspnetcoreapp.Controllers
         {
         }
 
-
         [HttpGet("user")]
         public async Task<ActionResult<List<UserLogResponse>>> GetUser([FromQuery] MinMaxDate form,string? userId, string? regionId, string? problemId,
             string projectType)

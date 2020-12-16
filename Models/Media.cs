@@ -9,6 +9,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public string Link { get; set; }
         public string DroneId { get; set; }
+        public string IncidentId { get; set; }
 
         public static ImageLog[] GetSeederData()
         {
@@ -26,6 +27,7 @@ namespace aspnetcoreapp.Models
                     EntityId = ImageLog.GetRandomEntityId(),
                     DroneId = DroneLog.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
+                    IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Image " + apiType.GetDescription(),
@@ -50,6 +52,7 @@ namespace aspnetcoreapp.Models
     {
         public string Link { get; set; }
         public string DroneId { get; set; }
+        public string IncidentId { get; set; }
     }
 
     public class VideoLog : EntityActivityLog
@@ -57,6 +60,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public string DroneId { get; set; }
         public string Link { get; set; }
+        public string IncidentId { get; set; }
 
         public static VideoLog[] GetSeederData()
         {
@@ -74,6 +78,7 @@ namespace aspnetcoreapp.Models
                     DroneId = DroneLog.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
                     EntityId = VideoLog.GetRandomEntityId(),
+                    IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = Models.ProjectType.GetRandomProjectType(),
                     Description = "Video " + apiType.GetDescription(),
@@ -98,6 +103,7 @@ namespace aspnetcoreapp.Models
     {
         public string Link { get; set; }
         public string DroneId { get; set; }
+        public string IncidentId { get; set; }
     }
 
     public class VideoLogRequest 
@@ -105,6 +111,7 @@ namespace aspnetcoreapp.Models
         public string DroneId { get; set; }
         public string EntityId { get; set; }
         public string AuthorId { get; set; }
+        public string IncidentId { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }
@@ -116,6 +123,7 @@ namespace aspnetcoreapp.Models
         public string DroneId { get; set; }
         public string EntityId { get; set; }
         public string AuthorId { get; set; }
+        public string IncidentId { get; set; }
         public string Description { get; set; }
         public string ProjectType { get; set; }
         public string State { get; set; }

@@ -27,17 +27,15 @@ namespace aspnetcoreapp.Controllers
 
 
         [HttpGet("incident")]
-        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form,string? incidentId, string? videoId, string? imageId,
-            string? regionId,
-            string projectType)
+        public async Task<ActionResult<List<IncidentLogResponse>>> GetIncident([FromQuery] MinMaxDate form,
+            string? incidentId, string? regionId, string projectType)
         {
-            var listEntity = await GetEntity<IncidentLog, IncidentLogResponse>(ObjectObserve.GroupId, form, projectType);
+            var listEntity =
+                await GetEntity<IncidentLog, IncidentLogResponse>(ObjectObserve.GroupId, form, projectType);
             var result = new List<IncidentLogResponse>();
             foreach (var incidentLog in listEntity)
             {
-                if ((videoId == null || incidentLog.VideoId == videoId) &&
-                    (imageId == null || incidentLog.ImageId == imageId) &&
-                    (regionId == null || incidentLog.RegionId == regionId) &&
+                if ((regionId == null || incidentLog.RegionId == regionId) &&
                     (incidentId == null || incidentLog.EntityId == incidentId))
                 {
                     result.Add(incidentLog);

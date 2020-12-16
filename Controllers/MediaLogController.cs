@@ -30,14 +30,16 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet("video")]
-        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo([FromQuery] MinMaxDate form, string? videoId,
-            string? droneId, string projectType)
+        public async Task<ActionResult<List<VideoLogResponse>>> GetVideo(
+            [FromQuery] MinMaxDate form, string videoId, string incidentId, string? droneId, string projectType)
         {
             var listEntity = await GetEntity<VideoLog, VideoLogResponse>(VideoLog.GroupId, form, projectType);
 
 
             return (listEntity.Where(entity =>
-                    (droneId == null || entity.DroneId == droneId) && (videoId == null || entity.EntityId == videoId))
+                    (incidentId == null || entity.IncidentId == incidentId) &&
+                    (droneId == null || entity.DroneId == droneId) &&
+                    (videoId == null || entity.EntityId == videoId))
                 .ToList());
         }
 
@@ -64,14 +66,16 @@ namespace aspnetcoreapp.Controllers
 
         [HttpGet("image")]
         public async Task<ActionResult<List<ImageLogResponse>>> GetImage([FromQuery] MinMaxDate form, string? droneId,
-            string? imageId,
+            string incidentId,
+            string imageId,
             string projectType)
         {
             var listEntity = await GetEntity<ImageLog, ImageLogResponse>(ImageLog.GroupId, form, projectType);
 
             return (listEntity.Where(entity =>
-                    (droneId == null || entity.DroneId == droneId) && (imageId == null || entity.EntityId == imageId))
-                .ToList());
+                (incidentId == null || entity.IncidentId == incidentId) &&
+                (droneId == null || entity.DroneId == droneId) &&
+                (imageId == null || entity.EntityId == imageId)).ToList());
         }
 
 
