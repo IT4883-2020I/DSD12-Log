@@ -9,7 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +57,8 @@
       <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
       <option value="$PROJECT_DIR$/Models/UserLog.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
+      <option value="$PROJECT_DIR$/appsettings.Development.json" />
+      <option value="$PROJECT_DIR$/appsettings.json" />
       <option value="$PROJECT_DIR$/Startup.cs" />
     </changedPaths>
   </component>
@@ -178,7 +183,9 @@
       <workItem from="1607558844873" duration="2362000" />
       <workItem from="1607605621437" duration="537000" />
       <workItem from="1608086786001" duration="1064000" />
-      <workItem from="1608089077030" duration="777000" />
+      <workItem from="1608089077030" duration="896000" />
+      <workItem from="1608112071068" duration="444000" />
+      <workItem from="1608127125046" duration="242000" />
     </task>
     <servers />
   </component>

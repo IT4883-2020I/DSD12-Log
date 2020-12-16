@@ -26,8 +26,10 @@ namespace aspnetcoreapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:DefaultConnection"]));
-            // services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:DevelopmentDB"]));
+            var connectionString = "ConnectionStrings:UbuntuPostgres";
+            // var ConnectionString = "ConnectionStrings:DefaultConnection";
+            // var ConnectionString = "ConnectionStrings:DevelopmentDB";
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration[connectionString]));
             services.AddControllers();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup));
@@ -60,7 +62,7 @@ namespace aspnetcoreapp
             {
                 config.SwaggerEndpoint("/swagger/v1/swagger.json", "IT4883 Logging Project");
             });
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
