@@ -32,8 +32,7 @@ namespace aspnetcoreapp.Models
     public class EntityLog : TimeModel
     {
         [Key] public int EntityLogPrimaryKeyId { get; set; }
-        [Column(TypeName = "varchar(255)")]
-        public string EntityId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string EntityId { get; set; }
         public string AuthorId { get; set; }
         public LogType Type { get; set; }
         public string Description { get; set; }
@@ -109,6 +108,25 @@ namespace aspnetcoreapp.Models
         public static bool IsProjectType(string s)
         {
             return s != null && Project.Any((pair => pair.Value.ToLower() == s.ToLower()));
+        }
+
+        public static string GetRandomProjectId(string s, string defaultValue = "1")
+        {
+            if (s == null)
+            {
+                return defaultValue;
+            }
+
+            foreach (var keyValuePair in Project)
+            {
+                if (keyValuePair.Value.ToLower() == s.ToLower())
+                {
+                    var key = keyValuePair.Key;
+                    return new Random().Next((key - 1) * 2, key * 2 + 1).ToString();
+                }
+            }
+
+            return defaultValue;
         }
     }
 }

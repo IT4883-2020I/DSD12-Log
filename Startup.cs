@@ -26,10 +26,12 @@ namespace aspnetcoreapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // var connectionString = "ConnectionStrings:UbuntuPostgres";
-            var connectionString = "ConnectionStrings:DefaultConnection";
-            // var connectionString = "ConnectionStrings:DevelopmentDB";
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration[connectionString]));
+            // const string type = "UbuntuPostgres";
+            const string type = "DefaultConnection";
+            // const string type = "DevelopmentDB";
+            string connectionStr = Configuration["ConnectionStrings:" + type];
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite("Filename=logging.db"));
             services.AddControllers();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup));

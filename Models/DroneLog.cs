@@ -12,6 +12,7 @@ namespace aspnetcoreapp.Models
         public int Longitude { get; set; }
         public int Latitude { get; set; }
         public string RegionId { get; set; }
+        public string ProjectId { get; set; }
 
         public static DroneLog[] GetSeederData()
         {
@@ -24,6 +25,7 @@ namespace aspnetcoreapp.Models
                 var ranMinute = rand.Next(1, 50);
                 var apiType = Utility.GetRandomApiType();
                 var entityId = rand.Next(1, 11);
+                string projectType = Models.ProjectType.GetRandomProjectType();
                 var droneLog = new DroneLog()
                 {
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
@@ -33,7 +35,8 @@ namespace aspnetcoreapp.Models
                     Longitude = rand.Next(10, 50),
                     AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
-                    ProjectType = Models.ProjectType.GetRandomProjectType(),
+                    ProjectType = projectType,
+                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     RegionName = "MonitorRegion " + MonitorRegionLog.GetRandomEntityId(),
                     Description = "Drone " + apiType.GetDescription(),
                     Name = "Drone " + entityId,
@@ -44,7 +47,7 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        
+
         public static string GetRandomEntityId()
         {
             var rand = new Random();
@@ -64,6 +67,7 @@ namespace aspnetcoreapp.Models
     public class DroneLogRequest
     {
         public string Name { get; set; }
+        public string ProjectId { get; set; }
         public string RegionName { get; set; }
         public string ProjectType { get; set; }
         public string AuthorId { get; set; }

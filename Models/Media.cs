@@ -9,6 +9,7 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public string Link { get; set; }
         public string DroneId { get; set; }
+        public string ProjectId { get; set; }
         public string IncidentId { get; set; }
 
         public static ImageLog[] GetSeederData()
@@ -21,6 +22,7 @@ namespace aspnetcoreapp.Models
                 var ranHour = rand.Next(1, 18);
                 var ranMinute = rand.Next(1, 50);
                 var apiType = Utility.GetRandomApiType();
+                string projectType = Models.ProjectType.GetRandomProjectType();
                 var droneLog = new ImageLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
@@ -29,7 +31,8 @@ namespace aspnetcoreapp.Models
                     AuthorId = UserLog.GetRandomEntityId(),
                     IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
-                    ProjectType = Models.ProjectType.GetRandomProjectType(),
+                    ProjectType = projectType,
+                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     Description = "Image " + apiType.GetDescription(),
                     Link = "Image " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -60,12 +63,14 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 4;
         public string DroneId { get; set; }
         public string Link { get; set; }
+        public string ProjectId { get; set; }
         public string IncidentId { get; set; }
 
         public static VideoLog[] GetSeederData()
         {
             var droneSeeder = new List<VideoLog>();
             var rand = new Random();
+            string projectType = Models.ProjectType.GetRandomProjectType();
             for (var i = 0; i < 40; i++)
             {
                 var ranDay = rand.Next(1, 3);
@@ -80,7 +85,8 @@ namespace aspnetcoreapp.Models
                     EntityId = VideoLog.GetRandomEntityId(),
                     IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
-                    ProjectType = Models.ProjectType.GetRandomProjectType(),
+                    ProjectType = projectType,
+                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     Description = "Video " + apiType.GetDescription(),
                     Link = "Video " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
@@ -116,6 +122,7 @@ namespace aspnetcoreapp.Models
         public string ProjectType { get; set; }
         public string State { get; set; }
         public string Link { get; set; }
+        public string ProjectId { get; set; }
     }
 
     public class ImageLogRequest 
@@ -128,5 +135,6 @@ namespace aspnetcoreapp.Models
         public string ProjectType { get; set; }
         public string State { get; set; }
         public string Link { get; set; }
+        public string ProjectId { get; set; }
     }
 }
