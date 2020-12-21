@@ -8,10 +8,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +187,7 @@
       <workItem from="1608127125046" duration="1426000" />
       <workItem from="1608173226479" duration="1979000" />
       <workItem from="1608520492958" duration="2425000" />
-      <workItem from="1608531501203" duration="771000" />
+      <workItem from="1608531501203" duration="905000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>

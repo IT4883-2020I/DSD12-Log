@@ -32,7 +32,6 @@
         <e p="AutoMapperProfile.cs" t="Include" />
         <e p="Utility.cs" t="Include" />
       </e>
-      <e p="logging.db" t="Include" />
       <e p="Middleware" t="Include">
         <e p="GroupAuthenticationMiddleware.cs" t="Include" />
       </e>
