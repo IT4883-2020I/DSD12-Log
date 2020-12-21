@@ -8,7 +8,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="" />
+    <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,10 +58,10 @@
       <option value="$PROJECT_DIR$/Models/Media.cs" />
       <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
       <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
-      <option value="$PROJECT_DIR$/Dockerfile" />
       <option value="$PROJECT_DIR$/.dockerignore" />
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
+      <option value="$PROJECT_DIR$/Dockerfile" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1jEbZ6fprnHOYgA8EpIhZBfEOUl" />
@@ -187,7 +191,7 @@
       <workItem from="1608127125046" duration="1426000" />
       <workItem from="1608173226479" duration="1979000" />
       <workItem from="1608520492958" duration="2425000" />
-      <workItem from="1608531501203" duration="905000" />
+      <workItem from="1608531501203" duration="1871000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>
