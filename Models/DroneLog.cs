@@ -12,7 +12,6 @@ namespace aspnetcoreapp.Models
         public int Longitude { get; set; }
         public int Latitude { get; set; }
         public string RegionId { get; set; }
-        public string ProjectId { get; set; }
 
         public static DroneLog[] GetSeederData()
         {
@@ -36,7 +35,6 @@ namespace aspnetcoreapp.Models
                     AuthorId = UserLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = projectType,
-                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     RegionName = "MonitorRegion " + MonitorRegionLog.GetRandomEntityId(),
                     Description = "Drone " + apiType.GetDescription(),
                     Name = "Drone " + entityId,
@@ -67,7 +65,6 @@ namespace aspnetcoreapp.Models
     public class DroneLogRequest
     {
         public string Name { get; set; }
-        public string ProjectId { get; set; }
         public string RegionName { get; set; }
         public string ProjectType { get; set; }
         public string AuthorId { get; set; }

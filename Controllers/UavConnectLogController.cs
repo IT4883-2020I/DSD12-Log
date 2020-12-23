@@ -28,12 +28,12 @@ namespace aspnetcoreapp.Controllers
         [HttpGet("uav-connect")]
         public async Task<ActionResult<List<UavConnectLogResponse>>> GetUavConnectLog([FromQuery] MinMaxDate form,
             string? uavId,
-            string? droneId, string projectType)
+            string? regionId, string projectType)
         {
             var listEntity = await GetEntity<UavConnectLog, UavConnectLogResponse>(Payload.GroupId, form, projectType);
 
             return (listEntity.Where(entity =>
-                    (droneId == null || entity.DroneId == droneId) && (uavId == null || entity.EntityId == uavId))
+                    (regionId == null || entity.RegionId == regionId) && (uavId == null || entity.EntityId == uavId))
                 .ToList());
         }
 

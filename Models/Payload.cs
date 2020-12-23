@@ -9,7 +9,6 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 2;
         public string Name { get; set; }
         public string DroneId { get; set; }
-        public string ProjectId { get; set; }
 
         public static Payload[] GetSeederData()
         {
@@ -29,7 +28,6 @@ namespace aspnetcoreapp.Models
                     EntityId = Payload.GetRandomEntityId(),
                     AuthorId = UserLog.GetRandomEntityId(),
                     ProjectType = projectType,
-                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     Type = apiType,
                     Description = "Payload " + apiType.GetDescription(),
                     Name = "Payload " + Utility.RandomString(2),
@@ -57,7 +55,6 @@ namespace aspnetcoreapp.Models
 
     public class PayloadRequest : CommonRequest
     {
-        public string ProjectId { get; set; }
         public string DroneId { get; set; }
     }
 }

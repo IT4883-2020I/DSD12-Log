@@ -10,7 +10,6 @@ namespace aspnetcoreapp.Models
         public static int GroupId = 5;
         public string RegionId { get; set; }
         public string Name { get; set; }
-        public string ProjectId { get; set; }
         
         public static IncidentLog[] GetSeederData()
         {
@@ -30,7 +29,6 @@ namespace aspnetcoreapp.Models
                     AuthorId = UserLog.GetRandomEntityId(),
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     ProjectType = projectType,
-                    ProjectId = Models.ProjectType.GetRandomProjectId(projectType),
                     Type = apiType,
                     Description = "Incident " + apiType.GetDescription(),
                     Name = "Incident " + Utility.RandomString(2),
@@ -59,7 +57,6 @@ namespace aspnetcoreapp.Models
 
     public class IncidentLogRequest : CommonRequest
     {
-        public string RegionId { get; set; } 
-        public string ProjectId { get; set; }
+        public string RegionId { get; set; }
     }
 }

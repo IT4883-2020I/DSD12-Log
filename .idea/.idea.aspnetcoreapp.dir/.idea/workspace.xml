@@ -9,9 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201221035821_Test.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201221035821_Test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/IncidentLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Payload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +49,6 @@
       <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
       <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
       <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
-      <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/PayloadLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" />
@@ -53,15 +61,16 @@
       <option value="$PROJECT_DIR$/Controllers/IncidentLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
       <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
-      <option value="$PROJECT_DIR$/Models/Payload.cs" />
-      <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
-      <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
       <option value="$PROJECT_DIR$/.dockerignore" />
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
       <option value="$PROJECT_DIR$/Dockerfile" />
       <option value="$PROJECT_DIR$/Models/Media.cs" />
+      <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
+      <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
       <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
+      <option value="$PROJECT_DIR$/Models/Payload.cs" />
+      <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1jEbZ6fprnHOYgA8EpIhZBfEOUl" />
@@ -194,7 +203,7 @@
       <workItem from="1608531501203" duration="1871000" />
       <workItem from="1608644538675" duration="1306000" />
       <workItem from="1608683058528" duration="19000" />
-      <workItem from="1608689214764" duration="268000" />
+      <workItem from="1608689214764" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>
