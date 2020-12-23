@@ -57,7 +57,7 @@ namespace aspnetcoreapp.Models
         public string DroneId { get; set; }
         public string IncidentId { get; set; }
     }
-
+    
     public class VideoLog : EntityActivityLog
     {
         public static int GroupId = 4;
