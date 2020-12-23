@@ -37,8 +37,8 @@
         <e p="GroupAuthenticationMiddleware.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20201223021807_test.cs" t="Include" />
-        <e p="20201223021807_test.Designer.cs" t="Include" />
+        <e p="20201223133608_test.cs" t="Include" />
+        <e p="20201223133608_test.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

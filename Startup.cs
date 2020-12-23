@@ -31,7 +31,7 @@ namespace aspnetcoreapp
             // const string type = "DevelopmentDB";
             string connectionStr = Configuration["ConnectionStrings:" + type];
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite("Filename=logging.db"));
+                options.UseNpgsql(connectionStr));
             services.AddControllers();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup));
