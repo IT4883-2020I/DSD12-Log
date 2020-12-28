@@ -33,15 +33,15 @@ namespace aspnetcoreapp.Models
     {
         [Key] public int EntityLogPrimaryKeyId { get; set; }
         [Column(TypeName = "varchar(255)")] public string EntityId { get; set; }
-        public string AuthorId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string AuthorId { get; set; }
         public LogType Type { get; set; }
         public string Description { get; set; }
-        public string ProjectType { get; set; }
+        [Column(TypeName = "varchar(255)")] public string ProjectType { get; set; }
     }
 
     public class EntityActivityLog : EntityLog
     {
-        public string State { get; set; }
+        [Column(TypeName = "varchar(255)")] public string State { get; set; }
     }
 
     public class EntityActivityLogInput : EntityActivityLog

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -8,9 +9,10 @@ namespace aspnetcoreapp.Models
     {
         public static int GroupId = 3;
         public string Metadata { get; set; }
-        public string RegionId { get; set; }
-        public string IncidentId { get; set; }
-        public string ResolveProblemId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string IncidentId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string ResolveProblemId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
 
         public static UserLog[] GetSeederData()
         {
@@ -29,6 +31,7 @@ namespace aspnetcoreapp.Models
                     EntityLogPrimaryKeyId = i + 10,
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     EntityId = UserLog.GetRandomEntityId(),
+                    Name = Utility.RandomString(5) + " " + Utility.RandomString(4),
                     Type = apiType,
                     AuthorId = UserLog.GetRandomEntityId(),
                     ResolveProblemId = ResolveProblemLog.GetRandomEntityId(),
@@ -40,7 +43,7 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        
+
         public static string GetRandomEntityId()
         {
             var rand = new Random();
@@ -65,6 +68,7 @@ namespace aspnetcoreapp.Models
         public string TargetId { get; set; }
         public string Metadata { get; set; }
         public string AuthorId { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string RegionId { get; set; }
         public string IncidentId { get; set; }

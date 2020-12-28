@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -7,11 +8,11 @@ namespace aspnetcoreapp.Models
     public class DroneLog : EntityLog
     {
         public static int GroupId = 1;
-        public string Name { get; set; }
-        public string RegionName { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionName { get; set; }
         public int Longitude { get; set; }
         public int Latitude { get; set; }
-        public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
 
         public static DroneLog[] GetSeederData()
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -7,8 +8,8 @@ namespace aspnetcoreapp.Models
     public class UavConnectLog : EntityActivityLog
     {
         public static int GroupId = 12;
-        public string Name { get; set; }
-        public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
 
         public static UavConnectLog[] GetSeederData()
         {
@@ -29,8 +30,8 @@ namespace aspnetcoreapp.Models
                     EntityId = UavConnectLog.GetRandomEntityId(),
                     Type = apiType,
                     AuthorId = UserLog.GetRandomEntityId(),
-                    Description = "UavConnect " + apiType.GetDescription(),
-                    Name = "UavConnect " + Utility.RandomString(2),
+                    Description = "Giám sát " + apiType.GetDescription(),
+                    Name = "Đợi giám sát quý " + rand.Next(1,3),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };

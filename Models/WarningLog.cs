@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -8,8 +9,8 @@ namespace aspnetcoreapp.Models
     public class WarningLog : EntityActivityLog
     {
         public static int GroupId = 8;
-        public string Name { get; set; }
-        public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
         
         public static WarningLog[] GetSeederData()
         {

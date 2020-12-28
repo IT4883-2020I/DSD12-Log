@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -7,9 +8,9 @@ namespace aspnetcoreapp.Models
     public class ImageLog : EntityActivityLog
     {
         public static int GroupId = 4;
-        public string Link { get; set; }
-        public string DroneId { get; set; }
-        public string IncidentId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Link { get; set; }
+        [Column(TypeName = "varchar(255)")] public string DroneId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string IncidentId { get; set; }
 
         public static ImageLog[] GetSeederData()
         {
@@ -31,7 +32,7 @@ namespace aspnetcoreapp.Models
                     IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = projectType,
-                    Description = "Image " + apiType.GetDescription(),
+                    Description = "Hình ảnh theo dõi " + projectType + " " + Utility.RandomString(5),
                     Link = "Image " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
@@ -59,9 +60,9 @@ namespace aspnetcoreapp.Models
     public class VideoLog : EntityActivityLog
     {
         public static int GroupId = 4;
-        public string DroneId { get; set; }
-        public string Link { get; set; }
-        public string IncidentId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string DroneId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Link { get; set; }
+        [Column(TypeName = "varchar(255)")] public string IncidentId { get; set; }
 
         public static VideoLog[] GetSeederData()
         {
@@ -83,7 +84,7 @@ namespace aspnetcoreapp.Models
                     IncidentId = IncidentLog.GetRandomEntityId(),
                     Type = apiType,
                     ProjectType = projectType,
-                    Description = "Video " + apiType.GetDescription(),
+                    Description = "Video theo dõi " + projectType + " " + Utility.RandomString(5),
                     Link = "Video " + Utility.RandomString(2),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""

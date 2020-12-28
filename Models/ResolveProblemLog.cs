@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -7,7 +8,7 @@ namespace aspnetcoreapp.Models
     public class ResolveProblemLog : EntityActivityLog
     {
         public static int GroupId = 11;
-        public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
         
         public static ResolveProblemLog[] GetSeederData()
         {
@@ -37,7 +38,7 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
         
         public static string GetRandomEntityId()
         {

@@ -11,10 +11,23 @@
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201223021807_test.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201223021807_test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtensionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201223133608_test.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20201223133608_test.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/IncidentLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ObjectObserve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ObjectObserve.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Payload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/StaticalLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StaticalLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SystemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SystemLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/WarningLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WarningLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,34 +49,36 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
       <option value="$PROJECT_DIR$/Controllers/CustomController.cs" />
-      <option value="$PROJECT_DIR$/Models/ObjectObserve.cs" />
-      <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
-      <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
-      <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
       <option value="$PROJECT_DIR$/Controllers/WarningLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/MonitorObjectLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/PayloadLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/ResolveProblemLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/MonitorRegionLogController.cs" />
-      <option value="$PROJECT_DIR$/Models/UserLog.cs" />
       <option value="$PROJECT_DIR$/appsettings.Development.json" />
       <option value="$PROJECT_DIR$/appsettings.json" />
       <option value="$PROJECT_DIR$/Controllers/UserLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/IncidentLogController.cs" />
       <option value="$PROJECT_DIR$/Controllers/MediaLogController.cs" />
-      <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
       <option value="$PROJECT_DIR$/.dockerignore" />
       <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
       <option value="$PROJECT_DIR$/Dockerfile" />
-      <option value="$PROJECT_DIR$/Models/Media.cs" />
-      <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
+      <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
+      <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
       <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
+      <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
+      <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
+      <option value="$PROJECT_DIR$/Models/ObjectObserve.cs" />
+      <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
+      <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
+      <option value="$PROJECT_DIR$/Models/SystemLog.cs" />
+      <option value="$PROJECT_DIR$/Models/WarningLog.cs" />
       <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
       <option value="$PROJECT_DIR$/Models/Payload.cs" />
-      <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
+      <option value="$PROJECT_DIR$/Models/Media.cs" />
+      <option value="$PROJECT_DIR$/ExtensionMethods.cs" />
+      <option value="$PROJECT_DIR$/Models/UserLog.cs" />
       <option value="$PROJECT_DIR$/Startup.cs" />
     </changedPaths>
   </component>
@@ -198,7 +213,10 @@
       <workItem from="1608644538675" duration="1306000" />
       <workItem from="1608683058528" duration="19000" />
       <workItem from="1608689214764" duration="848000" />
-      <workItem from="1608730345311" duration="265000" />
+      <workItem from="1608730345311" duration="367000" />
+      <workItem from="1608822173094" duration="744000" />
+      <workItem from="1609057005876" duration="1104000" />
+      <workItem from="1609165646544" duration="448000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -7,8 +8,9 @@ namespace aspnetcoreapp.Models
     public class Payload : EntityActivityLog
     {
         public static int GroupId = 2;
-        public string Name { get; set; }
-        public string DroneId { get; set; }
+
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string DroneId { get; set; }
 
         public static Payload[] GetSeederData()
         {
@@ -30,7 +32,7 @@ namespace aspnetcoreapp.Models
                     ProjectType = projectType,
                     Type = apiType,
                     Description = "Payload " + apiType.GetDescription(),
-                    Name = "Payload " + Utility.RandomString(2),
+                    Name = Utility.RandomString(2) + "-" + Utility.RandomString(3) + "-" + Utility.RandomString(1),
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
@@ -39,7 +41,7 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        
+
         public static string GetRandomEntityId()
         {
             var rand = new Random();

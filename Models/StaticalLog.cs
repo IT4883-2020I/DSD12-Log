@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using aspnetcoreapp.Helpers;
 
 namespace aspnetcoreapp.Models
@@ -8,7 +9,7 @@ namespace aspnetcoreapp.Models
     public class StaticalLog : EntityActivityLog
     {
         public static int GroupId = 7;
-        public string RegionId { get; set; }
+        [Column(TypeName = "varchar(255)")] public string RegionId { get; set; }
         
         public static StaticalLog[] GetSeederData()
         {
@@ -38,7 +39,7 @@ namespace aspnetcoreapp.Models
 
             return droneSeeder.ToArray();
         }
-        public string Name { get; set; }
+        [Column(TypeName = "varchar(255)")] public string Name { get; set; }
     }
 
     public class StaticalLogResponse : EntityActivityLogDTO
