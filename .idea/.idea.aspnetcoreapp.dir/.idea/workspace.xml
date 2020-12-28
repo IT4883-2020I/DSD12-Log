@@ -9,25 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtensionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201223133608_test.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201223133608_test.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/IncidentLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IncidentLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ObjectObserve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ObjectObserve.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Payload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Payload.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ResolveProblemLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/StaticalLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StaticalLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/SystemLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SystemLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/WarningLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WarningLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +198,7 @@
       <workItem from="1608730345311" duration="367000" />
       <workItem from="1608822173094" duration="744000" />
       <workItem from="1609057005876" duration="1104000" />
-      <workItem from="1609165646544" duration="448000" />
+      <workItem from="1609165646544" duration="579000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>
