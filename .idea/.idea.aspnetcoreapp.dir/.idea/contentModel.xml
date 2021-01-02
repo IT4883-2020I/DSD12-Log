@@ -32,10 +32,15 @@
         <e p="AutoMapperProfile.cs" t="Include" />
         <e p="Utility.cs" t="Include" />
       </e>
+      <e p="logging.db" t="Include" />
       <e p="Middleware" t="Include">
         <e p="GroupAuthenticationMiddleware.cs" t="Include" />
       </e>
-      <e p="Migrations" t="Include" />
+      <e p="Migrations" t="Include">
+        <e p="20210102025307_Test.cs" t="Include" />
+        <e p="20210102025307_Test.Designer.cs" t="Include" />
+        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+      </e>
       <e p="Models" t="Include">
         <e p="Book.cs" t="Include" />
         <e p="DroneLog.cs" t="Include" />

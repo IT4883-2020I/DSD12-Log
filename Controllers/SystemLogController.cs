@@ -45,7 +45,6 @@ namespace aspnetcoreapp.Controllers
             _authService = new AuthenticationService(configuration);
         }
 
-
         [HttpGet("system/all-logs")]
         public async Task<ActionResult> GetAllLogs()
         {
@@ -99,7 +98,7 @@ namespace aspnetcoreapp.Controllers
             }
 
             var systemLog = _mapper.Map<SystemLog>(form);
-            systemLog.Timestamp = DateTime.Now;
+            systemLog.Timestamp = Utility.GetTimeNow();
             systemLog.Level = level;
             _dbContext.SystemLogs.Add(systemLog);
             await _dbContext.SaveChangesAsync();

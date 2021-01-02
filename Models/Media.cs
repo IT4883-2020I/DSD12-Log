@@ -68,9 +68,9 @@ namespace aspnetcoreapp.Models
         {
             var droneSeeder = new List<VideoLog>();
             var rand = new Random();
-            string projectType = Models.ProjectType.GetRandomProjectType();
-            for (var i = 0; i < 40; i++)
+            for (var i = 0; i < 100; i++)
             {
+                string projectType = Models.ProjectType.GetRandomProjectType();
                 var ranDay = rand.Next(1, 3);
                 var ranHour = rand.Next(1, 18);
                 var ranMinute = rand.Next(1, 50);

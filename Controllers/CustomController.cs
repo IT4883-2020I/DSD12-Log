@@ -55,7 +55,7 @@ namespace aspnetcoreapp.Controllers
         public async Task<ActionResult> Post<TEntity>(TEntity entity, LogType logType = LogType.Empty)
             where TEntity : EntityLog
         {
-            entity.Timestamp = DateTime.Now;
+            entity.Timestamp = Utility.GetTimeNow();
             _logger.LogInformation(entity.ToJson());
             if (logType == LogType.Empty)
             {

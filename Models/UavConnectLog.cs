@@ -13,32 +13,33 @@ namespace aspnetcoreapp.Models
 
         public static UavConnectLog[] GetSeederData()
         {
-            var droneSeeder = new List<UavConnectLog>();
+            var uavConnectLogs = new List<UavConnectLog>();
             var rand = new Random();
-            for (var i = 0; i < 40; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var ranDay = rand.Next(1, 3);
                 var ranHour = rand.Next(1, 18);
                 var ranMinute = rand.Next(1, 50);
                 var apiType = Utility.GetRandomApiType();
                 string projectType = Models.ProjectType.GetRandomProjectType();
+                var entityId = UavConnectLog.GetRandomEntityId();
                 var droneLog = new UavConnectLog()
                 {
                     EntityLogPrimaryKeyId = i + 10,
                     RegionId = MonitorRegionLog.GetRandomEntityId(),
                     ProjectType = projectType,
-                    EntityId = UavConnectLog.GetRandomEntityId(),
+                    EntityId = entityId,
                     Type = apiType,
                     AuthorId = UserLog.GetRandomEntityId(),
                     Description = "Giám sát " + apiType.GetDescription(),
-                    Name = "Đợi giám sát quý " + rand.Next(1,3),
+                    Name = "Đợi giám sát " + entityId,
                     Timestamp = new DateTime(2020, 12, ranDay, ranHour, ranMinute, 0),
                     State = i % 2 + ""
                 };
-                droneSeeder.Add(droneLog);
+                uavConnectLogs.Add(droneLog);
             }
 
-            return droneSeeder.ToArray();
+            return uavConnectLogs.ToArray();
         }
         
         public static string GetRandomEntityId()

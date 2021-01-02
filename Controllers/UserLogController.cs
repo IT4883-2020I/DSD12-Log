@@ -44,8 +44,7 @@ namespace aspnetcoreapp.Controllers
                     {
                         var userLogResponse = _mapper.Map<UserLogResponse>(userLog);
                         userLogResponse.Type = userLog.Type.GetDescription();
-                        userLogResponse.Timestamp = userLog.Timestamp.ToShortTimeString() + " " +
-                                                    userLog.Timestamp.ToShortDateString();
+                        userLogResponse.Timestamp = userLog.Timestamp.ToDescriptionString();
                         userLogResponse.TargetId = userLog.EntityId; 
                         result.Add(userLogResponse);
                     }
@@ -88,7 +87,7 @@ namespace aspnetcoreapp.Controllers
                     RegionId = form.region_id.ToString(),
                     IncidentId = form.incident_id.ToString(),
                     ResolveProblemId = form.resolve_problem_id.ToString(),
-                    Timestamp = DateTime.Now
+                    Timestamp = Utility.GetTimeNow()
                 };
                 return await Post<UserLog>(userLog, apiType);
             }

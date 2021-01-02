@@ -15,13 +15,21 @@ namespace aspnetcoreapp
             {
                 return null;
             }
-            DescriptionAttribute attribute = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
+
+            DescriptionAttribute attribute =
+                Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
             return attribute == null ? value.ToString() : attribute.Description;
         }
-        
+
         public static string ToJson<T>(this T obj)
-        { 
+        {
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
+
+        public static string ToDescriptionString(this DateTime dateTime)
+        {
+            return dateTime.ToShortTimeString() + " " +
+                   dateTime.ToShortDateString();
         }
     }
 }

@@ -62,5 +62,10 @@ namespace aspnetcoreapp.Helpers
 
             return 0;
         }
+
+        public static DateTime GetTimeNow()
+        {
+            return DateTime.UtcNow.AddHours(7);
+        }
     }
 }
