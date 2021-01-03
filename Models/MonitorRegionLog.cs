@@ -41,8 +41,17 @@ namespace aspnetcoreapp.Models
 
         public static string GetRandomEntityId()
         {
+            var list = new List<string>
+            {
+                "5fef34d32024870017139e51",
+                "5fec86a1f139ff00177a252e",
+                "5fec0951eeec7500179c9bbd",
+                "5fec08eeeeec7500179c9bbc",
+                "5fec08a6eeec7500179c9bbb",
+                "5fe1a1ade40ec00017660154"
+            };
             var rand = new Random();
-            return rand.Next(1, 5).ToString();
+            return list[rand.Next(1, 6)];
         }
     }
 

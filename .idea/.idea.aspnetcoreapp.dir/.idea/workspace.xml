@@ -9,21 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Helpers/JsonHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CustomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CustomController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/DroneLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DroneLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/SystemLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SystemLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserLogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserLogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtensionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Utility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201228144417_Test.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20201228144417_Test.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UavConnectLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UavConnectLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MonitorRegionLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +49,6 @@
       <option value="$PROJECT_DIR$/Controllers/UavConnectLogController.cs" />
       <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
       <option value="$PROJECT_DIR$/Models/IncidentLog.cs" />
-      <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
       <option value="$PROJECT_DIR$/Models/ObjectObserve.cs" />
       <option value="$PROJECT_DIR$/Models/ResolveProblemLog.cs" />
       <option value="$PROJECT_DIR$/Models/StaticalLog.cs" />
@@ -79,6 +67,8 @@
       <option value="$PROJECT_DIR$/Controllers/DroneLogController.cs" />
       <option value="$PROJECT_DIR$/Models/UavConnectLog.cs" />
       <option value="$PROJECT_DIR$/Models/Media.cs" />
+      <option value="$PROJECT_DIR$/Helpers/JsonHelper.cs" />
+      <option value="$PROJECT_DIR$/Models/MonitorRegionLog.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1jEbZ6fprnHOYgA8EpIhZBfEOUl" />
@@ -219,7 +209,9 @@
       <workItem from="1609253326190" duration="461000" />
       <workItem from="1609314343888" duration="675000" />
       <workItem from="1609333280478" duration="442000" />
-      <workItem from="1609553034873" duration="1924000" />
+      <workItem from="1609553034873" duration="2343000" />
+      <workItem from="1609600346993" duration="377000" />
+      <workItem from="1609637279277" duration="1430000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>
