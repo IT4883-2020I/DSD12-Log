@@ -9,12 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c982d907-420b-4753-a634-a23abef5224e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcoreapp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DroneLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DroneLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/EntityLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/EntityLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Media.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Media.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UserLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserLog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +68,7 @@
       <option value="$PROJECT_DIR$/Models/DroneLog.cs" />
       <option value="$PROJECT_DIR$/Models/EntityLog.cs" />
       <option value="$PROJECT_DIR$/Models/UserLog.cs" />
+      <option value="$PROJECT_DIR$/readme.md" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1jEbZ6fprnHOYgA8EpIhZBfEOUl" />
@@ -217,7 +215,8 @@
       <workItem from="1609600346993" duration="377000" />
       <workItem from="1609637279277" duration="2245000" />
       <workItem from="1609673301191" duration="257000" />
-      <workItem from="1609853634452" duration="161000" />
+      <workItem from="1609853634452" duration="418000" />
+      <workItem from="1609859764209" duration="257000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1608531618506</created>
