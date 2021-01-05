@@ -53,6 +53,7 @@ namespace aspnetcoreapp.Models
 
     public struct UserLogRequest
     {
+        public string token { get; set; }
         public int user_id { get; set; }
         public int target_id { get; set; }
         public string description { get; set; }

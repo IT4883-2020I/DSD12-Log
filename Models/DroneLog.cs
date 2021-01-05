@@ -62,6 +62,7 @@ namespace aspnetcoreapp.Models
 
     public class DroneLogRequest
     {
+        public string Token { get; set; }
         public string Name { get; set; }
         public string ProjectType { get; set; }
         public string AuthorId { get; set; }

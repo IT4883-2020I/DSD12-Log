@@ -112,6 +112,7 @@ namespace aspnetcoreapp.Models
     public class VideoLogRequest 
     {
         public string DroneId { get; set; }
+        public string Token { get; set; }
         public string EntityId { get; set; }
         public string AuthorId { get; set; }
         public string IncidentId { get; set; }
@@ -123,6 +124,7 @@ namespace aspnetcoreapp.Models
 
     public class ImageLogRequest 
     {
+        public string Token { get; set; }
         public string DroneId { get; set; }
         public string EntityId { get; set; }
         public string AuthorId { get; set; }

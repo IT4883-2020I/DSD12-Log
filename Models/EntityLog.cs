@@ -70,6 +70,7 @@ namespace aspnetcoreapp.Models
 
     public class CommonRequest
     {
+        public string Token { get; set; }
         public string EntityId { get; set; }
         public string Description { get; set; }
         public string AuthorId { get; set; }
