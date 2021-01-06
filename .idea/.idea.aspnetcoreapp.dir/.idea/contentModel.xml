@@ -26,6 +26,7 @@
         <e p="UserLogController.cs" t="Include" />
         <e p="WarningLogController.cs" t="Include" />
       </e>
+      <e p="database.db" t="Include" />
       <e p="Dockerfile" t="Include" />
       <e p="ExtensionMethods.cs" t="Include" />
       <e p="Helpers" t="Include">

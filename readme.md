@@ -9,3 +9,5 @@ Truy cập Doc Api qua link /swagger/index.html.
 Các chức năng hoàn thành:
 - Ghi và lưu trữ log
 - Filter các log theo từng nghiệp vụ
+
+File Database: ./database.db
